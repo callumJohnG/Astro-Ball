@@ -20,13 +20,13 @@ void GameBoyColor_float(float3 col, float3 highCol, float3 highMidCol, float3 mi
         col = highMidCol;
     }
 
-    else if (col.r <= bound2 && col.r < bound3){
+    else if (col.r <= bound2 && col.r > bound3){
         //Middle screen colour palette
         //col = half3(48./H, 98./H, 48./H);
         col = midCol;
     }
 
-    else if (col.r <= bound3 && col.r < bound4){
+    else if (col.r <= bound3 && col.r > bound4){
         //Middle screen colour palette
         //col = half3(48./H, 98./H, 48./H);
         col = lowMidCol;
