@@ -7,9 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gameboy Material
-  m_Shader: {fileID: -6465566751694194690, guid: b009f3d4e38f5094bb41d96ffd71b7e7, type: 3}
-  m_ValidKeywords: []
+  m_Name: Edge Detection Material
+  m_Shader: {fileID: -6465566751694194690, guid: e677fc9a4ee212748b24b22a0e0eeb22, type: 3}
+  m_ValidKeywords:
+  - REQUIRE_DEPTH_TEXTURE
+  - REQUIRE_OPAQUE_TEXTURE
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -38,20 +40,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fuzziness: 0
-    - _Pixelate_Amount: 0
-    - _Pixelation: 0.004
+    - REQUIRE_DEPTH_TEXTURE: 1
+    - REQUIRE_OPAQUE_TEXTURE: 1
+    - _ColorStrength: 1
+    - _ColorThickness: 1
+    - _ColorThreshold: 1
+    - _DepthStrength: 1
+    - _DepthThickness: 99
+    - _DepthThreshold: 0.107
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Range: 0
+    - _Thickness: 0.01
     m_Colors:
-    - _HighMidPassCol: {r: 0.58431375, g: 0.7490196, b: 0.45490196, a: 1}
-    - _HighPassCol: {r: 0.6, g: 0.8666667, b: 0.78431374, a: 1}
-    - _LowMidPassCol: {r: 0.33333334, g: 0.43529412, b: 0.26666668, a: 1}
-    - _LowPassCol: {r: 0.15686275, g: 0.24705882, b: 0.23137255, a: 1}
-    - _MidPassCol: {r: 0.39607844, g: 0.60784316, b: 0.36862746, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &621973093729863146
+--- !u!114 &1136910011794218692
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
