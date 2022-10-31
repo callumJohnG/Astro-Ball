@@ -144,20 +144,26 @@ public class PlayerController : MonoBehaviour
 
         aimVector = new Vector3(horizontalAimVector, verticalAimVector) * launchForce;
         if(aimVector == Vector3.zero){
-            if(previousFrameAimVector == Vector3.zero){
-                aimVector = Vector3.Normalize(rb.velocity) * launchForce;
-            } else {
-                aimVector = previousFrameAimVector;
-            }
-        } else {
-            previousFrameAimVector = aimVector;
+            //Use mouse
+            aimVector = GetMouseAim() * launchForce;
         }
-
 
         Vector3 newAimPosition = aimVector + transform.position;
 
+
         aimLine.SetPosition(0, transform.position);
         aimLine.SetPosition(1, Vector3.Lerp(aimLine.GetPosition(1), newAimPosition, Time.deltaTime * aimSmoothing));
+    }
+
+    //Returns the normalised vector that the mouse is pointing in in reference to the player position
+    private Vector3 GetMouseAim(){
+        //Get the mouse position on screen
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition -= transform.position;
+        Debug.Log(mousePosition + ".1");
+        mousePosition =  Vector3.Normalize(mousePosition);
+        Debug.Log(mousePosition + ".2");
+        return mousePosition;
     }
 
     private void PerformLaunch(){
