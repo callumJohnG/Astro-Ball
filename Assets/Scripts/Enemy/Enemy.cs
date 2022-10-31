@@ -18,7 +18,8 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision2D){
         if(collision2D.gameObject.CompareTag("Player")){
-            Debug.Log("THE PLAYER HIT ME");
+            //Give the player an extra launch
+            collision2D.gameObject.GetComponent<PlayerController>().UpdateLaunchCount(1);
             Die();
         }
     }

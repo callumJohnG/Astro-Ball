@@ -11,7 +11,7 @@ public class ShaderMaterialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CycleColourPalette();
+        SetColourPalette(colourPalettes[PlayerPrefs.GetInt("paletteIndex",0)]);
     }
 
     private int paletteIndex = 0;
@@ -21,10 +21,16 @@ public class ShaderMaterialManager : MonoBehaviour
     }
 
     public void CycleColourPalette(){
-        paletteIndex++;
-        if(paletteIndex >= colourPalettes.Count)paletteIndex = 0;
-
+        paletteIndex = IncrementPaletteIndex();
         SetColourPalette(colourPalettes[paletteIndex]);
+    }
+
+    private int IncrementPaletteIndex(){
+        int index = PlayerPrefs.GetInt("paletteIndex", 0);
+        index ++;
+        if(index >= colourPalettes.Count)index = 0;
+        PlayerPrefs.SetInt("paletteIndex", index);
+        return index;
     }
 
     private void SetColourPalette(ColourPaletteData paletteData){

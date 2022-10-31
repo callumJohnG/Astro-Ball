@@ -5,14 +5,18 @@ using Cinemachine;
 
 public class SmartPlayerCamera : MonoBehaviour
 {
+
+    public static SmartPlayerCamera Instance {get; private set;}
+
+    private void Awake(){
+        Instance = this;
+        playerCam = GetComponent<CinemachineVirtualCamera>();
+        playerCam.m_Lens.OrthographicSize = minZoom;
+    }
+
     private CinemachineVirtualCamera playerCam;
     [SerializeField] private Rigidbody2D player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerCam = GetComponent<CinemachineVirtualCamera>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -36,6 +40,10 @@ public class SmartPlayerCamera : MonoBehaviour
         if(targetOrtho > maxZoom)targetOrtho = maxZoom;
 
         playerCam.m_Lens.OrthographicSize = Mathf.Lerp(playerCam.m_Lens.OrthographicSize, targetOrtho, Time.deltaTime);
+    }
 
+    public void SetPlayer(GameObject playerObject){
+        player = playerObject.GetComponent<Rigidbody2D>();
+        playerCam.Follow = playerObject.transform;
     }
 }

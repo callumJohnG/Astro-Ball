@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
         ConfigureControlListeners();
 
         targetTimeScale = 1;
+
+        UpdateLaunchCount();
     }
 
     private void OnEnable(){
@@ -48,6 +50,11 @@ public class PlayerController : MonoBehaviour
         FadeTimeScale();
 
         CalculateAim();
+    }
+
+    private void Die(){
+        //Do death animation here
+        GameplayManager.Instance.GameOver();
     }
 
     #region Player Controls
@@ -73,6 +80,8 @@ public class PlayerController : MonoBehaviour
 
     #region Horizontal Movement
 
+    [SerializeField] private float currentVelocity;
+
     private void CalculateHorizontalVeclocity(){
         //rb.velocity = new Vector2(movement * movementSpeed, rb.velocity.y);
         //rb.AddForce(new Vector2(movement * movementSpeed, 0));
@@ -83,7 +92,7 @@ public class PlayerController : MonoBehaviour
         if(newVelocity < -maxMovementMomentum) newVelocity = -maxMovementMomentum;
         rb.velocity = new Vector2(newVelocity, rb.velocity.y);
         
-
+        currentVelocity = rb.velocity.magnitude;
     }
 
     #endregion
@@ -126,8 +135,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float launchForce;
     [SerializeField] private float aimSmoothing = 1;
 
+    [SerializeField] private ParticleSystem launchParticles;
+
+    public int launchCount;
+    public int maxLaucnhCount = 4;
+
 
     private void StartLaunch(){
+        if(launchCount <= 0)return;
+
         launching = true;
         targetTimeScale = slowMoTimeScale;
 
@@ -160,13 +176,14 @@ public class PlayerController : MonoBehaviour
         //Get the mouse position on screen
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition -= transform.position;
-        Debug.Log(mousePosition + ".1");
         mousePosition =  Vector3.Normalize(mousePosition);
-        Debug.Log(mousePosition + ".2");
         return mousePosition;
     }
 
     private void PerformLaunch(){
+        if(!launching)return;
+
+        UpdateLaunchCount(-1);
         launching = false;
         targetTimeScale = 1;
         Time.timeScale = targetTimeScale;
@@ -176,6 +193,8 @@ public class PlayerController : MonoBehaviour
         rb.velocity = aimVector * launchForce;
 
         previousFrameAimVector = Vector3.zero;
+
+        launchParticles.Play();
     }
 
     private void FadeTimeScale(){
@@ -183,7 +202,47 @@ public class PlayerController : MonoBehaviour
         CurrentTimeScale = Time.timeScale;
     }
 
+    public void UpdateLaunchCount(int count){
+        launchCount += count;
+        if(launchCount <= 0)launchCount = 0;
+        if(launchCount >= maxLaucnhCount) launchCount = maxLaucnhCount;
+
+        LaunchUI.Instance.SetText(launchCount.ToString());
+    }
+
+    public void UpdateLaunchCount(){
+        UpdateLaunchCount(99999);
+    }
+        
+
     #endregion
+
+    #endregion
+
+    #region Boosting
+
+    public void Boost(float force){
+        //Get the current direction of movement, and set the velocity
+        Vector3 newVelocity = Vector3.Normalize(rb.velocity);
+        newVelocity *= force;
+        //if(newVelocity.magnitude < rb.velocity.magnitude) return;
+        //rb.velocity = newVelocity;
+        Debug.Log(newVelocity);
+        rb.AddForce(newVelocity);
+    }
+
+    #endregion
+
+    #region Collision
+
+    private void OnCollisionEnter2D(Collision2D collision2D){
+        if(collision2D.gameObject.CompareTag("Deadly")){
+            Die();
+        } else if(collision2D.gameObject.layer != groundLayer){
+            Debug.Log("Hit the ground");
+            UpdateLaunchCount();
+        }
+    }
 
     #endregion
 
