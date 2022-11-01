@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter2D(Collision2D collision2D){
         if(collision2D.gameObject.CompareTag("Player")){
@@ -25,8 +14,11 @@ public class Enemy : MonoBehaviour
     }
 
     [SerializeField] private GameObject explosionParticles;
+    [SerializeField] private int rewardedPoints;
 
     private void Die(){
+        PointsManager.Instance.GainPoints(rewardedPoints);
+
         Destroy(Instantiate(explosionParticles, transform.position, transform.rotation), 5f);
         Destroy(gameObject);
     }

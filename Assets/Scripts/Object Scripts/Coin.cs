@@ -15,5 +15,6 @@ public class Coin : MonoBehaviour
 
     private void Collect(){
         PointsManager.Instance.GainPoints(rewardedPoints);
+        Destroy(gameObject);
     }
 }
