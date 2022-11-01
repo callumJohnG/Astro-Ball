@@ -10,10 +10,9 @@ public class LaunchUI : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        launchCountText = GetComponent<TextMeshProUGUI>();
     }
 
-    private TextMeshProUGUI launchCountText;
+    [SerializeField] private TextMeshProUGUI launchCountText;
 
     public void SetText(string text){
         launchCountText.text = text;

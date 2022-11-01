@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
         FadeTimeScale();
 
         CalculateAim();
+
+        CheckLaunchRecharge();
     }
 
     private void Die(){
@@ -65,7 +67,7 @@ public class PlayerController : MonoBehaviour
         controls.Player.Movement.canceled += _ => movement = 0;
 
         //Adding listeners for the jump action
-        controls.Player.Jump.started += _ => Jump();
+        //controls.Player.Jump.started += _ => Jump();
         controls.Player.Jump.started += _ => StartLaunch();
         controls.Player.Jump.canceled += _ => PerformLaunch();
 
@@ -208,7 +210,36 @@ public class PlayerController : MonoBehaviour
     public void UpdateLaunchCount(){
         UpdateLaunchCount(99999);
     }
-        
+
+    [SerializeField] private float launchRechargeDuration = 4;
+    private float launchRechargeStartTime;
+    private bool recharging = false;
+
+    private void CheckLaunchRecharge(){
+        if(launchCount >= maxLaucnhCount && recharging){
+            recharging = false;
+            //Tell the UI about it here
+            return;
+        }
+
+        if(launchCount < maxLaucnhCount && !recharging){
+            recharging = true;
+            launchRechargeStartTime = Time.time;
+            //Tell the UI about it here
+
+
+            return;
+        }
+
+        //We are currently recharging
+        if(Time.time > launchRechargeStartTime + launchRechargeDuration){
+            //We have recharged a launch
+            UpdateLaunchCount(1);
+            recharging = false;
+            //Tell the UI about it
+        }
+    }    
+    
 
     #endregion
 
@@ -231,12 +262,15 @@ public class PlayerController : MonoBehaviour
     #region Collision
 
     private void OnCollisionEnter2D(Collision2D collision2D){
+        bool isGroundLayer = (groundLayer == (groundLayer | (1 << collision2D.gameObject.layer)));
+
         if(collision2D.gameObject.CompareTag("Deadly")){
             Die();
-        } else if(collision2D.gameObject.layer != groundLayer){
+        } else if(isGroundLayer){
             Debug.Log("Hit the ground");
-            UpdateLaunchCount();
+            PointsManager.Instance.EndCombo();
         }
+        Debug.Log(groundLayer.value + " " + collision2D.gameObject.layer.ToString());
     }
 
     #endregion

@@ -20,8 +20,6 @@ public class Bumper : MonoBehaviour
         //Check if we collide with anything in the scene (aside from other bumpers)
         Collider2D overlappingCollider = Physics2D.OverlapCircle(transform.position, GameSettingsManager.Instance.bumperSpacing);
         if(overlappingCollider != null){
-            Debug.Log("I overlap");
-            Debug.Log(overlappingCollider);
             Destroy(gameObject);
         }
 
@@ -42,7 +40,7 @@ public class Bumper : MonoBehaviour
     [SerializeField] private LayerMask ignoreLayer;
 
     private void Die(){
-        PointsManager.Instance.GainPoints(rewardedPoints);
+        PointsManager.Instance.GainComboPoints(rewardedPoints);
 
         Destroy(Instantiate(explosionParticles, transform.position, transform.rotation), 5f);
         Destroy(gameObject);

@@ -5273,8 +5273,7 @@ MonoBehaviour:
   aimSmoothing: 100
   launchParticles: {fileID: 291972369445888377}
   launchCount: 0
-  maxLaucnhCount: 4
-  launchParticleTarget: {fileID: 0}
+  maxLaucnhCount: 2
 --- !u!50 &2370374581268752659
 Rigidbody2D:
   serializedVersion: 4

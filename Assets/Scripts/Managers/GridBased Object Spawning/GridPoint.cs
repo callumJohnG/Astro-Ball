@@ -35,6 +35,13 @@ public class GridPoint : MonoBehaviour
         if(Random.Range(0, 100) > spawnProbability)return;
 
         storedObstacle = Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count)], transform.position, transform.rotation, transform);
+
+        //Random rotation
+        Vector3 rotation = new Vector3(0, 0, 0);
+        if(Random.Range(0,100) > 50){
+            rotation.y = 180;
+        }
+        storedObstacle.transform.Rotate(rotation);
     }
 
     public void WipeObstacle(){
