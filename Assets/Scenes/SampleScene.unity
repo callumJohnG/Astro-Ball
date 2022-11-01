@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 20.2797
+    OrthographicSize: 22.27026
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -538,6 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRenderDistance: 200
+  bumperSpacing: 20
 --- !u!4 &408347873
 Transform:
   m_ObjectHideFlags: 0
@@ -820,7 +821,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 20.2797
+  orthographic size: 22.27026
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -16078,11 +16079,15 @@ MonoBehaviour:
   gridPointPrefab: {fileID: 4985516733710896601, guid: 2d12c805ac8433841a9f9e21afbe8827, type: 3}
   gridPointsContainer: {fileID: 1068725679}
   obstaclePrefabs:
-  - {fileID: 2648686269154718783, guid: 33bfdbb300b953743bbad742618c6a3d, type: 3}
-  - {fileID: 2648686269154718783, guid: 4bae22f2907eee145b3ce4cd0e20df8b, type: 3}
+  - {fileID: 2648686269154718783, guid: 051e99b67c92292438862abef07664a9, type: 3}
   spawnProbability: 20
   minimumY: 60
   maximumY: 1000
+  bumperPrefab: {fileID: 6003992426016243756, guid: 9862454bc0e8a5b44800c148f25ad78a, type: 3}
+  minimumBumperY: 60
+  bumperRingMin: 100
+  bumperRingMax: 150
+  bumpersContainer: {fileID: 1406626661}
 --- !u!1 &1180572344
 GameObject:
   m_ObjectHideFlags: 0
@@ -16196,6 +16201,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsText: {fileID: 894536291}
+--- !u!1 &1406626660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406626661}
+  m_Layer: 0
+  m_Name: Bumpers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1406626661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406626660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491831316
 GameObject:
   m_ObjectHideFlags: 0

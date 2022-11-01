@@ -11,4 +11,5 @@ public class GameSettingsManager : MonoBehaviour
     }
 
     public float maxRenderDistance = 300;
+    public float bumperSpacing = 20;
 }

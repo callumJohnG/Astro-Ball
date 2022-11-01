@@ -27,9 +27,12 @@ public class ObjectSpawningManager : MonoBehaviour
 
     private void Update(){
         CheckGrid();
+        SpawnBumper();
     }
 
+    #region Obstacle Spawning
 
+    [Header("Obstacles")]
     [SerializeField] private int xCount;
     [SerializeField] private int yCount;
     [SerializeField] private float bounds;
@@ -126,4 +129,62 @@ public class ObjectSpawningManager : MonoBehaviour
 
         return newGridPositions;
     }
+
+    #endregion
+
+    #region Bumper Spawning
+
+    [SerializeField] private GameObject bumperPrefab;
+    [SerializeField] private float minimumBumperY;
+    [SerializeField] private float bumperRingMin;
+    [SerializeField] private float bumperRingMax;
+    [SerializeField] private Transform bumpersContainer;
+    private List<GameObject> bumpers = new List<GameObject>();
+
+    void OnDrawGizmosSelected()
+    {
+        // Display the explosion radius when selected
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(GameplayManager.Instance.player.transform.position, bumperRingMax);
+        Gizmos.DrawWireSphere(GameplayManager.Instance.player.transform.position, bumperRingMin);
+    }
+
+    private void SpawnBumper(){
+        //Get random point
+        Vector3 randomPoint = GetRandomPointInCircle(GameplayManager.Instance.player.transform.position, bumperRingMin, bumperRingMax);
+        
+        //Try to spawn a bumper there
+        GameObject bumper = Instantiate(bumperPrefab, randomPoint, Quaternion.identity, bumpersContainer);
+        if(bumper != null){
+            bumpers.Add(bumper);
+        }
+    }
+
+    public void WipeAllBumpers(){
+        foreach(GameObject bumper in bumpers){
+            if(bumper == null)continue;
+
+            Destroy(bumper);
+        }
+        bumpers.Clear();
+    }
+
+    private Vector3 GetRandomPointInCircle(Vector3 center, float minDistance, float maxDistance){
+        //Pick random direction
+        Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        randomDirection = Vector3.Normalize(randomDirection);
+
+        //Get random magnitude
+        float randomMagnitude = Random.Range(minDistance, maxDistance);
+
+        //Multiply the direction to get random point in the range
+        randomDirection *= randomMagnitude;
+
+        //Get that as a vector from the center
+        randomDirection += center;
+
+        return randomDirection;
+    }
+
+    #endregion
 }
