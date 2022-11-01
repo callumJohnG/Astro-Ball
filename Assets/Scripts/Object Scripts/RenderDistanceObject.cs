@@ -5,7 +5,6 @@ using UnityEngine;
 public class RenderDistanceObject : MonoBehaviour
 {
 
-    [SerializeField] private float maxRenderDistance = 10f;
     private Transform player;
 
     // Update is called once per frame
@@ -23,7 +22,7 @@ public class RenderDistanceObject : MonoBehaviour
             SeekPlayer();
             return;
         }
-        if(Vector3.Distance(transform.position, player.position) > maxRenderDistance){
+        if(Vector3.Distance(transform.position, player.position) > GameSettingsManager.Instance.maxRenderDistance){
             Destroy(gameObject);
         }
     }
