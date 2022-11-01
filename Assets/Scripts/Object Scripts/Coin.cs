@@ -14,6 +14,7 @@ public class Coin : MonoBehaviour
     }
 
     private void Collect(){
+        AudioManager.Instance.PlayCoin();
         PointsManager.Instance.GainPoints(rewardedPoints);
         Destroy(gameObject);
     }

@@ -41,6 +41,7 @@ public class ObjectSpawningManager : MonoBehaviour
     private List<GridPoint> gridPoints = new List<GridPoint>();
 
     [SerializeField] private List<GameObject> obstaclePrefabs;
+    [SerializeField] private List<GameObject> debugPrefab;
     [SerializeField] private float spawnProbability;
 
     [SerializeField] private int minimumY = 60;
@@ -54,7 +55,8 @@ public class ObjectSpawningManager : MonoBehaviour
         //Use all of our grid positions to spawn a grid point
         foreach(Vector3 gridPosition in gridPositions){
             GridPoint gridPoint = Instantiate(gridPointPrefab, gridPosition, Quaternion.identity, gridPointsContainer).GetComponent<GridPoint>();
-            gridPoint.SetData(obstaclePrefabs, spawnProbability);
+            if(debugPrefab != null) gridPoint.SetData(debugPrefab, spawnProbability);
+            else gridPoint.SetData(obstaclePrefabs, spawnProbability);
             gridPoint.SpawnObstacle();
             gridPoints.Add(gridPoint);
         }
@@ -134,7 +136,8 @@ public class ObjectSpawningManager : MonoBehaviour
 
     #region Bumper Spawning
 
-    [SerializeField] private GameObject bumperPrefab;
+    [SerializeField] private List<GameObject> bumperPrefabs;
+    [SerializeField] private List<float> bumperProbabilities;
     [SerializeField] private float minimumBumperY;
     [SerializeField] private float bumperRingMin;
     [SerializeField] private float bumperRingMax;
@@ -154,10 +157,20 @@ public class ObjectSpawningManager : MonoBehaviour
         Vector3 randomPoint = GetRandomPointInCircle(GameplayManager.Instance.player.transform.position, bumperRingMin, bumperRingMax);
         
         //Try to spawn a bumper there
-        GameObject bumper = Instantiate(bumperPrefab, randomPoint, Quaternion.identity, bumpersContainer);
+        GameObject bumper = Instantiate(GetRandomBumper(), randomPoint, Quaternion.identity, bumpersContainer);
         if(bumper != null){
             bumpers.Add(bumper);
         }
+    }
+
+    private GameObject GetRandomBumper(){
+        int randomNum = Random.Range(0,100);
+        for(int i = 0; i < bumperPrefabs.Count; i ++){
+            if(randomNum <= bumperProbabilities[i]){
+                return bumperPrefabs[i];
+            }
+        }
+        return bumperPrefabs[1];
     }
 
     public void WipeAllBumpers(){

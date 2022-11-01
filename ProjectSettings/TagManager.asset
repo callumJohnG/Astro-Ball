@@ -45,6 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BoostPads
+    uniqueID: 107342971
+    locked: 0
+  - name: Obstacles
+    uniqueID: 2568770017
+    locked: 0
   - name: Coins
     uniqueID: 1670224473
     locked: 0

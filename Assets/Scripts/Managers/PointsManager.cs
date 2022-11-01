@@ -27,6 +27,9 @@ public class PointsManager : MonoBehaviour
     private bool comboActive = false;
     private int comboPoints = 0;
 
+    private float comboBasePitch = 1;
+    [SerializeField] private float comboIncPitch = 0.1f;
+
     public void EndCombo(){
         Debug.Log("COMBO ENDED");
         comboActive = false;
@@ -44,6 +47,8 @@ public class PointsManager : MonoBehaviour
     }
 
     public void GainComboPoints(int quantity){
+        AudioManager.Instance.PlayBumper(comboBasePitch + (comboIncPitch * currentMultiplier));
+
         if(comboActive){
             currentMultiplier++;
         } else {

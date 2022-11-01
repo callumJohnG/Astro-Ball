@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die(){
         //Do death animation here
+        AudioManager.Instance.PlayDeath();
         GameplayManager.Instance.GameOver();
     }
 
@@ -143,7 +144,10 @@ public class PlayerController : MonoBehaviour
 
 
     private void StartLaunch(){
-        if(launchCount <= 0)return;
+        if(launchCount <= 0){
+            AudioManager.Instance.PlayNoLaunch();
+            return;
+        }
 
         launching = true;
         targetTimeScale = slowMoTimeScale;
@@ -192,6 +196,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = aimVector * launchForce;
 
         launchParticles.Play();
+        AudioManager.Instance.PlayLaunch();
     }
 
     private void FadeTimeScale(){
@@ -218,7 +223,7 @@ public class PlayerController : MonoBehaviour
     private void CheckLaunchRecharge(){
         if(launchCount >= maxLaucnhCount && recharging){
             recharging = false;
-            //Tell the UI about it here
+            LaunchUI.Instance.StopRecharge();
             return;
         }
 
@@ -226,10 +231,12 @@ public class PlayerController : MonoBehaviour
             recharging = true;
             launchRechargeStartTime = Time.time;
             //Tell the UI about it here
-
+            LaunchUI.Instance.SetRechargeTime(Time.time, launchRechargeDuration + Time.time);
 
             return;
         }
+
+        if(!recharging)return;
 
         //We are currently recharging
         if(Time.time > launchRechargeStartTime + launchRechargeDuration){
@@ -237,6 +244,9 @@ public class PlayerController : MonoBehaviour
             UpdateLaunchCount(1);
             recharging = false;
             //Tell the UI about it
+            LaunchUI.Instance.StopRecharge();
+
+            AudioManager.Instance.PlayRecharge();
         }
     }    
     
