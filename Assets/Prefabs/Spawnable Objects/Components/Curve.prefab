@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1745908020982681416}
   - component: {fileID: 1745908020982681417}
   - component: {fileID: 1745908020982681418}
-  - component: {fileID: 1745908020982681422}
   - component: {fileID: 2138754213473993861}
   m_Layer: 0
   m_Name: Curve
@@ -144,18 +143,6 @@ MonoBehaviour:
   m_EnableTangents: 0
   m_GeometryCached: 0
   m_UTess2D: 0
---- !u!114 &1745908020982681422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745908020982681412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78e9c2e86372f7e40ba86572a82b5faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!68 &2138754213473993861
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -172,22 +159,9 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0.5
   m_Points:
-  - {x: -9.812338, y: 0.1653235}
-  - {x: -11.167651, y: -1.0191381}
-  - {x: -11.480766, y: -1.7586621}
-  - {x: -11.053969, y: -2.2484071}
-  - {x: -10.002623, y: -2.519084}
-  - {x: -8.441492, y: -2.6023376}
-  - {x: -6.4850616, y: -2.5294986}
-  - {x: -4.247911, y: -2.331793}
-  - {x: -1.8446591, y: -2.04044}
-  - {x: 0.6100687, y: -1.6866553}
-  - {x: 3.0339077, y: -1.2960443}
-  - {x: 5.2154408, y: -0.91665506}
-  - {x: 7.1368246, y: -0.5628717}
-  - {x: 9.007778, y: -0.2004968}
-  - {x: 10.0002, y: -0.000979748}
-  - {x: 10.245136, y: 0.049083147}
+  - {x: -10.25, y: -0.0009999936}
+  - {x: 9.999997, y: -0.0009999936}
+  - {x: 10.25, y: -0.0009999936}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

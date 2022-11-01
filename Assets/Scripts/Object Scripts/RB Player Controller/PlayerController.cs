@@ -122,7 +122,6 @@ public class PlayerController : MonoBehaviour
     private float horizontalAimVector;
     private float verticalAimVector;
     [SerializeField] private Vector3 aimVector = new Vector3();
-    [SerializeField] private Vector3 previousFrameAimVector = new Vector3();
 
     private bool launching;
 
@@ -151,8 +150,6 @@ public class PlayerController : MonoBehaviour
 
         aimLine.SetPosition(0, transform.position);
         aimLine.SetPosition(1, aimVector + transform.position);
-
-        previousFrameAimVector = Vector3.zero;
     }
 
     private void CalculateAim(){
@@ -191,8 +188,6 @@ public class PlayerController : MonoBehaviour
         aimLine.gameObject.SetActive(false);
 
         rb.velocity = aimVector * launchForce;
-
-        previousFrameAimVector = Vector3.zero;
 
         launchParticles.Play();
     }

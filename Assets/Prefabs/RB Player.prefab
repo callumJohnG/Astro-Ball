@@ -4891,7 +4891,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: -2
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4994,7 +4994,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Positions:
   - {x: -1.6200002, y: 39.695034, z: 0}
@@ -5135,7 +5135,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Time: 0.1
   m_Parameters:
@@ -5265,7 +5265,6 @@ MonoBehaviour:
   currentVelocity: 0
   groundCheck: {fileID: 2370374581396662477}
   aimVector: {x: 0, y: 0, z: 0}
-  previousFrameAimVector: {x: 0, y: 0, z: 0}
   slowMoTimeScale: 0.1
   slowMoFadeSpeed: 20
   CurrentTimeScale: 1
@@ -5273,6 +5272,9 @@ MonoBehaviour:
   launchForce: 10
   aimSmoothing: 100
   launchParticles: {fileID: 291972369445888377}
+  launchCount: 0
+  maxLaucnhCount: 4
+  launchParticleTarget: {fileID: 0}
 --- !u!50 &2370374581268752659
 Rigidbody2D:
   serializedVersion: 4
@@ -5349,7 +5351,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6198,7 +6200,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: 45
       mode: 0
       spread: 0
       speed:

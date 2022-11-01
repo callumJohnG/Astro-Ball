@@ -13,12 +13,13 @@ public class GameplayManager : MonoBehaviour
     }
 
     private void Start(){
-        Restart();
+        SpawnCharacter();
+        ObjectSpawningManager.Instance.SpawnGrid();
     }
 
 
     [SerializeField] private GameObject playerPrefab;
-    private PlayerController player;
+    public PlayerController player {get;private set;}
 
     [SerializeField] private Transform spawnPos;
     [SerializeField] private CinemachineVirtualCamera playerCam;
@@ -32,6 +33,11 @@ public class GameplayManager : MonoBehaviour
     public void Restart(){
         //Spawn a player
         //Spawn the world
+        SpawnCharacter();
+        ObjectSpawningManager.Instance.RespawnGrid();
+    }
+
+    private void SpawnCharacter(){
         player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation).GetComponent<PlayerController>();
         SmartPlayerCamera.Instance.SetPlayer(player.gameObject);
     }

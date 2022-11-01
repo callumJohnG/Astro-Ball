@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 42.38828
+    OrthographicSize: 20.2797
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffa11662f8ee1c49b039d79b86ebe4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRenderDistance: 300
+  maxRenderDistance: 200
 --- !u!4 &408347873
 Transform:
   m_ObjectHideFlags: 0
@@ -820,7 +820,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 42.38828
+  orthographic size: 20.2797
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -15961,6 +15961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 999717242}
+  - component: {fileID: 999717243}
   m_Layer: 0
   m_Name: DeathZone
   m_TagString: Untagged
@@ -15984,6 +15985,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &999717243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999717241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0128cca888793241864c02f2e4ddab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1068725678
 GameObject:
   m_ObjectHideFlags: 0
@@ -16059,14 +16072,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fcac501df11a834d95d0f700ad6ca3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xBounds: {x: -480, y: 500, z: 80}
-  yBounds: {x: 40, y: 300, z: 80}
+  xCount: 5
+  yCount: 5
+  bounds: 80
   gridPointPrefab: {fileID: 4985516733710896601, guid: 2d12c805ac8433841a9f9e21afbe8827, type: 3}
   gridPointsContainer: {fileID: 1068725679}
   obstaclePrefabs:
   - {fileID: 2648686269154718783, guid: 33bfdbb300b953743bbad742618c6a3d, type: 3}
   - {fileID: 2648686269154718783, guid: 4bae22f2907eee145b3ce4cd0e20df8b, type: 3}
   spawnProbability: 20
+  minimumY: 60
+  maximumY: 1000
 --- !u!1 &1180572344
 GameObject:
   m_ObjectHideFlags: 0
@@ -21159,6 +21175,7 @@ GameObject:
   - component: {fileID: 1878773194}
   - component: {fileID: 1878773193}
   - component: {fileID: 1878773192}
+  - component: {fileID: 1878773195}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Deadly
@@ -21280,6 +21297,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1878773195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878773190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0128cca888793241864c02f2e4ddab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2021860741
 GameObject:
   m_ObjectHideFlags: 0
