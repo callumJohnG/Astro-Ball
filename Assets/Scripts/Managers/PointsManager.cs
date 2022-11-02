@@ -23,6 +23,8 @@ public class PointsManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private GameObject comboTitle;
+    [SerializeField] private Animator pointsAnimtor;
+    [SerializeField] private ParticleSystem comboParticles;
     private int currentMultiplier = 1;
     private bool comboActive = false;
     private int comboPoints = 0;
@@ -60,11 +62,14 @@ public class PointsManager : MonoBehaviour
 
         comboPoints += quantity;
 
+        comboParticles.Play();
+
         UpdatePointsUI();
     }
 
     public void GainPoints(int quantity){
         points += quantity;
+        pointsAnimtor.CrossFade("GainPoints", 0, 0);
         UpdatePointsUI();
     }
 

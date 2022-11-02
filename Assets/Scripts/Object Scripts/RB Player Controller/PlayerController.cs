@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
         CalculateAim();
 
         CheckLaunchRecharge();
+
+        CheckFastTrailParticles();
     }
 
     private void Die(){
@@ -147,6 +149,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float aimSmoothing = 1;
 
     [SerializeField] private ParticleSystem launchParticles;
+    [SerializeField] private ParticleSystem launchTrail;
 
     public int launchCount;
     public int maxLaucnhCount = 4;
@@ -235,8 +238,7 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = aimVector * launchForce;
 
-        launchParticles.Play();
-        AudioManager.Instance.PlayLaunch();
+        PlayLaunchEffects();
     }
 
     private void FadeTimeScale(){
@@ -325,6 +327,36 @@ public class PlayerController : MonoBehaviour
     #region Visuals
 
     [SerializeField] private ParticleSystem fastTrailParticles;
+    [SerializeField] private float fastTrailSpeedLimit;
+    [SerializeField] private bool overSpeedLimit;
+    private void CheckFastTrailParticles(){
+        overSpeedLimit = rb.velocity.magnitude >= fastTrailSpeedLimit;
+        if(overSpeedLimit){
+            fastTrailParticles.Play();
+        } else{
+            fastTrailParticles.Stop();
+        }
+    }
+
+    private void PlayLaunchEffects(){
+        /*
+        Vector3 rotateVector = Vector3.Normalize(new Vector3(aimVector.x, aimVector.y));
+        Debug.Log(rotateVector);
+        float rotateAngle = Vector3.Angle(rotateVector, Vector3.up);
+
+        //Vector3 targetRotation = new Vector3(0, 0, rotateAngle);
+        //Quaternion newRotation = Quaternion.LookRotation(targetRotation);
+        //launchParticles.transform.rotation = newRotation;
+        Quaternion newAngle = new Quaternion(0, 0, rotateAngle, 0);
+        launchParticles.transform.rotation = newAngle;
+        Debug.Log("New rotation : " + launchParticles.transform.rotation);
+        */
+        //NONE OF THIS WORKED LOL
+
+        launchParticles.Play();
+        launchTrail.Play();
+        AudioManager.Instance.PlayLaunch();
+    }
 
     #endregion
 
