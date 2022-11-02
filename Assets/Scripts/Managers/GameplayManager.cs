@@ -35,6 +35,7 @@ public class GameplayManager : MonoBehaviour
         SpawnCharacter();
         ObjectSpawningManager.Instance.RespawnGrid();
         ObjectSpawningManager.Instance.WipeAllBumpers();
+        PowerupManager.Instance.WipeAllPowerups();
     }
 
     private void SpawnCharacter(){

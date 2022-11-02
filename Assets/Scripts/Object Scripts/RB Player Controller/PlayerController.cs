@@ -322,4 +322,10 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region Visuals
+
+    [SerializeField] private ParticleSystem fastTrailParticles;
+
+    #endregion
+
 }

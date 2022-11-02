@@ -5,16 +5,19 @@ using UnityEngine;
 public enum PowerupType{
     None,
     Bouncy,
+    Inverted
 }
 
 public class Powerup
 {
     private float endTime;
     public PowerupType myType {get; private set;}
+    public PowerupUI powerupUI {get; private set;}
 
-    public Powerup(PowerupType type, float endTime){
+    public Powerup(PowerupType type, float endTime, PowerupUI powerupUI){
         this.endTime = endTime;
         myType = type;
+        this.powerupUI = powerupUI;
     }
 
     public bool IsPowerupDurationComplete(){

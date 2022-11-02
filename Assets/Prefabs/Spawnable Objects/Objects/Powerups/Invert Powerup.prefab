@@ -9698,7 +9698,7 @@ GameObject:
   - component: {fileID: 5511127965275650868}
   - component: {fileID: 7814174910070318898}
   m_Layer: 8
-  m_Name: Bouncy Powerup
+  m_Name: Invert Powerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9839,7 +9839,7 @@ MonoBehaviour:
   explosionParticles: {fileID: 1285399096344210484, guid: a375138b2d9c0be44b2f4d4018e1c8ed, type: 3}
   rewardedPoints: 100
   isDeadlyBumper: 0
-  myPowerup: 1
+  myPowerup: 2
 --- !u!114 &7814174910070318898
 MonoBehaviour:
   m_ObjectHideFlags: 0

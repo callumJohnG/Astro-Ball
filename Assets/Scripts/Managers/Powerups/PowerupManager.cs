@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PowerupManager : MonoBehaviour
 {
@@ -11,22 +12,36 @@ public class PowerupManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start(){
+        powerupAnimator = powerupText.GetComponent<Animator>();
+        powerupTitle = powerupText.GetComponent<TextMeshProUGUI>();
+        powerupText.SetActive(false);
+    }
+
     private void Update(){
         CheckPowerupDurations();
     }
 
     private List<Powerup> currentPowerups = new List<Powerup>();
+    [SerializeField] private GameObject powerupUIPrefab;
+    [SerializeField] private Transform powerupContainer;
+    [SerializeField] private GameObject powerupText;
 
     public void AddPowerup(PowerupType type){
         Powerup currentPowerup = GetPowerupOfType(type);
         if(currentPowerup == null){
-            Powerup powerup = new Powerup(type, GameSettingsManager.Instance.powerupDuration + Time.time);
+            
+            GameObject powerUpUI = Instantiate(powerupUIPrefab, transform.position, transform.rotation, powerupContainer);
+            powerUpUI.GetComponent<PowerupUI>().SetData(GetPowerupSprite(type), Time.time, Time.time + GameSettingsManager.Instance.powerupDuration);
+
+            Powerup powerup = new Powerup(type, GameSettingsManager.Instance.powerupDuration + Time.time, powerUpUI.GetComponent<PowerupUI>());
             currentPowerups.Add(powerup);
             ApplyPowerup(powerup);
             DisplayPowerup(powerup);
         } else {
             //Refresh the timer on our powerup
             currentPowerup.SetEndTime(GameSettingsManager.Instance.powerupDuration + Time.time);
+            currentPowerup.powerupUI.SetTime(Time.time, Time.time + GameSettingsManager.Instance.powerupDuration);
             DisplayPowerup(currentPowerup);
         }
     }
@@ -37,6 +52,15 @@ public class PowerupManager : MonoBehaviour
                 return powerup;
             }
         }
+        return null;
+    }
+
+    private Sprite GetPowerupSprite(PowerupType type){
+        switch (type){
+            case PowerupType.Bouncy : return bouncySprite;
+            case PowerupType.Inverted : return invertedSprite;
+        }
+
         return null;
     }
 
@@ -52,18 +76,34 @@ public class PowerupManager : MonoBehaviour
     private void ApplyPowerup(Powerup powerup){
         switch(powerup.myType){
             case PowerupType.Bouncy : ApplyBouncy();break;
+            case PowerupType.Inverted : ApplyInverted();break;
         }
     }
 
-    private void RemovePowerup(Powerup powerup){
-        currentPowerups.Remove(powerup);
+    private void RemovePowerup(Powerup powerup, bool remove = true){
+        Debug.Log("REMOVING POWERUP");
+
+        if(remove){
+            currentPowerups.Remove(powerup);
+        }
+
+        powerup.powerupUI.KillMe();
         switch(powerup.myType){
             case PowerupType.Bouncy : RemoveBouncy();break;
+            case PowerupType.Inverted : RemoveInverted();break;
         }
     }
 
     private void DisplayPowerup(Powerup powerup){
         Debug.Log("POWER UP ADDED OF TYPE " + powerup.myType.ToString());
+        PlayPowerupAnimation(powerup.myType.ToString());
+    }
+
+    public void WipeAllPowerups(){
+        foreach(Powerup powerup in currentPowerups){
+            RemovePowerup(powerup, false);
+        }
+        currentPowerups.Clear();
     }
 
     #region Specific Powerups
@@ -79,6 +119,7 @@ public class PowerupManager : MonoBehaviour
     [Header("Bouncy")]
     [SerializeField] private PhysicsMaterial2D normalPlayerMaterial;
     [SerializeField] private PhysicsMaterial2D bouncyPlayerMaterial;
+    [SerializeField] private Sprite bouncySprite;
 
     private void ApplyBouncy(){
         playerObject.GetComponent<Collider2D>().sharedMaterial = bouncyPlayerMaterial;
@@ -89,6 +130,35 @@ public class PowerupManager : MonoBehaviour
     }
 
     #endregion
+
+    #region Inverted
+
+    [Header("Bouncy")]
+    [SerializeField] private Sprite invertedSprite;
+
+    private void ApplyInverted(){
+        GameSettingsManager.Instance.inverseAiming = true;
+    }
+
+    private void RemoveInverted(){
+        GameSettingsManager.Instance.inverseAiming = false;
+    }
+
+    #endregion
+
+
+    #endregion
+
+    #region Animation
+
+
+    private Animator powerupAnimator;
+    private TextMeshProUGUI powerupTitle;
+    private void PlayPowerupAnimation(string powerupString){
+        powerupText.SetActive(true);
+        powerupTitle.text = powerupString;
+        powerupAnimator.CrossFade("GainPowerup", 0, 0);
+    }
 
     #endregion
 }
