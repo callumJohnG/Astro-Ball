@@ -32,7 +32,10 @@ public class GridPoint : MonoBehaviour
 
     public void SpawnObstacle(){
         active = true;
+        
         if(Random.Range(0, 100) > spawnProbability)return;
+
+        if(obstaclePrefabs.Count <= 0)return; // THIS IS BECAUSE OF A BUG, THE FIRST GRID POINT TO SPAWN SOMETHING HAS A LIST OF 0 ELEMENTS IDK WHY
 
         storedObstacle = Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Count)], transform.position, transform.rotation, transform);
 

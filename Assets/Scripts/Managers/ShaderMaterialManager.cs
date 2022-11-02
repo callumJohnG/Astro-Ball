@@ -11,6 +11,9 @@ public class ShaderMaterialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(PlayerPrefs.GetInt("paletteIndex",0) >= colourPalettes.Count){
+            PlayerPrefs.SetInt("paletteIndex", 0);
+        }
         SetColourPalette(colourPalettes[PlayerPrefs.GetInt("paletteIndex",0)]);
     }
 

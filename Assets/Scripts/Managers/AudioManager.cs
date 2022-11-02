@@ -20,15 +20,18 @@ public class AudioManager : MonoBehaviour
     }
 
     [SerializeField] private AudioClip bumper;
+    [SerializeField] private AudioSource bumperSource;
+
+    public void PlayBumper(float pitch){
+        bumperSource.pitch = pitch;
+        bumperSource.PlayOneShot(bumper);
+    }
+
     [SerializeField] private AudioClip coin;
     [SerializeField] private AudioClip death;
     [SerializeField] private AudioClip launch;
     [SerializeField] private AudioClip noLaunch;
     [SerializeField] private AudioClip recharge;
-
-    public void PlayBumper(float pitch){
-        PlaySoundEffect(bumper, pitch);
-    }
 
     public void PlayCoin(){
         PlaySoundEffect(coin);
@@ -51,8 +54,7 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    private void PlaySoundEffect(AudioClip audioClip, float pitch = 1){
-        audioSource.pitch = pitch;
+    private void PlaySoundEffect(AudioClip audioClip){
         audioSource.PlayOneShot(audioClip);
     }
 }

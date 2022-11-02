@@ -73,22 +73,31 @@ public class PlayerController : MonoBehaviour
         controls.Player.Jump.canceled += _ => PerformLaunch();
 
         //Adding listeners for aim variables
-        controls.Player.HorizontalAim.performed += ctx => horizontalAimVector = ctx.ReadValue<float>();
-        controls.Player.HorizontalAim.canceled += _ => horizontalAimVector = 0;
-        controls.Player.VerticalAim.performed += ctx => verticalAimVector = ctx.ReadValue<float>();
-        controls.Player.VerticalAim.canceled += _ => verticalAimVector = 0;
+        controls.Player.HorizontalAimDigital.performed += ctx => horizontalAimVector = ctx.ReadValue<float>();
+        controls.Player.HorizontalAimDigital.canceled += _ => horizontalAimVector = 0;
+        controls.Player.VerticalAimDigital.performed += ctx => verticalAimVector = ctx.ReadValue<float>();
+        controls.Player.VerticalAimDigital.canceled += _ => verticalAimVector = 0;
+
+        controls.Player.HorizontalAimAnalog.performed += ctx => horizontalAimVector = ctx.ReadValue<float>();
+        controls.Player.HorizontalAimAnalog.canceled += ctx => horizontalAimVector = 0;
+        controls.Player.VerticalAimAnalog.performed += ctx => verticalAimVector = ctx.ReadValue<float>();
+        controls.Player.VerticalAimAnalog.canceled += ctx => verticalAimVector = 0;
     }
 
     #endregion
 
     #region Horizontal Movement
 
+
+
     [SerializeField] private float currentVelocity;
 
     private void CalculateHorizontalVeclocity(){
         //rb.velocity = new Vector2(movement * movementSpeed, rb.velocity.y);
         //rb.AddForce(new Vector2(movement * movementSpeed, 0));
-        
+        if(GameSettingsManager.Instance.controlScheme == ControlScheme.Mouse){
+            movement = GetMouseMovement();
+        }
         
         float newVelocity = (movement * movementSpeed) + rb.velocity.x;
         if(newVelocity > maxMovementMomentum) newVelocity = maxMovementMomentum;
@@ -161,11 +170,23 @@ public class PlayerController : MonoBehaviour
     private void CalculateAim(){
         if(!launching)return;
 
-        aimVector = new Vector3(horizontalAimVector, verticalAimVector) * launchForce;
-        if(aimVector == Vector3.zero){
+        Vector3 rawAimVector = new Vector3(horizontalAimVector, verticalAimVector);
+
+        if(GameSettingsManager.Instance.controlScheme == ControlScheme.Mouse){
             //Use mouse
-            aimVector = GetMouseAim() * launchForce;
+            rawAimVector = GetMouseAim();
         }
+
+        if(rawAimVector == Vector3.zero){
+            //Use momentum
+            rawAimVector = rb.velocity;
+        }
+
+        if(GameSettingsManager.Instance.inverseAiming){
+            rawAimVector *= -1;
+        }
+
+        aimVector = Vector3.Normalize(rawAimVector) * launchForce;
 
         Vector3 newAimPosition = aimVector + transform.position;
 
@@ -181,6 +202,25 @@ public class PlayerController : MonoBehaviour
         mousePosition -= transform.position;
         mousePosition =  Vector3.Normalize(mousePosition);
         return mousePosition;
+    }
+
+    private float mouseMoveRange = 50;
+
+    private float GetMouseMovement(){
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float posVal = Mathf.InverseLerp(transform.position.x, transform.position.x + mouseMoveRange, mousePosition.x);
+        float negVal = Mathf.InverseLerp(transform.position.x, transform.position.x - mouseMoveRange, mousePosition.x);
+        if(posVal == 0){
+            switch(GameSettingsManager.Instance.inverseAiming){
+                case true : return negVal;
+                case false : return -negVal;
+            }
+        } else {
+            switch(GameSettingsManager.Instance.inverseAiming){
+                case true : return -posVal;
+                case false : return posVal;
+            }
+        }
     }
 
     private void PerformLaunch(){
@@ -263,7 +303,6 @@ public class PlayerController : MonoBehaviour
         newVelocity *= force;
         //if(newVelocity.magnitude < rb.velocity.magnitude) return;
         //rb.velocity = newVelocity;
-        Debug.Log(newVelocity);
         rb.AddForce(newVelocity);
     }
 
@@ -277,10 +316,8 @@ public class PlayerController : MonoBehaviour
         if(collision2D.gameObject.CompareTag("Deadly")){
             Die();
         } else if(isGroundLayer){
-            Debug.Log("Hit the ground");
             PointsManager.Instance.EndCombo();
         }
-        Debug.Log(groundLayer.value + " " + collision2D.gameObject.layer.ToString());
     }
 
     #endregion

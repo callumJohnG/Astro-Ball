@@ -65,8 +65,9 @@ public class ObjectSpawningManager : MonoBehaviour
 
     public void RespawnGrid(){
         foreach(GridPoint gridPoint in gridPoints){
-            try{gridPoint.WipeObstacle();}
-            catch {}
+            if(gridPoint != null){
+                gridPoint.WipeObstacle();
+            }
         }
         gridPoints.Clear();
         SpawnGrid();
@@ -103,7 +104,6 @@ public class ObjectSpawningManager : MonoBehaviour
             newGridPoint.SetData(obstaclePrefabs, spawnProbability);
             newGridPoint.SpawnObstacle();
         }
-        if(newPointCount > 0)Debug.Log(newPointCount  + " New points added");
     }
 
 
@@ -174,6 +174,7 @@ public class ObjectSpawningManager : MonoBehaviour
     }
 
     public void WipeAllBumpers(){
+        Debug.Log("Deleting all bumpers");
         foreach(GameObject bumper in bumpers){
             if(bumper == null)continue;
 

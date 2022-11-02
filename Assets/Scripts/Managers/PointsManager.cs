@@ -31,7 +31,6 @@ public class PointsManager : MonoBehaviour
     [SerializeField] private float comboIncPitch = 0.1f;
 
     public void EndCombo(){
-        Debug.Log("COMBO ENDED");
         comboActive = false;
 
         //commit the combo points

@@ -46,7 +46,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Horizontal Aim"",
+                    ""name"": ""Horizontal Aim Digital"",
                     ""type"": ""Button"",
                     ""id"": ""56ffff48-3045-4548-b31d-af81df8465a5"",
                     ""expectedControlType"": ""Button"",
@@ -55,13 +55,31 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Vertical Aim"",
+                    ""name"": ""Vertical Aim Digital"",
                     ""type"": ""Button"",
                     ""id"": ""7859024f-e308-45af-a70f-4d0dcfb9f0ca"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Horizontal Aim Analog"",
+                    ""type"": ""Value"",
+                    ""id"": ""a821ac24-cdb5-41f5-908d-4d56aee42cbf"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Vertical Aim Analog"",
+                    ""type"": ""Value"",
+                    ""id"": ""c0a0d39e-7624-4201-b342-fb9912f8e203"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -204,7 +222,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Horizontal Aim"",
+                    ""action"": ""Horizontal Aim Digital"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -215,7 +233,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Horizontal Aim"",
+                    ""action"": ""Horizontal Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -226,7 +244,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Horizontal Aim"",
+                    ""action"": ""Horizontal Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -237,7 +255,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Horizontal Aim"",
+                    ""action"": ""Horizontal Aim Digital"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -248,7 +266,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Horizontal Aim"",
+                    ""action"": ""Horizontal Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -259,7 +277,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Horizontal Aim"",
+                    ""action"": ""Horizontal Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -270,7 +288,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Horizontal Aim"",
+                    ""action"": ""Horizontal Aim Digital"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -281,7 +299,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Horizontal Aim"",
+                    ""action"": ""Horizontal Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -292,7 +310,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Horizontal Aim"",
+                    ""action"": ""Horizontal Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -303,7 +321,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical Aim"",
+                    ""action"": ""Vertical Aim Digital"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -314,7 +332,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical Aim"",
+                    ""action"": ""Vertical Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -325,7 +343,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical Aim"",
+                    ""action"": ""Vertical Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -336,7 +354,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical Aim"",
+                    ""action"": ""Vertical Aim Digital"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -347,7 +365,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical Aim"",
+                    ""action"": ""Vertical Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -358,7 +376,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical Aim"",
+                    ""action"": ""Vertical Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -369,7 +387,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical Aim"",
+                    ""action"": ""Vertical Aim Digital"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -380,7 +398,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Vertical Aim"",
+                    ""action"": ""Vertical Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -391,9 +409,31 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Vertical Aim"",
+                    ""action"": ""Vertical Aim Digital"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4c9dfb5-db55-4744-9415-13029ea8685c"",
+                    ""path"": ""<Gamepad>/leftStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Horizontal Aim Analog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea845761-205a-4b59-806d-445b2b670197"",
+                    ""path"": ""<Gamepad>/leftStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical Aim Analog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -426,8 +466,10 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
-        m_Player_HorizontalAim = m_Player.FindAction("Horizontal Aim", throwIfNotFound: true);
-        m_Player_VerticalAim = m_Player.FindAction("Vertical Aim", throwIfNotFound: true);
+        m_Player_HorizontalAimDigital = m_Player.FindAction("Horizontal Aim Digital", throwIfNotFound: true);
+        m_Player_VerticalAimDigital = m_Player.FindAction("Vertical Aim Digital", throwIfNotFound: true);
+        m_Player_HorizontalAimAnalog = m_Player.FindAction("Horizontal Aim Analog", throwIfNotFound: true);
+        m_Player_VerticalAimAnalog = m_Player.FindAction("Vertical Aim Analog", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -489,16 +531,20 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Movement;
-    private readonly InputAction m_Player_HorizontalAim;
-    private readonly InputAction m_Player_VerticalAim;
+    private readonly InputAction m_Player_HorizontalAimDigital;
+    private readonly InputAction m_Player_VerticalAimDigital;
+    private readonly InputAction m_Player_HorizontalAimAnalog;
+    private readonly InputAction m_Player_VerticalAimAnalog;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
-        public InputAction @HorizontalAim => m_Wrapper.m_Player_HorizontalAim;
-        public InputAction @VerticalAim => m_Wrapper.m_Player_VerticalAim;
+        public InputAction @HorizontalAimDigital => m_Wrapper.m_Player_HorizontalAimDigital;
+        public InputAction @VerticalAimDigital => m_Wrapper.m_Player_VerticalAimDigital;
+        public InputAction @HorizontalAimAnalog => m_Wrapper.m_Player_HorizontalAimAnalog;
+        public InputAction @VerticalAimAnalog => m_Wrapper.m_Player_VerticalAimAnalog;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -514,12 +560,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @HorizontalAim.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalAim;
-                @HorizontalAim.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalAim;
-                @HorizontalAim.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalAim;
-                @VerticalAim.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalAim;
-                @VerticalAim.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalAim;
-                @VerticalAim.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalAim;
+                @HorizontalAimDigital.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalAimDigital;
+                @HorizontalAimDigital.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalAimDigital;
+                @HorizontalAimDigital.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalAimDigital;
+                @VerticalAimDigital.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalAimDigital;
+                @VerticalAimDigital.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalAimDigital;
+                @VerticalAimDigital.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalAimDigital;
+                @HorizontalAimAnalog.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalAimAnalog;
+                @HorizontalAimAnalog.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalAimAnalog;
+                @HorizontalAimAnalog.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHorizontalAimAnalog;
+                @VerticalAimAnalog.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalAimAnalog;
+                @VerticalAimAnalog.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalAimAnalog;
+                @VerticalAimAnalog.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnVerticalAimAnalog;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -530,12 +582,18 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @HorizontalAim.started += instance.OnHorizontalAim;
-                @HorizontalAim.performed += instance.OnHorizontalAim;
-                @HorizontalAim.canceled += instance.OnHorizontalAim;
-                @VerticalAim.started += instance.OnVerticalAim;
-                @VerticalAim.performed += instance.OnVerticalAim;
-                @VerticalAim.canceled += instance.OnVerticalAim;
+                @HorizontalAimDigital.started += instance.OnHorizontalAimDigital;
+                @HorizontalAimDigital.performed += instance.OnHorizontalAimDigital;
+                @HorizontalAimDigital.canceled += instance.OnHorizontalAimDigital;
+                @VerticalAimDigital.started += instance.OnVerticalAimDigital;
+                @VerticalAimDigital.performed += instance.OnVerticalAimDigital;
+                @VerticalAimDigital.canceled += instance.OnVerticalAimDigital;
+                @HorizontalAimAnalog.started += instance.OnHorizontalAimAnalog;
+                @HorizontalAimAnalog.performed += instance.OnHorizontalAimAnalog;
+                @HorizontalAimAnalog.canceled += instance.OnHorizontalAimAnalog;
+                @VerticalAimAnalog.started += instance.OnVerticalAimAnalog;
+                @VerticalAimAnalog.performed += instance.OnVerticalAimAnalog;
+                @VerticalAimAnalog.canceled += instance.OnVerticalAimAnalog;
             }
         }
     }
@@ -553,7 +611,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
-        void OnHorizontalAim(InputAction.CallbackContext context);
-        void OnVerticalAim(InputAction.CallbackContext context);
+        void OnHorizontalAimDigital(InputAction.CallbackContext context);
+        void OnVerticalAimDigital(InputAction.CallbackContext context);
+        void OnHorizontalAimAnalog(InputAction.CallbackContext context);
+        void OnVerticalAimAnalog(InputAction.CallbackContext context);
     }
 }

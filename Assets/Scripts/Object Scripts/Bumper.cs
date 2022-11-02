@@ -34,6 +34,8 @@ public class Bumper : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision2D){
+        if(isDeadlyBumper)return;
+        
         if(collision2D.gameObject.CompareTag("Player")){
             //Give the player an extra launch
             collision2D.gameObject.GetComponent<PlayerController>().UpdateLaunchCount(1);
@@ -43,11 +45,14 @@ public class Bumper : MonoBehaviour
 
     [SerializeField] private GameObject explosionParticles;
     [SerializeField] private int rewardedPoints;
+    [SerializeField] private bool isDeadlyBumper;
 
     private void Die(){
-        PointsManager.Instance.GainComboPoints(rewardedPoints);
-
-        Destroy(Instantiate(explosionParticles, transform.position, transform.rotation), 5f);
+        if(!isDeadlyBumper){
+            PointsManager.Instance.GainComboPoints(rewardedPoints);
+            Destroy(Instantiate(explosionParticles, transform.position, transform.rotation), 5f);
+        }
+        
         Destroy(gameObject);
     }
 }
