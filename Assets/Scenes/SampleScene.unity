@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 42.91198
+    OrthographicSize: 24.10705
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.6350054
+  m_AmplitudeGain: 0.02752632
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -477,7 +477,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &281086723
 GameObject:
@@ -575,7 +575,7 @@ RectTransform:
   - {fileID: 252051597}
   - {fileID: 1762140433}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -613,7 +613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRenderDistance: 200
   bumperSpacing: 20
-  inverseAiming: 1
+  inverseAiming: 0
   controlScheme: 1
 --- !u!4 &408347873
 Transform:
@@ -960,7 +960,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 42.91198
+  orthographic size: 24.10705
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6028,7 +6028,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
@@ -6140,6 +6140,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &639714019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 639714021}
+  - component: {fileID: 639714020}
+  m_Layer: 0
+  m_Name: PowerupManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &639714020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639714019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4711dbbe78e53b4b98aa62822a30e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &639714021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639714019}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &788036490
 GameObject:
@@ -16521,7 +16565,7 @@ Transform:
   m_Children:
   - {fileID: 1878773191}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &999717243
 MonoBehaviour:
@@ -16564,7 +16608,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1119927618
 GameObject:
@@ -16694,7 +16738,7 @@ Transform:
   m_Children:
   - {fileID: 847987935}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1119927621
 MonoBehaviour:
@@ -16782,9 +16826,11 @@ MonoBehaviour:
   maximumY: 1000
   bumperPrefabs:
   - {fileID: 6003992426016243756, guid: 9862454bc0e8a5b44800c148f25ad78a, type: 3}
+  - {fileID: 6003992426016243756, guid: abf02cd64ea9b2c429ebeac00c4ff652, type: 3}
   - {fileID: 5459758795737618678, guid: 9b136186c74dad14aba8715495d47d4f, type: 3}
   bumperProbabilities:
-  - 90
+  - 70
+  - 20
   - 10
   minimumBumperY: 60
   bumperRingMin: 100
@@ -16856,7 +16902,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389665431
 GameObject:
@@ -16935,7 +16981,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491831316
 GameObject:
@@ -21960,7 +22006,7 @@ Transform:
   - {fileID: 799905703}
   - {fileID: 1491831317}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1558087278
 GameObject:
@@ -22086,6 +22132,10 @@ MonoBehaviour:
   colourPalettes:
   - {fileID: 11400000, guid: 41e3d57b760380b4ea272ecdd36dc543, type: 2}
   - {fileID: 11400000, guid: ab61b28e291a063448489bf317e3b4ea, type: 2}
+  - {fileID: 11400000, guid: a8dbea04286926a4fa4a764006616e89, type: 2}
+  - {fileID: 11400000, guid: ccf9071109a340740aa3dfa1e0494b55, type: 2}
+  - {fileID: 11400000, guid: 6105683f2c69acb40bb8f806da9852ed, type: 2}
+  - {fileID: 11400000, guid: 0e1c663190b44954a81ca735e263b31c, type: 2}
 --- !u!4 &1728276266
 Transform:
   m_ObjectHideFlags: 0
@@ -27191,7 +27241,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021860741
 GameObject:
@@ -27222,7 +27272,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2028160657
 GameObject:
@@ -27358,7 +27408,7 @@ Transform:
   - {fileID: 545701563}
   - {fileID: 788036491}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2036249839
 GameObject:

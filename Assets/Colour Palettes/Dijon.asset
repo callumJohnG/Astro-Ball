@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb60bf4723bb714b8fc188f35768066, type: 3}
-  m_Name: Beige
+  m_Name: Dijon
   m_EditorClassIdentifier: 
-  highPassCol: {r: 0.8666667, g: 0.8784314, b: 0.7411765, a: 1}
-  highMidPassCol: {r: 0.8156863, g: 0.81960785, b: 0.6745098, a: 1}
-  midPassCol: {r: 0.7137255, g: 0.6392157, b: 0.61960787, a: 1}
-  lowMidPassCol: {r: 0.5803922, g: 0.54509807, b: 0.5372549, a: 1}
-  lowPassCol: {r: 0.44705883, g: 0.43137255, b: 0.45882353, a: 1}
+  highPassCol: {r: 0.9882353, g: 0.9882353, b: 0.9882353, a: 1}
+  highMidPassCol: {r: 0.8235294, g: 0.972549, b: 0.59607846, a: 1}
+  midPassCol: {r: 0.9647059, g: 0.9764706, b: 0.1882353, a: 1}
+  lowMidPassCol: {r: 0.5921569, g: 0.3882353, b: 0.5686275, a: 1}
+  lowPassCol: {r: 0.18431373, g: 0.18431373, b: 0.18431373, a: 1}

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb60bf4723bb714b8fc188f35768066, type: 3}
-  m_Name: Fire
+  m_Name: BeachHut
   m_EditorClassIdentifier: 
-  highPassCol: {r: 0.95686275, g: 0.89411765, b: 0.03529412, a: 1}
-  highMidPassCol: {r: 0.93333334, g: 0.7294118, b: 0.043137256, a: 1}
-  midPassCol: {r: 0.7647059, g: 0.43529412, b: 0.03529412, a: 1}
-  lowMidPassCol: {r: 0.6509804, g: 0.23529412, b: 0.023529412, a: 1}
-  lowPassCol: {r: 0.44313726, g: 0, b: 0, a: 1}
+  highPassCol: {r: 0.68235296, g: 0.9529412, b: 0.90588236, a: 1}
+  highMidPassCol: {r: 0.5568628, g: 0.8901961, b: 0.9372549, a: 1}
+  midPassCol: {r: 0.7647059, g: 0.23529412, b: 0.32941177, a: 1}
+  lowMidPassCol: {r: 0.21568628, g: 0.44313726, b: 0.5568628, a: 1}
+  lowPassCol: {r: 0.14509805, g: 0.30588236, b: 0.4392157, a: 1}

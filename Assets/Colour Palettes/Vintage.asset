@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb60bf4723bb714b8fc188f35768066, type: 3}
-  m_Name: Tea
+  m_Name: Vintage
   m_EditorClassIdentifier: 
-  highPassCol: {r: 0.9529412, g: 0.9137255, b: 0.8235294, a: 1}
-  highMidPassCol: {r: 0.7764706, g: 0.85490197, b: 0.7490196, a: 1}
-  midPassCol: {r: 0.53333336, g: 0.83137256, b: 0.59607846, a: 1}
-  lowMidPassCol: {r: 0.34509805, g: 0.41568628, b: 0.41568628, a: 1}
-  lowPassCol: {r: 0, g: 0.019607844, b: 0, a: 1}
+  highPassCol: {r: 0.8156863, g: 1, b: 0.80784315, a: 1}
+  highMidPassCol: {r: 0.85882354, g: 0.5764706, b: 0.6901961, a: 1}
+  midPassCol: {r: 0.60784316, g: 0.11372549, b: 0.1254902, a: 1}
+  lowMidPassCol: {r: 0.3882353, g: 0.3647059, b: 0.36078432, a: 1}
+  lowPassCol: {r: 0.23921569, g: 0.16862746, b: 0.23921569, a: 1}
