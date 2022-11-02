@@ -21,6 +21,13 @@ public class SmartPlayerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!GameplayManager.Instance.gameIsActive){
+            playerCam.Follow = null;
+            CinemachineBasicMultiChannelPerlin perlin = playerCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            perlin.m_AmplitudeGain = 0;
+            return;
+        }
+
         CalculateCameraZoom();
         CalculateCameraShake();
     }

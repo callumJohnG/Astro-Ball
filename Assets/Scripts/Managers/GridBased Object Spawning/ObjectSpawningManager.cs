@@ -26,6 +26,8 @@ public class ObjectSpawningManager : MonoBehaviour
     }
 
     private void Update(){
+        if(!GameplayManager.Instance.gameIsActive)return;
+
         CheckGrid();
         SpawnBumper();
     }
@@ -47,6 +49,7 @@ public class ObjectSpawningManager : MonoBehaviour
     [SerializeField] private int minimumY = 60;
     [SerializeField] private int maximumY = 1000;
     public void SpawnGrid(){
+        RespawnGrid();
         gridPoints.Clear();
 
         //Get the list of grid positions around the player
@@ -69,7 +72,6 @@ public class ObjectSpawningManager : MonoBehaviour
             }
         }
         gridPoints.Clear();
-        SpawnGrid();
     }
 
     private void CheckGrid(){

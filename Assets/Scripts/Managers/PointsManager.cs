@@ -19,7 +19,23 @@ public class PointsManager : MonoBehaviour
     }
 
     //I would like to make a combo system where you gain multipliers for many points gained in short succession
-    private int points;
+    public int points {get;private set;} = 0;
+    public int bestCombo {get; private set;} = 0;
+
+    public void ResetPoints(){
+        points = 0;
+        bestCombo = 0;
+
+        comboActive = false;
+        comboPoints = 0;
+        currentMultiplier = 1;
+        comboTitle.SetActive(false);
+        comboText.gameObject.SetActive(false);
+
+
+        UpdatePointsUI();
+    }
+
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private GameObject comboTitle;
@@ -33,6 +49,8 @@ public class PointsManager : MonoBehaviour
     [SerializeField] private float comboIncPitch = 0.1f;
 
     public void EndCombo(){
+        if((comboPoints * currentMultiplier) > bestCombo)bestCombo = comboPoints * currentMultiplier;
+
         comboActive = false;
 
         //commit the combo points

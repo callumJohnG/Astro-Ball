@@ -10,6 +10,8 @@ public class RenderDistanceObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!GameplayManager.Instance.gameIsActive)return;
+
         CheckDistance();
     }
 

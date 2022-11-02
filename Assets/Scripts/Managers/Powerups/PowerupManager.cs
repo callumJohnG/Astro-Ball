@@ -85,6 +85,7 @@ public class PowerupManager : MonoBehaviour
 
         if(remove){
             currentPowerups.Remove(powerup);
+            AudioManager.Instance.PlayPowerDown();
         }
 
         powerup.powerupUI.KillMe();
@@ -95,8 +96,13 @@ public class PowerupManager : MonoBehaviour
     }
 
     private void DisplayPowerup(Powerup powerup){
+        AudioManager.Instance.PlayPowerUp();
         Debug.Log("POWER UP ADDED OF TYPE " + powerup.myType.ToString());
         PlayPowerupAnimation(powerup.myType.ToString());
+    }
+
+    public void ClearPowerupText(){
+        powerupTitle.text = "";
     }
 
     public void WipeAllPowerups(){

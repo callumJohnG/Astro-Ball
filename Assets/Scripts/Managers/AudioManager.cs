@@ -32,6 +32,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip launch;
     [SerializeField] private AudioClip noLaunch;
     [SerializeField] private AudioClip recharge;
+    [SerializeField] private AudioClip powerUp;
+    [SerializeField] private AudioClip powerDown;
 
     public void PlayCoin(){
         PlaySoundEffect(coin);
@@ -51,6 +53,14 @@ public class AudioManager : MonoBehaviour
 
     public void PlayRecharge(){
         PlaySoundEffect(recharge);
+    }
+
+    public void PlayPowerUp(){
+        PlaySoundEffect(powerUp);
+    }
+
+    public void PlayPowerDown(){
+        PlaySoundEffect(powerDown);
     }
 
 

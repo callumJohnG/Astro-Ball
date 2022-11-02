@@ -49,6 +49,10 @@ public class PlayerController : MonoBehaviour
     private void Update(){
         FadeTimeScale();
 
+        if(dead){
+            return;
+        }
+
         CalculateAim();
 
         CheckLaunchRecharge();
@@ -56,7 +60,18 @@ public class PlayerController : MonoBehaviour
         CheckFastTrailParticles();
     }
 
+    private bool dead = false;
+    [SerializeField] private ParticleSystem deathParticles;
     private void Die(){
+        dead = true;
+
+
+
+        //Turn off my collider
+        GetComponent<Collider2D>().enabled = false;
+
+        deathParticles.Play();
+
         //Do death animation here
         AudioManager.Instance.PlayDeath();
         GameplayManager.Instance.GameOver();
@@ -156,6 +171,8 @@ public class PlayerController : MonoBehaviour
 
 
     private void StartLaunch(){
+        if(dead)return;
+
         if(launchCount <= 0){
             AudioManager.Instance.PlayNoLaunch();
             return;
@@ -227,6 +244,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void PerformLaunch(){
+        if(dead)return;
+
         if(!launching)return;
 
         UpdateLaunchCount(-1);

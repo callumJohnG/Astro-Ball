@@ -15,6 +15,8 @@ public class GridPoint : MonoBehaviour
     }
 
     private void Update(){
+        if(!GameplayManager.Instance.gameIsActive) return;
+
         CheckRangeToPlayer();
     }
 
