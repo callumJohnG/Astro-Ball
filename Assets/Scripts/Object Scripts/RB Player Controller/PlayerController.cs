@@ -47,11 +47,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update(){
-        FadeTimeScale();
-
         if(dead){
             return;
         }
+        FadeTimeScale();
 
         CalculateAim();
 

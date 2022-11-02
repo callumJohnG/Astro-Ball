@@ -44,10 +44,11 @@ public class GameplayManager : MonoBehaviour
 
     public bool gameIsActive {get; private set;}
 
+    [SerializeField] private HighscoreManager highscoreManager;
     public void GameOver(){
         player.UpdateLaunchCount();
 
-        HighscoreManager.Instance.SetData(PointsManager.Instance.points, PointsManager.Instance.bestCombo);
+        highscoreManager.SetData(PointsManager.Instance.points, PointsManager.Instance.bestCombo);
         PowerupManager.Instance.ClearPowerupText();
 
         gameIsActive = false;

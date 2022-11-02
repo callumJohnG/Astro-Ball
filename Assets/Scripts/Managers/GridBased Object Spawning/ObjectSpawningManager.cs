@@ -177,7 +177,6 @@ public class ObjectSpawningManager : MonoBehaviour
         for(int i = 0; i < bumperPrefabs.Count; i ++){
             checkVal += bumperProbabilities[i];
             if(randomNum <= checkVal){
-                Debug.Log("F");
                 return bumperPrefabs[i];
             }
         }
