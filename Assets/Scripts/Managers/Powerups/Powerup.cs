@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Powerup : MonoBehaviour
+public enum PowerupType{
+    None,
+    Bouncy,
+}
+
+public class Powerup
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private float endTime;
+    public PowerupType myType {get; private set;}
+
+    public Powerup(PowerupType type, float endTime){
+        this.endTime = endTime;
+        myType = type;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public bool IsPowerupDurationComplete(){
+        return(Time.time >= endTime);
+    }
+
+    public void SetEndTime(float endTime){
+        this.endTime = endTime;
     }
 }

@@ -20,4 +20,5 @@ public class GameSettingsManager : MonoBehaviour
     public float bumperSpacing = 20;
     public bool inverseAiming;
     public ControlScheme controlScheme;
+    public float powerupDuration = 10;
 }

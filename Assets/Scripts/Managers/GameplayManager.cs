@@ -25,7 +25,6 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera playerCam;
 
     public void GameOver(){
-        Debug.Log("Player has lost, kill them");
         Destroy(player.gameObject);
         Restart();
     }
@@ -41,5 +40,6 @@ public class GameplayManager : MonoBehaviour
     private void SpawnCharacter(){
         player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation).GetComponent<PlayerController>();
         SmartPlayerCamera.Instance.SetPlayer(player.gameObject);
+        PowerupManager.Instance.SetPlayerObject(player.gameObject);
     }
 }

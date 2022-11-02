@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 24.10705
+    OrthographicSize: 42.67969
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.02752632
+  m_AmplitudeGain: 0.6632916
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -615,6 +615,7 @@ MonoBehaviour:
   bumperSpacing: 20
   inverseAiming: 0
   controlScheme: 1
+  powerupDuration: 10
 --- !u!4 &408347873
 Transform:
   m_ObjectHideFlags: 0
@@ -960,7 +961,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 24.10705
+  orthographic size: 42.67969
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6170,6 +6171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4711dbbe78e53b4b98aa62822a30e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalPlayerMaterial: {fileID: 6200000, guid: 313a230591371f24e846640f8d6dad1b, type: 2}
+  bouncyPlayerMaterial: {fileID: 6200000, guid: 5cbb44c77d15f6642bc3f513b35f6f8c, type: 2}
 --- !u!4 &639714021
 Transform:
   m_ObjectHideFlags: 0
@@ -16302,7 +16305,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -20.841003, y: 21.203506}
+  m_AnchoredPosition: {x: -20.841003, y: 21.203491}
   m_SizeDelta: {x: 41.682007, y: 42.407013}
   m_Pivot: {x: 0.5, y: 0.50000006}
 --- !u!114 &907673912
@@ -16832,6 +16835,9 @@ MonoBehaviour:
   - 70
   - 20
   - 10
+  powerupPrefabs:
+  - {fileID: 6003992426016243756, guid: 69ea77a21aa63de459ae069dc0bb071d, type: 3}
+  powerupProbability: 1
   minimumBumperY: 60
   bumperRingMin: 100
   bumperRingMax: 150

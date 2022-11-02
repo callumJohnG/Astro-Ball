@@ -60,7 +60,6 @@ public class ObjectSpawningManager : MonoBehaviour
             gridPoint.SpawnObstacle();
             gridPoints.Add(gridPoint);
         }
-        Debug.Log(gridPoints.Count);
     }
 
     public void RespawnGrid(){
@@ -138,6 +137,8 @@ public class ObjectSpawningManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> bumperPrefabs;
     [SerializeField] private List<float> bumperProbabilities;
+    [SerializeField] private List<GameObject> powerupPrefabs;
+    [SerializeField] private float powerupProbability = 1;
     [SerializeField] private float minimumBumperY;
     [SerializeField] private float bumperRingMin;
     [SerializeField] private float bumperRingMax;
@@ -164,17 +165,23 @@ public class ObjectSpawningManager : MonoBehaviour
     }
 
     private GameObject GetRandomBumper(){
+        //Return a powerup
+        if(Random.Range(0,100) < powerupProbability){
+            Debug.Log("POwer up ");
+            return(powerupPrefabs[Random.Range(0, powerupPrefabs.Count)]);
+        }
+
         int randomNum = Random.Range(0,100);
         for(int i = 0; i < bumperPrefabs.Count; i ++){
             if(randomNum <= bumperProbabilities[i]){
                 return bumperPrefabs[i];
             }
         }
-        return bumperPrefabs[1];
+        Debug.Log("Default");
+        return bumperPrefabs[0];
     }
 
     public void WipeAllBumpers(){
-        Debug.Log("Deleting all bumpers");
         foreach(GameObject bumper in bumpers){
             if(bumper == null)continue;
 

@@ -39,6 +39,11 @@ public class Bumper : MonoBehaviour
         if(collision2D.gameObject.CompareTag("Player")){
             //Give the player an extra launch
             collision2D.gameObject.GetComponent<PlayerController>().UpdateLaunchCount(1);
+
+            if(myPowerup != PowerupType.None){
+                PowerupManager.Instance.AddPowerup(myPowerup);
+            }
+
             Die();
         }
     }
@@ -46,6 +51,7 @@ public class Bumper : MonoBehaviour
     [SerializeField] private GameObject explosionParticles;
     [SerializeField] private int rewardedPoints;
     [SerializeField] private bool isDeadlyBumper;
+    [SerializeField] private PowerupType myPowerup;
 
     private void Die(){
         if(!isDeadlyBumper){
