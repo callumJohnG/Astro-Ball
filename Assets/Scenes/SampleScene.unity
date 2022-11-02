@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 42.67969
+    OrthographicSize: 31.41865
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.6632916
+  m_AmplitudeGain: 0.3974041
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -614,7 +614,7 @@ MonoBehaviour:
   maxRenderDistance: 200
   bumperSpacing: 20
   inverseAiming: 0
-  controlScheme: 1
+  controlScheme: 0
   powerupDuration: 10
 --- !u!4 &408347873
 Transform:
@@ -961,7 +961,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 42.67969
+  orthographic size: 31.41865
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -16823,6 +16823,7 @@ MonoBehaviour:
   - {fileID: 2648686269154718783, guid: c78059ba725a93e46af2b4d2976c69a4, type: 3}
   - {fileID: 2648686269154718783, guid: 2e5fd4323b6d67f4d812cd9f2d1b9018, type: 3}
   - {fileID: 2648686269154718783, guid: 5c1e9703c421e614784d5e4a124dd648, type: 3}
+  - {fileID: 2648686269154718783, guid: 757eeb5bbd6f96648b6c84738d7fa9a4, type: 3}
   debugPrefab: []
   spawnProbability: 20
   minimumY: 60

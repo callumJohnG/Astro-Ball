@@ -167,13 +167,15 @@ public class ObjectSpawningManager : MonoBehaviour
     private GameObject GetRandomBumper(){
         //Return a powerup
         if(Random.Range(0,100) < powerupProbability){
-            Debug.Log("POwer up ");
             return(powerupPrefabs[Random.Range(0, powerupPrefabs.Count)]);
         }
 
         int randomNum = Random.Range(0,100);
+        float checkVal = 0;
         for(int i = 0; i < bumperPrefabs.Count; i ++){
-            if(randomNum <= bumperProbabilities[i]){
+            checkVal += bumperProbabilities[i];
+            if(randomNum <= checkVal){
+                Debug.Log("F");
                 return bumperPrefabs[i];
             }
         }
