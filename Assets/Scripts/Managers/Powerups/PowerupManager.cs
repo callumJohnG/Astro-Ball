@@ -59,6 +59,8 @@ public class PowerupManager : MonoBehaviour
         switch (type){
             case PowerupType.Bouncy : return bouncySprite;
             case PowerupType.Inverted : return invertedSprite;
+            case PowerupType.Moon : return moonSprite;
+            case PowerupType.Weak : return weakSprite;
         }
 
         return null;
@@ -77,6 +79,8 @@ public class PowerupManager : MonoBehaviour
         switch(powerup.myType){
             case PowerupType.Bouncy : ApplyBouncy();break;
             case PowerupType.Inverted : ApplyInverted();break;
+            case PowerupType.Moon : ApplyMoon();break;
+            case PowerupType.Weak : ApplyWeak();break;
         }
     }
 
@@ -92,6 +96,8 @@ public class PowerupManager : MonoBehaviour
         switch(powerup.myType){
             case PowerupType.Bouncy : RemoveBouncy();break;
             case PowerupType.Inverted : RemoveInverted();break;
+            case PowerupType.Moon : RemoveMoon();break;
+            case PowerupType.Weak : RemoveWeak();break;
         }
     }
 
@@ -148,6 +154,42 @@ public class PowerupManager : MonoBehaviour
 
     private void RemoveInverted(){
         GameSettingsManager.Instance.inverseAiming = false;
+    }
+
+    #endregion
+
+    #region Moon
+
+    [Header("Moon")]
+    [SerializeField] private Sprite moonSprite;
+    private float normalGravity;
+    [SerializeField] private float moonGravity;
+
+    private void ApplyMoon(){
+        normalGravity = playerObject.GetComponent<Rigidbody2D>().gravityScale;
+        playerObject.GetComponent<Rigidbody2D>().gravityScale = moonGravity;
+    }
+
+    private void RemoveMoon(){
+        playerObject.GetComponent<Rigidbody2D>().gravityScale = normalGravity;
+    }
+
+    #endregion
+
+    #region Weak
+
+    [Header("Bouncy")]
+    [SerializeField] private Sprite weakSprite;
+    private float normalForce;
+    [SerializeField] private float weakForce;
+
+    private void ApplyWeak(){
+        normalForce = playerObject.GetComponent<PlayerController>().launchForce;
+        playerObject.GetComponent<PlayerController>().launchForce = weakForce;
+    }
+
+    private void RemoveWeak(){
+        playerObject.GetComponent<PlayerController>().launchForce = normalForce;
     }
 
     #endregion

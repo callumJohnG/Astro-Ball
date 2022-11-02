@@ -13,9 +13,7 @@ public class GameplayManager : MonoBehaviour
     }
 
     private void Start(){
-        menuScreen.SetActive(true);
-        gameOverScreen.SetActive(false);
-        gameHud.SetActive(false);
+        MainMenu();
     }
 
     public void StartGame(){
@@ -59,7 +57,33 @@ public class GameplayManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    [SerializeField] private GameObject keyboardButton;
+    [SerializeField] private GameObject mouseButton;
+
+    public void SetKeyboard(){
+        GameSettingsManager.Instance.controlScheme = ControlScheme.Keyboard;
+        PlayerPrefs.SetInt("Controls", 0);
+    }
+
+    public void SetMouse(){
+        GameSettingsManager.Instance.controlScheme = ControlScheme.Mouse;
+        PlayerPrefs.SetInt("Controls", 1);
+    }
+
+    private void GetControls(){
+        if(PlayerPrefs.GetInt("Controls", 0) == 0){
+            keyboardButton.SetActive(true);
+            mouseButton.SetActive(false);
+        } else {
+            mouseButton.SetActive(true);
+            keyboardButton.SetActive(false);
+        }
+    }
+
+
+
     public void MainMenu(){
+        GetControls();
         KillPlayer();
         gameHud.SetActive(false);
         gameOverScreen.SetActive(false);

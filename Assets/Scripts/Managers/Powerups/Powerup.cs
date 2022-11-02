@@ -5,7 +5,9 @@ using UnityEngine;
 public enum PowerupType{
     None,
     Bouncy,
-    Inverted
+    Inverted,
+    Moon,
+    Weak
 }
 
 public class Powerup

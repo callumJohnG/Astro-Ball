@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
     private float targetTimeScale;
 
     [SerializeField] private LineRenderer aimLine;
-    [SerializeField] private float launchForce;
+    public float launchForce;
     [SerializeField] private float aimSmoothing = 1;
 
     [SerializeField] private ParticleSystem launchParticles;

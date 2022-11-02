@@ -11,7 +11,7 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameplayManager.Instance.player == null){
+        if(GameplayManager.Instance.player == null || !GameplayManager.Instance.gameIsActive){
             return;
         }
 
