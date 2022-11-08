@@ -19,8 +19,13 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    void Update(){
+        CheckSong();
+    }
+
     [SerializeField] private AudioClip bumper;
     [SerializeField] private AudioSource bumperSource;
+    [SerializeField] private AudioSource musicSource;
 
     public void PlayBumper(float pitch){
         bumperSource.pitch = pitch;
@@ -71,5 +76,21 @@ public class AudioManager : MonoBehaviour
 
     private void PlaySoundEffect(AudioClip audioClip){
         audioSource.PlayOneShot(audioClip);
+    }
+
+    [SerializeField] private List<AudioClip> musicList;
+    private int songIndex = 0;
+
+    private void CheckSong(){
+        if(!musicSource.isPlaying){
+            PlayNextSong();
+        }
+    }
+
+    public void PlayNextSong(){
+        musicSource.clip = musicList[songIndex];
+        musicSource.Play();
+        songIndex++;
+        if(songIndex >= musicList.Count)songIndex = 0;
     }
 }

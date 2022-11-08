@@ -178,7 +178,7 @@ public class PowerupManager : MonoBehaviour
 
     #region Weak
 
-    [Header("Bouncy")]
+    [Header("Weak")]
     [SerializeField] private Sprite weakSprite;
     private float normalForce;
     [SerializeField] private float weakForce;

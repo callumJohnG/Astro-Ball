@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem deathParticles;
     private void Die(){
         dead = true;
+        aimLine.gameObject.SetActive(false);
 
 
 

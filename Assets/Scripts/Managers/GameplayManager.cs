@@ -63,16 +63,16 @@ public class GameplayManager : MonoBehaviour
 
     public void SetKeyboard(){
         GameSettingsManager.Instance.controlScheme = ControlScheme.Keyboard;
-        PlayerPrefs.SetInt("Controls", 0);
+        PlayerPrefs.SetInt("Controls", 1);
     }
 
     public void SetMouse(){
         GameSettingsManager.Instance.controlScheme = ControlScheme.Mouse;
-        PlayerPrefs.SetInt("Controls", 1);
+        PlayerPrefs.SetInt("Controls", 0);
     }
 
     private void GetControls(){
-        if(PlayerPrefs.GetInt("Controls", 0) == 0){
+        if(PlayerPrefs.GetInt("Controls", 0) == 1){
             keyboardButton.SetActive(true);
             mouseButton.SetActive(false);
         } else {
