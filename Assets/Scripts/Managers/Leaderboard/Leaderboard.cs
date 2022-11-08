@@ -59,14 +59,14 @@ public class Leaderboard : MonoBehaviour
                 LootLockerLeaderboardMember[] members = response.items;
 
                 for(int i = 0; i < members.Length; i++){
-                    string playerName = members[i].rank + ". ";
+                    string playerName = "";
                     if(members[i].player.name != ""){
                         playerName += members[i].player.name;
                     } else {
-                        playerName += members[i].player.id;
+                        playerName += "Player " + members[i].player.id;
                     }
                     string playerScore = members[i].score.ToString();
-                    SpawnScore(playerName, playerScore, (members[i].player.name == PlayerPrefs.GetString("Name")));
+                    SpawnScore(playerName, playerScore, (members[i].player.name == PlayerPrefs.GetString("Name")), members[i].rank.ToString());
 
                 }
                 done = true;
@@ -82,15 +82,19 @@ public class Leaderboard : MonoBehaviour
 
     private List<GameObject> spawnedScores = new List<GameObject>();
 
-    private void SpawnScore(string name, string score, bool isMe){
+    private void SpawnScore(string name, string score, bool isMe, string rank){
         GameObject spawnedScore = Instantiate(scorePrefab, transform.position, transform.rotation, scoresContainer);
         spawnedScores.Add(spawnedScore);
-        spawnedScore.GetComponent<PlayerScoreObject>().SetText(name, score, isMe);
+        spawnedScore.GetComponent<PlayerScoreObject>().SetText(rank, name, score, isMe);
     }
 
     private void WipeScores(){
         foreach(GameObject score in spawnedScores){
             Destroy(score);
+        }
+        foreach(Transform score in scoresContainer){
+            if(score == null)continue;
+            Destroy(score.gameObject);
         }
         spawnedScores.Clear();
     }

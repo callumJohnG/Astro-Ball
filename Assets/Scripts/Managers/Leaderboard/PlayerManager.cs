@@ -16,14 +16,25 @@ public class PlayerManager : MonoBehaviour
     }
 
     public void SetPlayerName(){
+        StartCoroutine(SetPlayerNameRoutine());
+    }
+
+    private IEnumerator SetPlayerNameRoutine(){
+        bool done = false;
         LootLockerSDKManager.SetPlayerName(playerNameInputField.text, (response) => {
             if(response.success){
                 PlayerPrefs.SetString("Name", playerNameInputField.text);
                 Debug.Log("Changed name successfully");
+                done = true;
             } else {
                 Debug.Log("Failed to change name :" + response.Error);
+                done = true;
             }
         });
+        
+        yield return new WaitWhile(() => done == false);
+
+        Leaderboard.Instance.SetCurrentLeaderboard();
     }
 
     IEnumerator LoginRoutine(){
