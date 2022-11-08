@@ -28,6 +28,14 @@ public class PlayerController : MonoBehaviour
         targetTimeScale = 1;
 
         UpdateLaunchCount();
+
+        GetDifficultySettings();
+    }
+
+    //Get all the player based settings from the settings manager
+    private void GetDifficultySettings(){
+        rb.gravityScale = GameSettingsManager.Instance.defaultGravity;
+        launchRechargeDuration = GameSettingsManager.Instance.launchRechargeTime;
     }
 
     private void OnEnable(){
@@ -64,6 +72,10 @@ public class PlayerController : MonoBehaviour
     private void Die(){
         dead = true;
         aimLine.gameObject.SetActive(false);
+
+        if(GameSettingsManager.Instance.collectPointsOnDeath){
+            PointsManager.Instance.EndCombo();
+        }
 
 
 

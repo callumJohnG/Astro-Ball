@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0192c0407ab757419e9cfa70304e84f, type: 3}
+  m_Name: 2 Insane
+  m_EditorClassIdentifier: 
+  profileID: 2
+  bumperSpacing: 30
+  powerupDuration: 15
+  launchRechargeTime: 6
+  defaultGravity: 6
+  platformProbability: 15
+  pointsBaseMultiplier: 1.6
+  powerupProbability: 3
+  coinReward: 1
+  collectPointsOnDeath: 0
+  bumperProbabilities:
+  - 55
+  - 20
+  - 25

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private int rewardedPoints = 1;
-
     private void OnTriggerEnter2D(Collider2D collider2D){
         if(collider2D.CompareTag("Player")){
             //We've been collected
@@ -15,7 +13,7 @@ public class Coin : MonoBehaviour
 
     private void Collect(){
         AudioManager.Instance.PlayCoin();
-        PointsManager.Instance.GainPoints(rewardedPoints);
+        PointsManager.Instance.GainPoints(GameSettingsManager.Instance.coinReward);
         Destroy(gameObject);
     }
 }

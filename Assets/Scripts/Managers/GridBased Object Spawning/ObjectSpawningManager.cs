@@ -25,6 +25,12 @@ public class ObjectSpawningManager : MonoBehaviour
 
     }
 
+    public void GetDifficultySettings(){
+        this.spawnProbability = GameSettingsManager.Instance.platformProbability;
+        this.bumperProbabilities = GameSettingsManager.Instance.bumperProbabilities;
+        this.powerupProbability = GameSettingsManager.Instance.powerupProbability;
+    }
+
     private void Update(){
         if(!GameplayManager.Instance.gameIsActive)return;
 
@@ -140,7 +146,7 @@ public class ObjectSpawningManager : MonoBehaviour
     [SerializeField] private List<GameObject> bumperPrefabs;
     [SerializeField] private List<float> bumperProbabilities;
     [SerializeField] private List<GameObject> powerupPrefabs;
-    [SerializeField] private float powerupProbability = 1;
+    private float powerupProbability = 1;
     [SerializeField] private float minimumBumperY;
     [SerializeField] private float bumperRingMin;
     [SerializeField] private float bumperRingMax;
