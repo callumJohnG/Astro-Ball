@@ -77,8 +77,6 @@ public class PlayerController : MonoBehaviour
             PointsManager.Instance.EndCombo();
         }
 
-
-
         //Turn off my collider
         GetComponent<Collider2D>().enabled = false;
 

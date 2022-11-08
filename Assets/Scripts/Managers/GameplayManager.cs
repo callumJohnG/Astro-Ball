@@ -56,6 +56,13 @@ public class GameplayManager : MonoBehaviour
         gameHud.SetActive(false);
         gameOverScreen.SetActive(true);
         Time.timeScale = 1;
+
+        StartCoroutine(GameOverRoutine());
+    }
+
+    IEnumerator GameOverRoutine(){
+        yield return Leaderboard.Instance.SubmitScoreRoutine(PointsManager.Instance.points);
+        Leaderboard.Instance.SetCurrentLeaderboard();
     }
 
     [SerializeField] private GameObject keyboardButton;
