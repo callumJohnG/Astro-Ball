@@ -66,7 +66,10 @@ public class Leaderboard : MonoBehaviour
                         playerName += "Player " + members[i].player.id;
                     }
                     string playerScore = members[i].score.ToString();
-                    SpawnScore(playerName, playerScore, (members[i].player.name == PlayerPrefs.GetString("Name")), members[i].rank.ToString());
+
+                    bool isMe = ComparePlayers(members[i], leaderboardID);
+
+                    SpawnScore(playerName, playerScore, isMe, members[i].rank.ToString());
 
                 }
                 done = true;
@@ -78,6 +81,32 @@ public class Leaderboard : MonoBehaviour
         });
 
         yield return new WaitWhile(() => done == false);
+    }
+
+    private bool ComparePlayers(LootLockerLeaderboardMember member, int leaderboardID){
+        
+        if(member.player.name != PlayerPrefs.GetString("Name")) return false;
+
+        int highscore = GetPlayerHighScore(leaderboardID);
+        Debug.Log("Highscore : " +highscore);
+        Debug.Log("Member score : " + member.score);
+        if(member.score != highscore) return false;
+        Debug.Log("ITS ME");
+        return true;
+    }
+
+    private int GetPlayerHighScore(int leaderboardID){
+        if(leaderboardID == normalLeaderboardID){
+            Debug.Log("Normal");
+            return PlayerPrefs.GetInt("HighscoreNormal", 0);
+        } else if (leaderboardID == hardLeaderboardID){
+            Debug.Log("Hard");
+            return PlayerPrefs.GetInt("HighscoreHard", 0);
+        } else {
+            Debug.Log("Insane");
+            return PlayerPrefs.GetInt("HighscoreInsane", 0);
+        }
+        
     }
 
     private List<GameObject> spawnedScores = new List<GameObject>();
