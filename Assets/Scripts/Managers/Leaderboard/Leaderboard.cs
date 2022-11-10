@@ -60,7 +60,13 @@ public class Leaderboard : MonoBehaviour
         return 0;
     }
 
+    private bool fetching = false;
+
     public IEnumerator FetchTopHighscoresRoutine(int leaderboardID){
+
+        //Ensures that only one copy of this function can run at a time (was causing multiple copies of scores to be posted to leaderboard)
+        yield return new WaitWhile(() => fetching == false);
+        fetching = true;
         
         bool done = false;
 
@@ -100,6 +106,8 @@ public class Leaderboard : MonoBehaviour
         });
 
         yield return new WaitWhile(() => done == false);
+
+        fetching = false;
     }
 
     private bool ComparePlayers(LootLockerLeaderboardMember member, int leaderboardID){
