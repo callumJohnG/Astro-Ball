@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
         deathParticles.Play();
 
         //Do death animation here
+        AudioManager.Instance.DeactivateWind();
         AudioManager.Instance.PlayDeath();
         GameplayManager.Instance.GameOver();
     }
@@ -357,13 +358,18 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private ParticleSystem fastTrailParticles;
     [SerializeField] private float fastTrailSpeedLimit;
-    [SerializeField] private bool overSpeedLimit;
+    [SerializeField] private bool checkSpeed;
+    private bool overLimit = false;
     private void CheckFastTrailParticles(){
-        overSpeedLimit = rb.velocity.magnitude >= fastTrailSpeedLimit;
-        if(overSpeedLimit){
+        checkSpeed = rb.velocity.magnitude >= fastTrailSpeedLimit;
+        if(checkSpeed && !overLimit){
+            overLimit = true;
             fastTrailParticles.Play();
-        } else{
+            AudioManager.Instance.ActivateWind();
+        } else if(!checkSpeed && overLimit){
+            overLimit = false;
             fastTrailParticles.Stop();
+            AudioManager.Instance.DeactivateWind();
         }
     }
 

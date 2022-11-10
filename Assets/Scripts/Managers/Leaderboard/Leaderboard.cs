@@ -14,11 +14,24 @@ public class Leaderboard : MonoBehaviour
 
     [SerializeField] private Transform scoresContainer;
     [SerializeField] private GameObject scorePrefab;
+    [SerializeField] private GameObject loadingVisuals;
 
     // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
+    }
+
+    private void Update(){
+        CheckLoadingVisuals();
+    }
+
+    private void CheckLoadingVisuals(){
+        if(scoresContainer.childCount == 0){
+            loadingVisuals.SetActive(true);
+        } else {
+            loadingVisuals.SetActive(false);
+        }
     }
 
     public IEnumerator SubmitScoreRoutine(int scoreToUpload){
@@ -48,11 +61,17 @@ public class Leaderboard : MonoBehaviour
     }
 
     public IEnumerator FetchTopHighscoresRoutine(int leaderboardID){
-        WipeScores();
+        
+        bool done = false;
+
+        WipeScores(out done);
+
+        yield return new WaitWhile(() => done == false);
+
         currentLeaderboardID = leaderboardID;
 
         //int leaderboardID = GetLeaderboardID(PlayerPrefs.GetInt("Difficulty", 0));
-        bool done = false;
+        done = false;
         LootLockerSDKManager.GetScoreList(leaderboardID, 2000, 0, (response) => {
             if(response.success){
 
@@ -117,7 +136,7 @@ public class Leaderboard : MonoBehaviour
         spawnedScore.GetComponent<PlayerScoreObject>().SetText(rank, name, score, isMe);
     }
 
-    private void WipeScores(){
+    private void WipeScores(out bool done){
         foreach(GameObject score in spawnedScores){
             Destroy(score);
         }
@@ -126,6 +145,7 @@ public class Leaderboard : MonoBehaviour
             Destroy(score.gameObject);
         }
         spawnedScores.Clear();
+        done = true;
     }
 
     private int currentLeaderboardID;
