@@ -65,7 +65,10 @@ public class Leaderboard : MonoBehaviour
     public IEnumerator FetchTopHighscoresRoutine(int leaderboardID){
 
         //Ensures that only one copy of this function can run at a time (was causing multiple copies of scores to be posted to leaderboard)
-        yield return new WaitWhile(() => fetching == false);
+        if(fetching){
+            yield break;
+        }
+
         fetching = true;
         
         bool done = false;
