@@ -29,6 +29,8 @@ public class ObjectSpawningManager : MonoBehaviour
         this.spawnProbability = GameSettingsManager.Instance.platformProbability;
         this.bumperProbabilities = GameSettingsManager.Instance.bumperProbabilities;
         this.powerupProbability = GameSettingsManager.Instance.powerupProbability;
+        this.minimumY = GameSettingsManager.Instance.minGameHeight;
+        this.maximumY = GameSettingsManager.Instance.maxGameHeight;
     }
 
     private void Update(){
@@ -165,8 +167,16 @@ public class ObjectSpawningManager : MonoBehaviour
         //Get random point
         Vector3 randomPoint = GetRandomPointInCircle(GameplayManager.Instance.player.transform.position, bumperRingMin, bumperRingMax);
         
+        GameObject prefabToSpawn;
+        if(randomPoint.y >= maximumY){
+            //If we are above max game height , spawn a spike ball
+            prefabToSpawn = bumperPrefabs[bumperPrefabs.Count-1];
+        } else {
+            prefabToSpawn = GetRandomBumper();
+        }
+
         //Try to spawn a bumper there
-        GameObject bumper = Instantiate(GetRandomBumper(), randomPoint, Quaternion.identity, bumpersContainer);
+        GameObject bumper = Instantiate(prefabToSpawn, randomPoint, Quaternion.identity, bumpersContainer);
         if(bumper != null){
             bumpers.Add(bumper);
         }

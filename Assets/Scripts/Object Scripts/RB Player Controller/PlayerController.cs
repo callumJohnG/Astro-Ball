@@ -220,11 +220,7 @@ public class PlayerController : MonoBehaviour
     
     private void CalculateAim(Vector2 newAimVector){
         aimInput = mainCam.ScreenToWorldPoint(newAimVector);
-        
-        if(!launching)return;
-
-        Debug.Log(aimInput);
-
+    
         //Get the aim vector in respect to the player on screen
         Vector2 rawAimVector = -(Vector2)transform.position + aimInput;
 

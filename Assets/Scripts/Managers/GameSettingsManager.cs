@@ -2,12 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ControlScheme{
-    Keyboard,
-    Mouse,
-    GamePad
-}
-
 public class GameSettingsManager : MonoBehaviour
 {
     public static GameSettingsManager Instance;
@@ -18,7 +12,6 @@ public class GameSettingsManager : MonoBehaviour
 
     [HideInInspector] public float maxRenderDistance = 300;
     [HideInInspector] public bool inverseAiming;
-    [HideInInspector] public ControlScheme controlScheme;
 
     #region Difficulty Variables
     [HideInInspector] public float bumperSpacing = 20;
@@ -31,6 +24,8 @@ public class GameSettingsManager : MonoBehaviour
     [HideInInspector] public int coinReward;
     [HideInInspector] public bool collectPointsOnDeath;
     [HideInInspector] public List<float> bumperProbabilities;
+    [HideInInspector] public int maxGameHeight = 1000;
+    [HideInInspector] public int minGameHeight = 60;
 
     #endregion
 
@@ -89,6 +84,7 @@ public class GameSettingsManager : MonoBehaviour
         this.powerupProbability = difficultyProfile.powerupProbability;
         this.coinReward = difficultyProfile.coinReward;
         this.collectPointsOnDeath = difficultyProfile.collectPointsOnDeath;
+        this.maxGameHeight = difficultyProfile.maxGameHeight;
 
         PlayerPrefs.SetInt("Difficulty", difficultyProfile.profileID);
 
@@ -97,5 +93,6 @@ public class GameSettingsManager : MonoBehaviour
 
     private void ConfirmAllDifficultyVariables(){
         ObjectSpawningManager.Instance.GetDifficultySettings();
+        HeightUIManager.Instance.SetMax(maxGameHeight);
     }
 }

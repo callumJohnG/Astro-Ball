@@ -5267,9 +5267,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   deathParticles: {fileID: 662688252059439805}
-  currentVelocity: 0
-  groundCheck: {fileID: 2370374581396662477}
-  aimVector: {x: 0, y: 0, z: 0}
   slowMoTimeScale: 0.1
   slowMoFadeSpeed: 20
   CurrentTimeScale: 1
@@ -5279,7 +5276,7 @@ MonoBehaviour:
   launchParticles: {fileID: 291972369445888377}
   launchTrail: {fileID: 631978921624802626}
   launchCount: 0
-  maxLaucnhCount: 2
+  maxLaunchCount: 2
   launchRechargeDuration: 4
   fastTrailParticles: {fileID: 1269935795299148932}
   fastTrailSpeedLimit: 100

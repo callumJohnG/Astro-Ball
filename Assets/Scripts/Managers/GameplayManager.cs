@@ -65,33 +65,7 @@ public class GameplayManager : MonoBehaviour
         Leaderboard.Instance.SetCurrentLeaderboard();
     }
 
-    [SerializeField] private GameObject keyboardButton;
-    [SerializeField] private GameObject mouseButton;
-
-    public void SetKeyboard(){
-        GameSettingsManager.Instance.controlScheme = ControlScheme.Keyboard;
-        PlayerPrefs.SetInt("Controls", 1);
-    }
-
-    public void SetMouse(){
-        GameSettingsManager.Instance.controlScheme = ControlScheme.Mouse;
-        PlayerPrefs.SetInt("Controls", 0);
-    }
-
-    private void GetControls(){
-        if(PlayerPrefs.GetInt("Controls", 0) == 1){
-            keyboardButton.SetActive(true);
-            mouseButton.SetActive(false);
-        } else {
-            mouseButton.SetActive(true);
-            keyboardButton.SetActive(false);
-        }
-    }
-
-
-
     public void MainMenu(){
-        GetControls();
         KillPlayer();
         gameHud.SetActive(false);
         gameOverScreen.SetActive(false);
@@ -108,6 +82,7 @@ public class GameplayManager : MonoBehaviour
         player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation).GetComponent<PlayerController>();
         SmartPlayerCamera.Instance.SetPlayer(player.gameObject);
         PowerupManager.Instance.SetPlayerObject(player.gameObject);
+        HeightUIManager.Instance.SetPlayer(player.transform);
     }
 
     private void KillPlayer(){
