@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,26 +11,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
 
     private Rigidbody2D rb;
-    private PlayerControls controls;
-
-    private float movement;
-
-    private bool grounded;
+    private Camera mainCam;
+    
     [SerializeField] private LayerMask groundLayer;
 
     private void Awake(){
         rb = GetComponent<Rigidbody2D>();
 
-        //Creating new player controlls
-        controls = new PlayerControls();
-
-        ConfigureControlListeners();
+        //ConfigureControlListeners();
 
         targetTimeScale = 1;
 
         UpdateLaunchCount();
 
         GetDifficultySettings();
+
+        mainCam = Camera.main;
     }
 
     //Get all the player based settings from the settings manager
@@ -38,29 +35,13 @@ public class PlayerController : MonoBehaviour
         launchRechargeDuration = GameSettingsManager.Instance.launchRechargeTime;
     }
 
-    private void OnEnable(){
-        controls.Enable();
-    }
-
-    private void OnDisable(){
-        controls.Disable();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        CalculateHorizontalVeclocity();
-
-        grounded = IsGrounded();
-    }
-
     private void Update(){
         if(dead){
             return;
         }
         FadeTimeScale();
 
-        CalculateAim();
+        UpdateAimVisuals();
 
         CheckLaunchRecharge();
 
@@ -88,9 +69,23 @@ public class PlayerController : MonoBehaviour
         GameplayManager.Instance.GameOver();
     }
 
-    #region Player Controls
+    #region Player Input Events
     
-    private void ConfigureControlListeners(){
+    public void OnLaunch(InputAction.CallbackContext value){
+        if(value.started){
+            StartLaunch();
+        } else if(value.canceled){
+            PerformLaunch();
+        }
+    }
+
+    public void OnAim(InputAction.CallbackContext value){
+        //Debug.Log("new Position:" + value.ReadValue<Vector2>());
+        Vector2 aimValue = value.ReadValue<Vector2>();
+        CalculateAim(aimValue);
+    }
+
+    /*private void ConfigureControlListeners(){
         //Adding new listeners to the movement action
         controls.Player.Movement.performed += ctx => movement = ctx.ReadValue<float>();
         controls.Player.Movement.canceled += _ => movement = 0;
@@ -110,59 +105,14 @@ public class PlayerController : MonoBehaviour
         controls.Player.HorizontalAimAnalog.canceled += ctx => horizontalAimVector = 0;
         controls.Player.VerticalAimAnalog.performed += ctx => verticalAimVector = ctx.ReadValue<float>();
         controls.Player.VerticalAimAnalog.canceled += ctx => verticalAimVector = 0;
-    }
-
-    #endregion
-
-    #region Horizontal Movement
-
-
-
-    [SerializeField] private float currentVelocity;
-
-    private void CalculateHorizontalVeclocity(){
-        //rb.velocity = new Vector2(movement * movementSpeed, rb.velocity.y);
-        //rb.AddForce(new Vector2(movement * movementSpeed, 0));
-        if(GameSettingsManager.Instance.controlScheme == ControlScheme.Mouse){
-            movement = GetMouseMovement();
-        }
-        
-        float newVelocity = (movement * movementSpeed) + rb.velocity.x;
-        if(newVelocity > maxMovementMomentum) newVelocity = maxMovementMomentum;
-        if(newVelocity < -maxMovementMomentum) newVelocity = -maxMovementMomentum;
-        rb.velocity = new Vector2(newVelocity, rb.velocity.y);
-        
-        currentVelocity = rb.velocity.magnitude;
-    }
-
-    #endregion
-
-    #region Jumping and Launching
-
-    #region Jumping
-
-    private void Jump(){
-        if(grounded){
-            //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            rb.AddForce(new Vector2(0, jumpForce));
-        }
-    }
-
-    [SerializeField] private Transform groundCheck;
-
-    private bool IsGrounded(){
-        Collider2D collider = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
-        return collider != null;
-    }
+    }*/
 
     #endregion
 
     #region Launching
 
-    private float horizontalAimVector;
-    private float verticalAimVector;
-    [SerializeField] private Vector3 aimVector = new Vector3();
-
+    private Vector3 aimVector = new Vector3();
+    private Vector2 aimInput = new Vector2();
     private bool launching;
 
     [SerializeField] private float slowMoTimeScale;
@@ -178,7 +128,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem launchTrail;
 
     public int launchCount;
-    public int maxLaucnhCount = 4;
+    public int maxLaunchCount = 4;
 
 
     private void StartLaunch(){
@@ -198,62 +148,6 @@ public class PlayerController : MonoBehaviour
         aimLine.SetPosition(1, aimVector + transform.position);
     }
 
-    private void CalculateAim(){
-        if(!launching)return;
-
-        Vector3 rawAimVector = new Vector3(horizontalAimVector, verticalAimVector);
-
-        if(GameSettingsManager.Instance.controlScheme == ControlScheme.Mouse){
-            //Use mouse
-            rawAimVector = GetMouseAim();
-        }
-
-        if(rawAimVector == Vector3.zero){
-            //Use momentum
-            rawAimVector = rb.velocity;
-        }
-
-        if(GameSettingsManager.Instance.inverseAiming){
-            rawAimVector *= -1;
-        }
-
-        aimVector = Vector3.Normalize(rawAimVector) * launchForce;
-
-        Vector3 newAimPosition = aimVector + transform.position;
-
-
-        aimLine.SetPosition(0, transform.position);
-        aimLine.SetPosition(1, Vector3.Lerp(aimLine.GetPosition(1), newAimPosition, Time.deltaTime * aimSmoothing));
-    }
-
-    //Returns the normalised vector that the mouse is pointing in in reference to the player position
-    private Vector3 GetMouseAim(){
-        //Get the mouse position on screen
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition -= transform.position;
-        mousePosition =  Vector3.Normalize(mousePosition);
-        return mousePosition;
-    }
-
-    private float mouseMoveRange = 50;
-
-    private float GetMouseMovement(){
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float posVal = Mathf.InverseLerp(transform.position.x, transform.position.x + mouseMoveRange, mousePosition.x);
-        float negVal = Mathf.InverseLerp(transform.position.x, transform.position.x - mouseMoveRange, mousePosition.x);
-        if(posVal == 0){
-            switch(GameSettingsManager.Instance.inverseAiming){
-                case true : return negVal;
-                case false : return -negVal;
-            }
-        } else {
-            switch(GameSettingsManager.Instance.inverseAiming){
-                case true : return -posVal;
-                case false : return posVal;
-            }
-        }
-    }
-
     private void PerformLaunch(){
         if(dead)return;
 
@@ -271,15 +165,12 @@ public class PlayerController : MonoBehaviour
         PlayLaunchEffects();
     }
 
-    private void FadeTimeScale(){
-        Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime * slowMoFadeSpeed);
-        CurrentTimeScale = Time.timeScale;
-    }
+    
 
     public void UpdateLaunchCount(int count){
         launchCount += count;
         if(launchCount <= 0)launchCount = 0;
-        if(launchCount >= maxLaucnhCount) launchCount = maxLaucnhCount;
+        if(launchCount >= maxLaunchCount) launchCount = maxLaunchCount;
 
         LaunchUI.Instance.SetText(launchCount.ToString());
     }
@@ -293,13 +184,13 @@ public class PlayerController : MonoBehaviour
     private bool recharging = false;
 
     private void CheckLaunchRecharge(){
-        if(launchCount >= maxLaucnhCount && recharging){
+        if(launchCount >= maxLaunchCount && recharging){
             recharging = false;
             LaunchUI.Instance.StopRecharge();
             return;
         }
 
-        if(launchCount < maxLaucnhCount && !recharging){
+        if(launchCount < maxLaunchCount && !recharging){
             recharging = true;
             launchRechargeStartTime = Time.time;
             //Tell the UI about it here
@@ -325,6 +216,38 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region Aiming
+    
+    private void CalculateAim(Vector2 newAimVector){
+        aimInput = mainCam.ScreenToWorldPoint(newAimVector);
+        
+        if(!launching)return;
+
+        Debug.Log(aimInput);
+
+        //Get the aim vector in respect to the player on screen
+        Vector2 rawAimVector = -(Vector2)transform.position + aimInput;
+
+        if(GameSettingsManager.Instance.inverseAiming){
+            rawAimVector *= -1;
+        }
+
+        aimVector = Vector3.Normalize(rawAimVector) * launchForce;
+    }
+
+    private void UpdateAimVisuals(){
+        if(!launching)return;
+    
+        //Get the position on screen that we are aiming at
+        Vector3 newAimPosition = aimVector + transform.position;
+
+        //Draw the line visuals to match our current aim
+        aimLine.SetPosition(0, transform.position);
+        aimLine.SetPosition(1, Vector3.Lerp(aimLine.GetPosition(1), newAimPosition, Time.deltaTime * aimSmoothing));
+    }
+
+
+    
     #endregion
 
     #region Boosting
@@ -395,4 +318,9 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+
+    private void FadeTimeScale(){
+        Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime * slowMoFadeSpeed);
+        CurrentTimeScale = Time.timeScale;
+    }
 }
