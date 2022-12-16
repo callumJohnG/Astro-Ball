@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
     #region Launching
 
     private Vector3 aimVector = new Vector3();
-    private Vector2 aimInput = new Vector2();
+    private Vector2 aimAnchor = Vector2.zero;
     private bool launching;
 
     [SerializeField] private float slowMoTimeScale;
@@ -146,6 +146,8 @@ public class PlayerController : MonoBehaviour
 
         aimLine.SetPosition(0, transform.position);
         aimLine.SetPosition(1, aimVector + transform.position);
+
+        aimAnchor = Vector2.zero;
     }
 
     private void PerformLaunch(){
@@ -217,12 +219,24 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Aiming
-    
+
     private void CalculateAim(Vector2 newAimVector){
-        aimInput = mainCam.ScreenToWorldPoint(newAimVector);
+        if(aimAnchor == Vector2.zero){
+            //If we are starting a launch, set the new anchor point
+            aimAnchor = newAimVector;
+        }
+
+        Vector2 rawAimVector;
+
+        if(newAimVector == aimAnchor){
+            //use default instead
+            rawAimVector = Vector2.up;
+        } else {
+            //Get the aim vector in respect to the anchor point
+            rawAimVector = -aimAnchor + newAimVector;
+        }
     
-        //Get the aim vector in respect to the player on screen
-        Vector2 rawAimVector = -(Vector2)transform.position + aimInput;
+        
 
         if(GameSettingsManager.Instance.inverseAiming){
             rawAimVector *= -1;
