@@ -9762,7 +9762,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1726197279
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
@@ -9840,6 +9840,7 @@ MonoBehaviour:
   rewardedPoints: 100
   isDeadlyBumper: 0
   myPowerup: 1
+  pointCanvasPrefab: {fileID: 5306087218892968407, guid: 8124ab037bc3ea1498a72de7dbe66a6c, type: 3}
 --- !u!114 &7814174910070318898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9926,7 +9927,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1726197279
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}

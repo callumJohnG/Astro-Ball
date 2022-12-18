@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Bumper : MonoBehaviour
 {
@@ -52,13 +53,26 @@ public class Bumper : MonoBehaviour
     [SerializeField] private int rewardedPoints;
     [SerializeField] private bool isDeadlyBumper;
     [SerializeField] private PowerupType myPowerup;
+    [SerializeField] GameObject pointCanvasPrefab;
 
     private void Die(){
         if(!isDeadlyBumper){
             PointsManager.Instance.GainComboPoints(rewardedPoints);
             Destroy(Instantiate(explosionParticles, transform.position, transform.rotation), 5f);
+            
+            GameObject myCanvas = Instantiate(pointCanvasPrefab, transform.position, Quaternion.identity);
+            pointsText = myCanvas.GetComponentInChildren<TextMeshProUGUI>();
+            pointsAnimtor = myCanvas.GetComponentInChildren<Animator>();
+
+            pointsText.text = "+" + rewardedPoints;
+            pointsAnimtor.SetBool("Fade", true);
+
+            Destroy(myCanvas, 5f);
         }
         
         Destroy(gameObject);
     }
+
+    private Animator pointsAnimtor;
+    private TextMeshProUGUI pointsText;
 }
