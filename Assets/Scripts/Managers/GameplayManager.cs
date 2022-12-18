@@ -82,7 +82,9 @@ public class GameplayManager : MonoBehaviour
         player = Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation).GetComponent<PlayerController>();
         SmartPlayerCamera.Instance.SetPlayer(player.gameObject);
         PowerupManager.Instance.SetPlayerObject(player.gameObject);
-        HeightUIManager.Instance.SetPlayer(player.transform);
+        try{
+            HeightUIManager.Instance.SetPlayer(player.transform);
+        }catch{}
     }
 
     private void KillPlayer(){
