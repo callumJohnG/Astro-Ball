@@ -93,6 +93,9 @@ public class GameSettingsManager : MonoBehaviour
 
     private void ConfirmAllDifficultyVariables(){
         ObjectSpawningManager.Instance.GetDifficultySettings();
-        HeightUIManager.Instance.SetMax(maxGameHeight);
+        try{
+            HeightUIManager.Instance.SetMax(maxGameHeight);
+        }catch{}
     }
+
 }
