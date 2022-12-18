@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb60bf4723bb714b8fc188f35768066, type: 3}
-  m_Name: Lagoon
+  m_Name: Rainbow
   m_EditorClassIdentifier: 
-  highPassCol: {r: 0.5019608, g: 0.6313726, b: 0.75686276, a: 1}
-  highMidPassCol: {r: 0.5176471, g: 0.56078434, b: 0.64705884, a: 1}
-  midPassCol: {r: 0.9098039, g: 0.53333336, b: 0.4509804, a: 1}
-  lowMidPassCol: {r: 0.015686275, g: 0.22352941, b: 0.36862746, a: 1}
-  lowPassCol: {r: 0.011764706, g: 0.11372549, b: 0.26666668, a: 1}
+  highPassCol: {r: 0.99215686, g: 0.90588236, b: 0.29803923, a: 1}
+  highMidPassCol: {r: 0.35686275, g: 0.7529412, b: 0.92156863, a: 1}
+  midPassCol: {r: 0.7647059, g: 0.25882354, b: 0.24705882, a: 1}
+  lowMidPassCol: {r: 0.60784316, g: 0.77254903, b: 0.23921569, a: 1}
+  lowPassCol: {r: 0.12941177, g: 0.101960786, b: 0.11764706, a: 1}

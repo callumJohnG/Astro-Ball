@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb60bf4723bb714b8fc188f35768066, type: 3}
-  m_Name: BeachHut
+  m_Name: Salmon
   m_EditorClassIdentifier: 
-  highPassCol: {r: 0.68235296, g: 0.9529412, b: 0.90588236, a: 1}
-  highMidPassCol: {r: 0.5568628, g: 0.8901961, b: 0.9372549, a: 1}
-  midPassCol: {r: 0.7647059, g: 0.23529412, b: 0.32941177, a: 1}
-  lowMidPassCol: {r: 0.21568628, g: 0.44313726, b: 0.5568628, a: 1}
-  lowPassCol: {r: 0.14509805, g: 0.30588236, b: 0.4392157, a: 1}
+  highPassCol: {r: 1, g: 1, b: 1, a: 1}
+  highMidPassCol: {r: 0.5803922, g: 0.9843137, b: 0.67058825, a: 1}
+  midPassCol: {r: 1, g: 0.6745098, b: 0.5058824, a: 1}
+  lowMidPassCol: {r: 0.50980395, g: 0.67058825, b: 0.6313726, a: 1}
+  lowPassCol: {r: 0.03529412, g: 0.32156864, b: 0.3372549, a: 1}
