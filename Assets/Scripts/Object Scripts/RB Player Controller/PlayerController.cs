@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
     private void Die(){
         dead = true;
         aimLine.gameObject.SetActive(false);
+        mobileAimLine.gameObject.SetActive(false);
 
         if(GameSettingsManager.Instance.collectPointsOnDeath){
             PointsManager.Instance.EndCombo();
@@ -121,6 +122,8 @@ public class PlayerController : MonoBehaviour
     private float targetTimeScale;
 
     [SerializeField] private LineRenderer aimLine;
+    [SerializeField] private LineRenderer mobileAimLine;
+    private Vector3 LINEOFFSET = new Vector3(0, 0, 10);
     public float launchForce;
     [SerializeField] private float aimSmoothing = 1;
 
@@ -143,6 +146,7 @@ public class PlayerController : MonoBehaviour
         targetTimeScale = slowMoTimeScale;
 
         aimLine.gameObject.SetActive(true);
+        mobileAimLine.gameObject.SetActive(true);
 
         aimLine.SetPosition(0, transform.position);
         aimLine.SetPosition(1, aimVector + transform.position);
@@ -161,6 +165,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = targetTimeScale;
 
         aimLine.gameObject.SetActive(false);
+        mobileAimLine.gameObject.SetActive(false);
 
         rb.velocity = aimVector * launchForce;
 
@@ -227,6 +232,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 rawAimVector;
+        currentAimVector = newAimVector;
 
         if(newAimVector == aimAnchor){
             //use default instead
@@ -245,6 +251,8 @@ public class PlayerController : MonoBehaviour
         aimVector = Vector3.Normalize(rawAimVector) * launchForce;
     }
 
+    private Vector2 currentAimVector;
+
     private void UpdateAimVisuals(){
         if(!launching)return;
     
@@ -254,6 +262,9 @@ public class PlayerController : MonoBehaviour
         //Draw the line visuals to match our current aim
         aimLine.SetPosition(0, transform.position);
         aimLine.SetPosition(1, Vector3.Lerp(aimLine.GetPosition(1), newAimPosition, Time.deltaTime * aimSmoothing));
+    
+        mobileAimLine.SetPosition(0, mainCam.ScreenToWorldPoint(aimAnchor) + LINEOFFSET);
+        mobileAimLine.SetPosition(1, mainCam.ScreenToWorldPoint(currentAimVector) + LINEOFFSET);
     }
 
 
