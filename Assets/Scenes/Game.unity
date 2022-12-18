@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 60.49512
+    OrthographicSize: 60.32742
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -6208,7 +6208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.4130071
+  m_AmplitudeGain: 0.570315
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -12578,7 +12578,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 60.49512
+  orthographic size: 60.32742
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -67877,9 +67877,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e1c663190b44954a81ca735e263b31c, type: 2}
   - {fileID: 11400000, guid: ab61b28e291a063448489bf317e3b4ea, type: 2}
   - {fileID: 11400000, guid: a1312375b585aab40b6fe3061391eb51, type: 2}
+  - {fileID: 11400000, guid: 027e91f625c78144798dbab64d8a2c8c, type: 2}
   - {fileID: 11400000, guid: 41e3d57b760380b4ea272ecdd36dc543, type: 2}
   - {fileID: 11400000, guid: 389f2f2437ac17d4f824567a7b5a6b09, type: 2}
   - {fileID: 11400000, guid: a8dbea04286926a4fa4a764006616e89, type: 2}
+  - {fileID: 11400000, guid: f9d7e9d6fc0fcc14c98ec11bc2aac60c, type: 2}
 --- !u!4 &1728276266
 Transform:
   m_ObjectHideFlags: 0
