@@ -17,10 +17,20 @@ public class GameplayManager : MonoBehaviour
     }
 
     public void StartGame(){
+        PrepareGame();
+        PointsManager.Instance.ResetPoints();
+    }
+
+    public void ContinueGame(){
+        PrepareGame();
+    }
+
+    private void PrepareGame(){
         gameIsActive = true;
 
         menuScreen.SetActive(false);
         gameOverScreen.SetActive(false);
+        continueScreen.SetActive(false);
         gameHud.SetActive(true);
 
         KillPlayer();
@@ -28,7 +38,6 @@ public class GameplayManager : MonoBehaviour
         ObjectSpawningManager.Instance.SpawnGrid();
         ObjectSpawningManager.Instance.WipeAllBumpers();
         PowerupManager.Instance.WipeAllPowerups();
-        PointsManager.Instance.ResetPoints();
     }
 
 
@@ -40,6 +49,7 @@ public class GameplayManager : MonoBehaviour
 
     [SerializeField] private GameObject gameHud;
     [SerializeField] private GameObject menuScreen;
+    [SerializeField] private GameObject continueScreen;
     [SerializeField] private GameObject gameOverScreen;
 
     public bool gameIsActive {get; private set;}
@@ -54,7 +64,7 @@ public class GameplayManager : MonoBehaviour
         gameIsActive = false;
         //Game over animation here
         gameHud.SetActive(false);
-        gameOverScreen.SetActive(true);
+        continueScreen.SetActive(true);
         Time.timeScale = 1;
 
         StartCoroutine(GameOverRoutine());
@@ -70,6 +80,7 @@ public class GameplayManager : MonoBehaviour
         gameHud.SetActive(false);
         gameOverScreen.SetActive(false);
         menuScreen.SetActive(true);
+        continueScreen.SetActive(false);
         //Spawn a player
         //Spawn the world
     }
