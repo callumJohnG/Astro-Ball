@@ -122,8 +122,6 @@ public class AudioManager : MonoBehaviour
 
     #region Wind
 
-    [SerializeField] private AudioMixer mainMixer;
-
     private float windTargetVolume;
     [SerializeField] private float windFadeSpeed = 10;
     [SerializeField] private float windTopVolume = 0;
@@ -166,4 +164,24 @@ public class AudioManager : MonoBehaviour
     }
 
     #endregion
+
+    [SerializeField] private AudioMixer mainMixer;
+    [SerializeField] private float sfxDefaultValue;
+    public void MuteSFX(bool isMuted){
+        float newVolume = sfxDefaultValue;
+        if(isMuted){
+            newVolume = -100f;
+        }
+
+        mainMixer.SetFloat("SFXVolume", newVolume);
+    }
+    [SerializeField] private float musicDefaultValue;
+    public void MuteMusic(bool isMuted){
+        float newVolume = musicDefaultValue;
+        if(isMuted){
+            newVolume = -100f;
+        }
+
+        mainMixer.SetFloat("MusicVolume", newVolume);
+    }
 }

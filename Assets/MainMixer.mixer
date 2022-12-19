@@ -75,7 +75,8 @@ AudioMixerGroupController:
   m_Name: SFX
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 07dc16a696adec943be5c18370d05c24
-  m_Children: []
+  m_Children:
+  - {fileID: -2600632207314361469}
   m_Volume: a24921e29a3d1f24ead2283d2a67a832
   m_Pitch: 5a7351d880a72a243ab63ad6d9f25e3a
   m_Send: 00000000000000000000000000000000
@@ -101,6 +102,10 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 8ea44a3a311746648ac2725d11e40f6d
+    name: MusicVolume
+  - guid: a24921e29a3d1f24ead2283d2a67a832
+    name: SFXVolume
   - guid: 6bde6e1a2adc52a4c88188f756f3f62c
     name: WindVolume
   m_AudioMixerGroupViews:
@@ -124,7 +129,6 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -6966472458578310499}
   - {fileID: -1833631418385966348}
-  - {fileID: -2600632207314361469}
   m_Volume: 4c8870f9b26db7347acbe6467049c82f
   m_Pitch: f977de8182ac74546aad5041a45830ed
   m_Send: 00000000000000000000000000000000
@@ -158,10 +162,10 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 6903ad5d7c7716d4fab58b5cdf45137a
   m_FloatValues:
-    a24921e29a3d1f24ead2283d2a67a832: 0
-    4c8870f9b26db7347acbe6467049c82f: -9.833286
+    a24921e29a3d1f24ead2283d2a67a832: 0.03
+    4c8870f9b26db7347acbe6467049c82f: 0.04171297
     6bde6e1a2adc52a4c88188f756f3f62c: -80
-    8ea44a3a311746648ac2725d11e40f6d: -15
+    8ea44a3a311746648ac2725d11e40f6d: -14.742909
   m_TransitionOverrides: {}
 --- !u!244 &3305306605415021702
 AudioMixerEffectController:
