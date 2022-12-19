@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 70.80198
+    OrthographicSize: 51.8364
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -765,7 +765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 30.99939}
+  m_AnchoredPosition: {x: 0, y: 30.999512}
   m_SizeDelta: {x: 50, y: 0.00050926}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!199 &107059760
@@ -5694,8 +5694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0128cca888793241864c02f2e4ddab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followX: 1
-  followY: 1
+  maxDistanceFromPlayer: 0
+  lavaRiseSpeed: 0
 --- !u!1 &156673221
 GameObject:
   m_ObjectHideFlags: 0
@@ -6523,7 +6523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 0.4038043
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -7600,7 +7600,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -29.99939}
+  m_AnchoredPosition: {x: 0, y: -29.999512}
   m_SizeDelta: {x: 50, y: 0.0005187988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!199 &423368627
@@ -13127,7 +13127,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 70.80198
+  orthographic size: 51.8364
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -40343,8 +40343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0128cca888793241864c02f2e4ddab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followX: 1
-  followY: 0
+  maxDistanceFromPlayer: 100
+  lavaRiseSpeed: 100
 --- !u!1 &1001062027
 GameObject:
   m_ObjectHideFlags: 0
@@ -48427,7 +48427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.37, y: 1}
-  m_AnchoredPosition: {x: -20.819946, y: 0}
+  m_AnchoredPosition: {x: -20.819824, y: 0}
   m_SizeDelta: {x: -41.65, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1379998666
@@ -70661,8 +70661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0128cca888793241864c02f2e4ddab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followX: 0
-  followY: 0
+  maxDistanceFromPlayer: 0
+  lavaRiseSpeed: 0
 --- !u!1 &1891738765
 GameObject:
   m_ObjectHideFlags: 0

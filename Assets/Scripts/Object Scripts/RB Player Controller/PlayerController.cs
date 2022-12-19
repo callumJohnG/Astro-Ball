@@ -154,10 +154,19 @@ public class PlayerController : MonoBehaviour
         aimAnchor = Vector2.zero;
     }
 
+    private bool firstLaunch = true;
+
     private void PerformLaunch(){
         if(dead)return;
 
         if(!launching)return;
+
+        //Check if this is our first launch ever
+        if(firstLaunch){
+            FollowPlayer.Instance.StartRisingTracking(transform);
+            firstLaunch = false;
+        }
+        
 
         UpdateLaunchCount(-1);
         launching = false;

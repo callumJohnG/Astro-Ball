@@ -33,6 +33,7 @@ public class GameplayManager : MonoBehaviour
         continueScreen.SetActive(false);
         gameHud.SetActive(true);
 
+        FollowPlayer.Instance.Reset();
         KillPlayer();
         SpawnCharacter();
         ObjectSpawningManager.Instance.SpawnGrid();
@@ -60,6 +61,7 @@ public class GameplayManager : MonoBehaviour
 
         highscoreManager.SetData(PointsManager.Instance.points, PointsManager.Instance.bestCombo);
         PowerupManager.Instance.ClearPowerupText();
+        FollowPlayer.Instance.PlayerDied();
 
         gameIsActive = false;
         //Game over animation here
