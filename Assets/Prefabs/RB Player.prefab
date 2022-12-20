@@ -4891,7 +4891,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -2
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4994,7 +4994,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Positions:
   - {x: -1.6200002, y: 39.695034, z: 0}
@@ -5135,7 +5135,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Time: 0.1
   m_Parameters:
@@ -5217,6 +5217,7 @@ GameObject:
   - component: {fileID: 2370374581268752658}
   - component: {fileID: 2370374581268752656}
   - component: {fileID: 6198434045141421868}
+  - component: {fileID: 5080926526650502109}
   m_Layer: 0
   m_Name: RB Player
   m_TagString: Player
@@ -5359,7 +5360,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5434,6 +5435,20 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerControls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5080926526650502109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2370374581268752668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560548fe163f6f44fa8d2b998c67599d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsPerUnit: 1
+  unitHeight: 15
 --- !u!1 &2370374581396662476
 GameObject:
   m_ObjectHideFlags: 0
@@ -15115,7 +15130,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -2
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -24797,7 +24812,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -2
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -24901,7 +24916,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Positions:
   - {x: 0, y: 0, z: 0}
