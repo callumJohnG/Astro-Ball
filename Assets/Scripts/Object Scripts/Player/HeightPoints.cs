@@ -13,11 +13,16 @@ public class HeightPoints : MonoBehaviour
 
     private void Start() {
         maxHeight = transform.position.y;
+
+        SimpleDottedLineRenderer.Instance.CreateNewLine(-lineWidth, lineWidth);
     }
 
     void Update()
     {
+        if(!GameplayManager.Instance.gameIsActive)return;
+
         CheckHeight();
+        DrawHeightLine();
     }
 
     private void CheckHeight(){
@@ -41,7 +46,12 @@ public class HeightPoints : MonoBehaviour
 
         //Set the next remainder for next frame
         heightRemainder = heightDifference % unitHeight;
+    }
 
+    private float lineWidth = 200;
 
+    private void DrawHeightLine(){
+        Vector3 newPosition = new Vector3(transform.position.x, maxHeight);
+        SimpleDottedLineRenderer.Instance.SetPosition(newPosition);
     }
 }
