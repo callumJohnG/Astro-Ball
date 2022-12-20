@@ -22,7 +22,7 @@ public class HighscoreManager : MonoBehaviour
             SetHighscore(points);
             highscore = points;
         }
-        highscoreText.text = "Highscore:\n" + highscore.ToString();
+        highscoreText.text = "Highscore : " + highscore.ToString();
 
         string pointsString = points + " Points\nBest Combo : " + combo;
         pointsText.text = pointsString;
