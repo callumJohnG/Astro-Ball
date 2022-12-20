@@ -64,6 +64,8 @@ public class PlayerManager : MonoBehaviour
         });
 
         yield return new WaitWhile(() => done == false);
+
+        Leaderboard.Instance.SetCurrentLeaderboard();
     }
 
     // Update is called once per frame

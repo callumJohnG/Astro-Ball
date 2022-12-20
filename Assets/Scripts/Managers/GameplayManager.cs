@@ -14,7 +14,6 @@ public class GameplayManager : MonoBehaviour
 
     private void Start(){
         MainMenu();
-        Leaderboard.Instance.SetCurrentLeaderboard();
     }
 
     public void StartGame(){

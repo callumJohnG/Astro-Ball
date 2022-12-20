@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 75.46189
+    OrthographicSize: 51.70018
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -6525,7 +6525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 0.2338205
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -7603,9 +7603,6 @@ MonoBehaviour:
   hardDifficulty: {fileID: 11400000, guid: 248090a4dc0c9e048a35baaa841c589a, type: 2}
   insaneDifficulty: {fileID: 11400000, guid: 40bcf4aa845f949439ea1124233eaca3, type: 2}
   testDifficulty: {fileID: 11400000, guid: e42e016cdc24b8f43b4e98240b32fd54, type: 2}
-  normalButton: {fileID: 0}
-  hardButton: {fileID: 0}
-  insaneButton: {fileID: 0}
 --- !u!4 &408347873
 Transform:
   m_ObjectHideFlags: 0
@@ -13124,7 +13121,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 75.46189
+  orthographic size: 51.70018
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

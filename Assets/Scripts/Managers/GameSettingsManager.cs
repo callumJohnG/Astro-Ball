@@ -33,10 +33,6 @@ public class GameSettingsManager : MonoBehaviour
     [SerializeField] private DifficultyProfile hardDifficulty;
     [SerializeField] private DifficultyProfile insaneDifficulty;
     [SerializeField] private DifficultyProfile testDifficulty;
-
-    [SerializeField] private GameObject normalButton;
-    [SerializeField] private GameObject hardButton;
-    [SerializeField] private GameObject insaneButton;
     
 
     private void Start(){
@@ -46,23 +42,7 @@ public class GameSettingsManager : MonoBehaviour
 
     private void GetDifficulty(){
         int difficulty = PlayerPrefs.GetInt("Difficulty", 0);
-
-        if(difficulty == 0){
-            SetDifficulty(0);
-            normalButton.SetActive(true);
-            hardButton.SetActive(false);
-            insaneButton.SetActive(false);
-        } else if (difficulty == 1){
-            SetDifficulty(1);
-            normalButton.SetActive(false);
-            hardButton.SetActive(true);
-            insaneButton.SetActive(false);
-        } else if (difficulty == 2){
-            SetDifficulty(2);
-            normalButton.SetActive(false);
-            hardButton.SetActive(false);
-            insaneButton.SetActive(true);
-        }
+        SetDifficulty(difficulty);
     }
 
     public void SetDifficulty(int difficultyInt){
