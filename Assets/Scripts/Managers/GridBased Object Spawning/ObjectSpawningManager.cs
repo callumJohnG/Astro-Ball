@@ -132,7 +132,7 @@ public class ObjectSpawningManager : MonoBehaviour
         for(float x = startPoint.x; x <= endPoint.x; x += bounds){
             for(float y = startPoint.y; y <= endPoint.y; y += bounds){
                 if(y < minimumY)continue;
-                if(y > maximumY)continue;
+                //if(y > maximumY)continue;
 
                 newGridPositions.Add(new Vector3(x, y));
             }
@@ -167,13 +167,7 @@ public class ObjectSpawningManager : MonoBehaviour
         //Get random point
         Vector3 randomPoint = GetRandomPointInCircle(GameplayManager.Instance.player.transform.position, bumperRingMin, bumperRingMax);
         
-        GameObject prefabToSpawn;
-        if(randomPoint.y >= maximumY){
-            //If we are above max game height , spawn a spike ball
-            prefabToSpawn = bumperPrefabs[bumperPrefabs.Count-1];
-        } else {
-            prefabToSpawn = GetRandomBumper();
-        }
+        GameObject prefabToSpawn = GetRandomBumper();
 
         //Try to spawn a bumper there
         GameObject bumper = Instantiate(prefabToSpawn, randomPoint, Quaternion.identity, bumpersContainer);
