@@ -53,6 +53,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject menuScreen;
     [SerializeField] private GameObject leaderboardScreen;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private Animator gameOverAnimator;
 
     public bool gameIsActive {get; private set;}
 
@@ -67,6 +68,7 @@ public class GameplayManager : MonoBehaviour
         gameIsActive = false;
         //Game over animation here
         gameHud.SetActive(false);
+        gameOverAnimator.CrossFade("GameOver", 0, 0, 0);
         gameOverScreen.SetActive(true);
         Time.timeScale = 1;
 
