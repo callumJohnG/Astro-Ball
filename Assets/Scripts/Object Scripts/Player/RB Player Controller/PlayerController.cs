@@ -81,32 +81,9 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnAim(InputAction.CallbackContext value){
-        //Debug.Log("new Position:" + value.ReadValue<Vector2>());
         Vector2 aimValue = value.ReadValue<Vector2>();
         CalculateAim(aimValue);
     }
-
-    /*private void ConfigureControlListeners(){
-        //Adding new listeners to the movement action
-        controls.Player.Movement.performed += ctx => movement = ctx.ReadValue<float>();
-        controls.Player.Movement.canceled += _ => movement = 0;
-
-        //Adding listeners for the jump action
-        //controls.Player.Jump.started += _ => Jump();
-        controls.Player.Jump.started += _ => StartLaunch();
-        controls.Player.Jump.canceled += _ => PerformLaunch();
-
-        //Adding listeners for aim variables
-        controls.Player.HorizontalAimDigital.performed += ctx => horizontalAimVector = ctx.ReadValue<float>();
-        controls.Player.HorizontalAimDigital.canceled += _ => horizontalAimVector = 0;
-        controls.Player.VerticalAimDigital.performed += ctx => verticalAimVector = ctx.ReadValue<float>();
-        controls.Player.VerticalAimDigital.canceled += _ => verticalAimVector = 0;
-
-        controls.Player.HorizontalAimAnalog.performed += ctx => horizontalAimVector = ctx.ReadValue<float>();
-        controls.Player.HorizontalAimAnalog.canceled += ctx => horizontalAimVector = 0;
-        controls.Player.VerticalAimAnalog.performed += ctx => verticalAimVector = ctx.ReadValue<float>();
-        controls.Player.VerticalAimAnalog.canceled += ctx => verticalAimVector = 0;
-    }*/
 
     #endregion
 
