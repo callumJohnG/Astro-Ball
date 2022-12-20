@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 52.87069
+    OrthographicSize: 53.86482
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -649,7 +649,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -6155,7 +6155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 0.1747339
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -7180,7 +7180,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -12529,7 +12529,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 52.87069
+  orthographic size: 53.86482
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17983,7 +17983,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: a38d49a200000000599a8d631985c50d9551e9ebbfbaa62c7bec6506e1511c99
+  m_ApplyToSortingLayers: a38d49a2000000007bec6506ab334f29e1511c99599a8d634f5d94fb1985c50d9551e9ebbfbaa62c
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -23658,7 +23658,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 749124287
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -39610,8 +39610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0128cca888793241864c02f2e4ddab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistanceFromPlayer: 100
-  lavaRiseSpeed: 100
+  maxDistanceFromPlayer: 200
+  lavaRiseSpeed: 5
 --- !u!1 &1001062027
 GameObject:
   m_ObjectHideFlags: 0
@@ -63244,7 +63244,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 749124287
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -70112,7 +70112,6 @@ GameObject:
   - component: {fileID: 1878773194}
   - component: {fileID: 1878773193}
   - component: {fileID: 1878773192}
-  - component: {fileID: 1878773195}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Deadly
@@ -70221,8 +70220,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1726197279
-  m_SortingLayer: 3
+  m_SortingLayerID: -74162865
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
@@ -70235,20 +70234,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1878773195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878773190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0128cca888793241864c02f2e4ddab3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistanceFromPlayer: 0
-  lavaRiseSpeed: 0
 --- !u!1 &1891738765
 GameObject:
   m_ObjectHideFlags: 0
@@ -75986,8 +75971,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1572237917
-  m_SortingLayer: -1
+  m_SortingLayerID: -74162865
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -76092,7 +76077,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0

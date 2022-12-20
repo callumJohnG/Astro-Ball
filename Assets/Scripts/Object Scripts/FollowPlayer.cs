@@ -49,7 +49,8 @@ public class FollowPlayer : MonoBehaviour
     public void Reset(){
         isTracking = false;
         isRising = false;
-        transform.position = new Vector3(transform.position.x, defaultY, transform.position.x);
+        transform.position = new Vector3(transform.position.x, defaultY, transform.position.z);
+        
         trackTransform = null;
     }
 
@@ -75,12 +76,17 @@ public class FollowPlayer : MonoBehaviour
         //Check max distance
         if(trackTransform != null){
             float playerY = trackTransform.position.y;
-            if((- playerY + transform.position.y) > maxDistanceFromPlayer){
+            if((playerY - transform.position.y) > maxDistanceFromPlayer){
                 newPosition.y = playerY - maxDistanceFromPlayer;
             }
         }
 
         transform.position = newPosition;
+    }
+
+    private void OnDrawGizmos() {
+        //Vertical tracking line
+        Gizmos.DrawRay(transform.position, Vector3.up * maxDistanceFromPlayer);
     }
 
     #endregion
