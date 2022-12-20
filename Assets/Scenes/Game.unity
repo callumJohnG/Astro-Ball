@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 57.72204
+    OrthographicSize: 40
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -13121,7 +13121,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 57.72204
+  orthographic size: 40
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -46883,10 +46883,15 @@ MonoBehaviour:
   windTopVolume: -15
   windBottomVolume: -80
   musicList:
+  - {fileID: 8300000, guid: fa777b092c667884d8e942ed029d0fa6, type: 3}
   - {fileID: 8300000, guid: 1d425e6f1c03c26449140665b231c160, type: 3}
+  - {fileID: 8300000, guid: e1b34e4db671a934b80e1a0ef6f564fb, type: 3}
   - {fileID: 8300000, guid: 8a0a80602a0623b43ae5eddd09d4deaa, type: 3}
+  - {fileID: 8300000, guid: 335bc952e28483a4192022cf9eb4be41, type: 3}
   - {fileID: 8300000, guid: d579d7b32d3eac64aa6d3ba9342eb524, type: 3}
+  - {fileID: 8300000, guid: b87985d15cd154146a5dc0c61141ae7f, type: 3}
   - {fileID: 8300000, guid: a6ce01769029529469fca10c9dc54d32, type: 3}
+  - {fileID: 8300000, guid: 0333c30fefc4ebf4b998bd94a777ba2c, type: 3}
   mainMixer: {fileID: 24100000, guid: 038906beaf5c9a04b81c233a67b0cbdc, type: 2}
   sfxDefaultValue: 0
   musicDefaultValue: -15
@@ -49030,7 +49035,7 @@ MonoBehaviour:
   Size: 0.5
   Delta: 4
   Length: 200
-  dotColor: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
+  dotColor: {r: 0.28235295, g: 0.28235295, b: 0.28235295, a: 1}
 --- !u!4 &1341751418
 Transform:
   m_ObjectHideFlags: 0
@@ -64442,7 +64447,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423517661}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -71797,18 +71802,19 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 6a9bc39c0e2ab3a40a78a80046a82723, type: 2}
   colourPalettes:
   - {fileID: 11400000, guid: ccf9071109a340740aa3dfa1e0494b55, type: 2}
+  - {fileID: 11400000, guid: 94bd8308aa471b84ea5d2948f81c1d84, type: 2}
   - {fileID: 11400000, guid: 0e1c663190b44954a81ca735e263b31c, type: 2}
+  - {fileID: 11400000, guid: 2a436fdb357508c4fa15f87a233e5725, type: 2}
+  - {fileID: 11400000, guid: 24cd28dbff394604b9922458f207adfa, type: 2}
   - {fileID: 11400000, guid: 83343bdfab079484aa5dcb089212e124, type: 2}
+  - {fileID: 11400000, guid: cde6ab6df73fd234f9688421d77f7ed0, type: 2}
+  - {fileID: 11400000, guid: 143d9f9da1566e04d9523fc5b89df485, type: 2}
   - {fileID: 11400000, guid: f9d7e9d6fc0fcc14c98ec11bc2aac60c, type: 2}
   - {fileID: 11400000, guid: 027e91f625c78144798dbab64d8a2c8c, type: 2}
-  - {fileID: 11400000, guid: 143d9f9da1566e04d9523fc5b89df485, type: 2}
-  - {fileID: 11400000, guid: 58c1c9b634ec5314e8b1e9c1fd0fcd8a, type: 2}
   - {fileID: 11400000, guid: 41e3d57b760380b4ea272ecdd36dc543, type: 2}
   - {fileID: 11400000, guid: 389f2f2437ac17d4f824567a7b5a6b09, type: 2}
   - {fileID: 11400000, guid: dcd7fde1f88c95a4ca223eb54b65680f, type: 2}
   - {fileID: 11400000, guid: 8f33055364c73d14d9d35869987d8d7c, type: 2}
-  - {fileID: 11400000, guid: 94bd8308aa471b84ea5d2948f81c1d84, type: 2}
-  - {fileID: 11400000, guid: 10fabe58333f4754baf82c1ecd6f3bcd, type: 2}
 --- !u!4 &1728276266
 Transform:
   m_ObjectHideFlags: 0
