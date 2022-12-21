@@ -18,9 +18,19 @@ public class SimpleDottedLineRenderer : MonoBehaviour
     [SerializeField] private float Delta;
     [SerializeField] private float Length = 10;
     [SerializeField] private Color dotColor;
+    [SerializeField] private Transform tracker;
+    private float centerX;
 
     List<Vector2> positions = new List<Vector2>();
     List<GameObject> dots = new List<GameObject>();
+
+    private void Start() {
+        centerX = transform.position.x;
+    }
+
+    private void Update() {
+        UpdatePosition();
+    }
 
     public void CreateNewLine(float startX, float endX){
         transform.position = Vector3.zero;
@@ -71,8 +81,22 @@ public class SimpleDottedLineRenderer : MonoBehaviour
         dots.Clear();
     }
 
-    public void SetPosition(Vector3 position){
-        transform.position = position;
+    public void SetHeight(float height){
+        Vector3 newPosition = transform.position;
+        newPosition.y = height;
+        transform.position = newPosition;
+    }
+
+    private void UpdatePosition(){
+        if(tracker.position.x < (centerX - Delta)){
+            centerX -= Delta;
+        } else if (tracker.position.x > (centerX + Delta)){
+            centerX += Delta;
+        } else return;
+
+        Vector3 newPos = transform.position;
+        newPos.x = centerX;
+        transform.position = newPos;
     }
 
 }

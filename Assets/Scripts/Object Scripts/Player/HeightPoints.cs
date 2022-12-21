@@ -53,7 +53,6 @@ public class HeightPoints : MonoBehaviour
     private float lineWidth = 200;
 
     private void DrawHeightLine(){
-        Vector3 newPosition = new Vector3(transform.position.x, maxHeight);
-        SimpleDottedLineRenderer.Instance.SetPosition(newPosition);
+        SimpleDottedLineRenderer.Instance.SetHeight(maxHeight);
     }
 }

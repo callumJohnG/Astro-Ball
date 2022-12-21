@@ -19,6 +19,7 @@ public class GameplayManager : MonoBehaviour
     public void StartGame(){
         PrepareGame();
         PointsManager.Instance.ResetPoints();
+        continueButtonsManager.ResetButtons();
     }
 
     public void ContinueGame(){
@@ -53,6 +54,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject leaderboardScreen;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private Animator gameOverAnimator;
+    [SerializeField] private ContinueButtonsManager continueButtonsManager;
 
     public bool gameIsActive {get; private set;}
 
@@ -66,6 +68,9 @@ public class GameplayManager : MonoBehaviour
 
         //Gain XP
         PointsManager.Instance.SubmitPointsToXP();
+
+        //Set the continue buttons
+        continueButtonsManager.LoadButtons();
 
         gameIsActive = false;
         //Game over animation here

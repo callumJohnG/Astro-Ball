@@ -25,6 +25,7 @@ public class PlayerXPManager : MonoBehaviour
         if(currentXP < value) return false;
 
         currentXP -= value;
+        PlayerPrefs.SetInt(XP_KEY, currentXP);
         return true;
     }
 
