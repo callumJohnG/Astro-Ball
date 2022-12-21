@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 67.01149
+    OrthographicSize: 42.18171
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -5644,7 +5644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 23.187, y: 176.444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &134180547
@@ -6091,7 +6091,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 184.15
+  m_fontSize: 277
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6814,7 +6814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 0.001772774
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -13421,7 +13421,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1340327618}
+      - m_Target: {fileID: 1924279128}
         m_TargetAssemblyTypeName: ContinueButtonsManager, Assembly-CSharp
         m_MethodName: PurchaseContinue
         m_Mode: 1
@@ -14084,7 +14084,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 67.01149
+  orthographic size: 42.18171
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -50521,7 +50521,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1340327617}
   - component: {fileID: 1340327619}
-  - component: {fileID: 1340327618}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -50551,25 +50550,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1340327618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340327616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6efa00724909d44b7f12a89e7bcd13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  continueButton: {fileID: 425200002}
-  continueCostText: {fileID: 392167972}
-  continuePromptText: {fileID: 0}
-  advertButton: {fileID: 0}
-  rewardedAdsButton: {fileID: 87817685}
-  baseContinueCost: 100
-  continueCostIncrement: 50
 --- !u!114 &1340327619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51340,7 +51320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -136.18988}
+  m_AnchoredPosition: {x: 0, y: -136.18982}
   m_SizeDelta: {x: -15.68, y: -282.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1392767743
@@ -71786,7 +71766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 23.187, y: 176.444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1515706276
@@ -74866,6 +74846,8 @@ MonoBehaviour:
   rewardedAdsButton: {fileID: 87817685}
   baseContinueCost: 100
   continueCostIncrement: 50
+  payButtonCross: {fileID: 894392581}
+  adButtonCross: {fileID: 1233482651}
 --- !u!1 &1968069365
 GameObject:
   m_ObjectHideFlags: 0
@@ -75224,7 +75206,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 92.05
+  m_fontSize: 138.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

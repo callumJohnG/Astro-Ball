@@ -23,6 +23,10 @@ public class PlayerXPManager : MonoBehaviour
     private void InitialiseXP(){
         int currentXP = PlayerPrefs.GetInt(XP_KEY, 0);
         PlayerPrefs.SetInt(XP_KEY, currentXP);
+        bool cheat = true;
+        if(cheat){
+            PlayerPrefs.SetInt(XP_KEY, 2000);
+        }
         UpdateTexts();
     }
 
@@ -33,6 +37,7 @@ public class PlayerXPManager : MonoBehaviour
         currentXP -= value;
         PlayerPrefs.SetInt(XP_KEY, currentXP);
         UpdateTexts();
+        Debug.Log("Spent " + value + " coins - new value:" + GetXP());
         return true;
     }
 

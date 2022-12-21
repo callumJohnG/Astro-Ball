@@ -23,8 +23,9 @@ public class ContinueButtonsManager : MonoBehaviour
 
     public void LoadButtons(){
         //Paying Button
-        Debug.LogError("loading buttons");
-        currentCost = baseContinueCost + (continueCostIncrement * currentCostMultiplier);
+        Debug.Log("LOADING BUTTONs", this);
+        CalculateCurrentCost();
+        Debug.Log(currentCost, this);
         continueCostText.text = (currentCost + " coins");
         continuePromptText.text = "Pay " + currentCost + " coins to continue?";
 
@@ -34,20 +35,25 @@ public class ContinueButtonsManager : MonoBehaviour
         payButtonCross.SetActive(!canPay);
         adButtonCross.SetActive(!advertAvailable);
 
-        Debug.LogError(currentCost);
+    }
 
+    private void CalculateCurrentCost(){
+        Debug.Log("Current Multiplier = " + currentCostMultiplier, this);
+        currentCost = baseContinueCost + (continueCostIncrement * currentCostMultiplier);
+        Debug.Log("Calculating current cost!", this);
+        Debug.Log("Cost:" + currentCost + " Increment:" + currentCostMultiplier, this);
     }
 
     public void ResetButtons(){
         currentCostMultiplier = 0;
         advertAvailable = true;
-        Debug.LogError("Reset the buttons");
+        Debug.Log("Current Multiplier = " + currentCostMultiplier);
     }
 
     public void PurchaseContinue(){
+        CalculateCurrentCost();
         if(!PlayerXPManager.Instance.SpendXP(currentCost))return;
         currentCostMultiplier ++;
-        Debug.LogError("Spent Coins");
 
         //We spent the points
         ContinueGame();
