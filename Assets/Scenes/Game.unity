@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 60.74537
+    OrthographicSize: 49.97276
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -6526,7 +6526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.4011937
+  m_AmplitudeGain: 0
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -13118,7 +13118,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 60.74537
+  orthographic size: 49.97276
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -46748,7 +46748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d239e5728bbdc3499a94f02f476e3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsPerXP: 150
+  pointsPerXP: 25
 --- !u!4 &1112174267
 Transform:
   m_ObjectHideFlags: 0
@@ -72878,8 +72878,8 @@ MonoBehaviour:
   continueCostText: {fileID: 1640839233}
   advertButton: {fileID: 901055829}
   rewardedAdsButton: {fileID: 87817685}
-  baseContinueCost: 1
-  continueCostIncrement: 2
+  baseContinueCost: 100
+  continueCostIncrement: 50
 --- !u!1 &1968069365
 GameObject:
   m_ObjectHideFlags: 0
