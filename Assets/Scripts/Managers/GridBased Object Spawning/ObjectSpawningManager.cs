@@ -29,8 +29,6 @@ public class ObjectSpawningManager : MonoBehaviour
         this.spawnProbability = GameSettingsManager.Instance.platformProbability;
         this.bumperProbabilities = GameSettingsManager.Instance.bumperProbabilities;
         this.powerupProbability = GameSettingsManager.Instance.powerupProbability;
-        this.minimumY = GameSettingsManager.Instance.minGameHeight;
-        this.maximumY = GameSettingsManager.Instance.maxGameHeight;
     }
 
     private void Update(){
@@ -55,7 +53,6 @@ public class ObjectSpawningManager : MonoBehaviour
     [SerializeField] private float spawnProbability;
 
     [SerializeField] private int minimumY = 60;
-    [SerializeField] private int maximumY = 1000;
     public void SpawnGrid(){
         RespawnGrid();
         gridPoints.Clear();
@@ -147,7 +144,7 @@ public class ObjectSpawningManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> bumperPrefabs;
     [SerializeField] private List<float> bumperProbabilities;
-    [SerializeField] private List<GameObject> powerupPrefabs;
+    [SerializeField] private GameObject powerupPrefab;
     private float powerupProbability = 1;
     [SerializeField] private float minimumBumperY;
     [SerializeField] private float bumperRingMin;
@@ -158,9 +155,11 @@ public class ObjectSpawningManager : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         // Display the explosion radius when selected
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(GameplayManager.Instance.player.transform.position, bumperRingMax);
-        Gizmos.DrawWireSphere(GameplayManager.Instance.player.transform.position, bumperRingMin);
+        try{
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(GameplayManager.Instance.player.transform.position, bumperRingMax);
+            Gizmos.DrawWireSphere(GameplayManager.Instance.player.transform.position, bumperRingMin);
+        } catch {}
     }
 
     private void SpawnBumper(){
@@ -179,7 +178,7 @@ public class ObjectSpawningManager : MonoBehaviour
     private GameObject GetRandomBumper(){
         //Return a powerup
         if(Random.Range(0,100) < powerupProbability){
-            return(powerupPrefabs[Random.Range(0, powerupPrefabs.Count)]);
+            return powerupPrefab;
         }
 
         int randomNum = Random.Range(0,100);

@@ -13,12 +13,8 @@ public class DifficultyProfile : ScriptableObject
     public float launchRechargeTime;
     public float defaultGravity;
     public float platformProbability;
-    public float pointsBaseMultiplier;
     public float powerupProbability;
     public int coinReward;
-    public bool collectPointsOnDeath;
-    public int maxGameHeight = 1000;
-    public int minGameHeight = 60;
 
     public List<float> bumperProbabilities;
 

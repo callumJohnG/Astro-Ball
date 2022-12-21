@@ -70,7 +70,7 @@ public class PointsManager : MonoBehaviour
 
     public void GainComboPoints(int quantity){
         //Multiply by base multiplier related to difficulty
-        quantity = Mathf.FloorToInt(quantity * GameSettingsManager.Instance.pointsBaseMultiplier);
+        quantity = Mathf.FloorToInt(quantity * GameSettingsManager.Instance.pointsMultiplier);
 
         AudioManager.Instance.PlayBumper(comboBasePitch + (comboIncPitch * currentMultiplier));
 
@@ -92,6 +92,7 @@ public class PointsManager : MonoBehaviour
     }
 
     public void GainPoints(int quantity){
+        quantity = Mathf.FloorToInt(quantity * GameSettingsManager.Instance.pointsMultiplier);
         points += quantity;
         pointsAnimtor.CrossFade("GainPoints", 0, 0);
         UpdatePointsUI();

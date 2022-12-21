@@ -42,7 +42,9 @@ public class HeightPoints : MonoBehaviour
         int unitsPassed = Mathf.FloorToInt(heightDifference / unitHeight);
 
         //Add points equal to units passed
-        PointsManager.Instance.GainPoints(unitsPassed * pointsPerUnit);
+        if(unitsPassed != 0){
+            PointsManager.Instance.GainPoints(unitsPassed * pointsPerUnit);
+        }
 
         //Set the next remainder for next frame
         heightRemainder = heightDifference % unitHeight;

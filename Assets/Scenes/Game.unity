@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 40
+    OrthographicSize: 68.24322
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -7593,16 +7593,12 @@ MonoBehaviour:
   defaultGravity: 0
   platformProbability: 0
   powerupProbability: 0
-  pointsBaseMultiplier: 0
+  pointsMultiplier: 0
   coinReward: 0
-  collectPointsOnDeath: 0
   bumperProbabilities: []
   maxGameHeight: 1000
   minGameHeight: 60
   normalDifficulty: {fileID: 11400000, guid: 14466b182b8b4894191ea3d762c510a9, type: 2}
-  hardDifficulty: {fileID: 11400000, guid: 248090a4dc0c9e048a35baaa841c589a, type: 2}
-  insaneDifficulty: {fileID: 11400000, guid: 40bcf4aa845f949439ea1124233eaca3, type: 2}
-  testDifficulty: {fileID: 11400000, guid: e42e016cdc24b8f43b4e98240b32fd54, type: 2}
 --- !u!4 &408347873
 Transform:
   m_ObjectHideFlags: 0
@@ -13121,7 +13117,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 40
+  orthographic size: 68.24322
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19209,6 +19205,8 @@ MonoBehaviour:
   moonGravity: 2
   weakSprite: {fileID: 21300000, guid: e5735a4b5571dd046b53ce8fd0bf4452, type: 3}
   weakForce: 7
+  doublePointsSprite: {fileID: 21300000, guid: ff00345da0563d641903c5bd5bb748a4, type: 3}
+  multiplier: 2
 --- !u!4 &639714021
 Transform:
   m_ObjectHideFlags: 0
@@ -47196,7 +47194,6 @@ MonoBehaviour:
   debugPrefab: []
   spawnProbability: 20
   minimumY: 60
-  maximumY: 1000
   bumperPrefabs:
   - {fileID: 6003992426016243756, guid: 9862454bc0e8a5b44800c148f25ad78a, type: 3}
   - {fileID: 6003992426016243756, guid: abf02cd64ea9b2c429ebeac00c4ff652, type: 3}
@@ -47205,11 +47202,7 @@ MonoBehaviour:
   - 70
   - 20
   - 10
-  powerupPrefabs:
-  - {fileID: 6003992426016243756, guid: 69ea77a21aa63de459ae069dc0bb071d, type: 3}
-  - {fileID: 6003992426016243756, guid: 4d2644fd4c121074a8063e106f4372b1, type: 3}
-  - {fileID: 6003992426016243756, guid: 42fce15395b823e418f69d512aa6bd89, type: 3}
-  - {fileID: 6003992426016243756, guid: a66f2c84df5217a439de7c94bde49846, type: 3}
+  powerupPrefab: {fileID: 6003992426016243756, guid: 69ea77a21aa63de459ae069dc0bb071d, type: 3}
   minimumBumperY: 60
   bumperRingMin: 100
   bumperRingMax: 150

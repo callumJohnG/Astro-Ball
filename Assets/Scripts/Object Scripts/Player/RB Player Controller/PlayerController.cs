@@ -55,9 +55,7 @@ public class PlayerController : MonoBehaviour
         aimLine.gameObject.SetActive(false);
         mobileAimLine.gameObject.SetActive(false);
 
-        if(GameSettingsManager.Instance.collectPointsOnDeath){
-            PointsManager.Instance.EndCombo();
-        }
+        PointsManager.Instance.EndCombo();
 
         //Turn off my collider
         GetComponent<Collider2D>().enabled = false;

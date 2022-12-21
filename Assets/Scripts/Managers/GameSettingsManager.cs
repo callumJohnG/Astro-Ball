@@ -20,9 +20,8 @@ public class GameSettingsManager : MonoBehaviour
     [HideInInspector] public float defaultGravity;
     [HideInInspector] public float platformProbability;
     [HideInInspector] public float powerupProbability;
-    [HideInInspector] public float pointsBaseMultiplier;
+    [HideInInspector] public float pointsMultiplier = 1;
     [HideInInspector] public int coinReward;
-    [HideInInspector] public bool collectPointsOnDeath;
     [HideInInspector] public List<float> bumperProbabilities;
     [HideInInspector] public int maxGameHeight = 1000;
     [HideInInspector] public int minGameHeight = 60;
@@ -30,14 +29,12 @@ public class GameSettingsManager : MonoBehaviour
     #endregion
 
     [SerializeField] private DifficultyProfile normalDifficulty;
-    [SerializeField] private DifficultyProfile hardDifficulty;
-    [SerializeField] private DifficultyProfile insaneDifficulty;
-    [SerializeField] private DifficultyProfile testDifficulty;
     
 
     private void Start(){
         //SetDifficulty(0);
         GetDifficulty();
+        pointsMultiplier = 1;
     }
 
     private void GetDifficulty(){
@@ -48,8 +45,6 @@ public class GameSettingsManager : MonoBehaviour
     public void SetDifficulty(int difficultyInt){
         switch (difficultyInt){
             case 0 : SetDifficulty(normalDifficulty);break;
-            case 1 : SetDifficulty(hardDifficulty);break;
-            case 2 : SetDifficulty(insaneDifficulty);break;
         }
     }
 
@@ -59,23 +54,15 @@ public class GameSettingsManager : MonoBehaviour
         this.launchRechargeTime = difficultyProfile.launchRechargeTime;
         this.defaultGravity = difficultyProfile.defaultGravity;
         this.platformProbability = difficultyProfile.platformProbability;
-        this.pointsBaseMultiplier = difficultyProfile.pointsBaseMultiplier;
         this.bumperProbabilities = difficultyProfile.bumperProbabilities;
         this.powerupProbability = difficultyProfile.powerupProbability;
         this.coinReward = difficultyProfile.coinReward;
-        this.collectPointsOnDeath = difficultyProfile.collectPointsOnDeath;
-        this.maxGameHeight = difficultyProfile.maxGameHeight;
-
-        PlayerPrefs.SetInt("Difficulty", difficultyProfile.profileID);
 
         ConfirmAllDifficultyVariables();
     }
 
     private void ConfirmAllDifficultyVariables(){
         ObjectSpawningManager.Instance.GetDifficultySettings();
-        try{
-            HeightUIManager.Instance.SetMax(maxGameHeight);
-        }catch{}
     }
 
 }

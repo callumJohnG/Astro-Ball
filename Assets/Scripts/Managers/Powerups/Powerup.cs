@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PowerupType{
-    None,
     Bouncy,
     Inverted,
     Moon,
-    Weak
+    Weak,
+    DoublePoints
 }
 
 public class Powerup

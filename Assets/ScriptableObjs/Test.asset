@@ -10,19 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0192c0407ab757419e9cfa70304e84f, type: 3}
-  m_Name: 2 Insane
+  m_Name: Test
   m_EditorClassIdentifier: 
-  profileID: 2
-  bumperSpacing: 30
-  powerupDuration: 15
-  launchRechargeTime: 6
-  defaultGravity: 6
-  platformProbability: 15
-  pointsBaseMultiplier: 1.6
-  powerupProbability: 3
-  coinReward: 1
-  collectPointsOnDeath: 0
+  profileID: 0
+  bumperSpacing: 17
+  powerupDuration: 10
+  launchRechargeTime: 3
+  defaultGravity: 4
+  platformProbability: 30
+  pointsBaseMultiplier: 1
+  powerupProbability: 10
+  coinReward: 3
+  collectPointsOnDeath: 1
+  maxGameHeight: 1000
+  minGameHeight: 60
   bumperProbabilities:
-  - 55
+  - 75
   - 20
-  - 25
+  - 5

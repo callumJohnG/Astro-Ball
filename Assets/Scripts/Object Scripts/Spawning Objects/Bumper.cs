@@ -41,8 +41,11 @@ public class Bumper : MonoBehaviour
             //Give the player an extra launch
             collision2D.gameObject.GetComponent<PlayerController>().UpdateLaunchCount(1);
 
-            if(myPowerup != PowerupType.None){
+            /*if(myPowerup != PowerupType.None){
                 PowerupManager.Instance.AddPowerup(myPowerup);
+            }*/
+            if(isPowerup){
+                PowerupManager.Instance.AddPowerup();
             }
 
             Die();
@@ -52,7 +55,7 @@ public class Bumper : MonoBehaviour
     [SerializeField] private GameObject explosionParticles;
     [SerializeField] private int rewardedPoints;
     [SerializeField] private bool isDeadlyBumper;
-    [SerializeField] private PowerupType myPowerup;
+    [SerializeField] private bool isPowerup;
     [SerializeField] GameObject pointCanvasPrefab;
 
     private void Die(){
@@ -64,7 +67,8 @@ public class Bumper : MonoBehaviour
             pointsText = myCanvas.GetComponentInChildren<TextMeshProUGUI>();
             pointsAnimtor = myCanvas.GetComponentInChildren<Animator>();
 
-            pointsText.text = "+" + rewardedPoints;
+            pointsText.text = "+" + Mathf.FloorToInt(rewardedPoints * GameSettingsManager.Instance.pointsMultiplier);
+            
             pointsAnimtor.SetBool("Fade", true);
 
             Destroy(myCanvas, 5f);

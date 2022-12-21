@@ -27,6 +27,15 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] private Transform powerupContainer;
     [SerializeField] private GameObject powerupText;
 
+    //Get a random powerup and add it
+    public void AddPowerup(){
+        AddPowerup(GetRandomPowerup());
+    }
+
+    private PowerupType GetRandomPowerup(){
+        return (PowerupType)Random.Range(0, System.Enum.GetValues(typeof(PowerupType)).Length);
+    }
+
     public void AddPowerup(PowerupType type){
         Powerup currentPowerup = GetPowerupOfType(type);
         if(currentPowerup == null){
@@ -61,6 +70,7 @@ public class PowerupManager : MonoBehaviour
             case PowerupType.Inverted : return invertedSprite;
             case PowerupType.Moon : return moonSprite;
             case PowerupType.Weak : return weakSprite;
+            case PowerupType.DoublePoints : return doublePointsSprite;
         }
 
         return null;
@@ -81,6 +91,7 @@ public class PowerupManager : MonoBehaviour
             case PowerupType.Inverted : ApplyInverted();break;
             case PowerupType.Moon : ApplyMoon();break;
             case PowerupType.Weak : ApplyWeak();break;
+            case PowerupType.DoublePoints : ApplyDoublePoints();break;
         }
     }
 
@@ -98,6 +109,7 @@ public class PowerupManager : MonoBehaviour
             case PowerupType.Inverted : RemoveInverted();break;
             case PowerupType.Moon : RemoveMoon();break;
             case PowerupType.Weak : RemoveWeak();break;
+            case PowerupType.DoublePoints : RemoveDoublePoints();break;
         }
     }
 
@@ -145,7 +157,7 @@ public class PowerupManager : MonoBehaviour
 
     #region Inverted
 
-    [Header("Bouncy")]
+    [Header("Inverted")]
     [SerializeField] private Sprite invertedSprite;
 
     private void ApplyInverted(){
@@ -190,6 +202,24 @@ public class PowerupManager : MonoBehaviour
 
     private void RemoveWeak(){
         playerObject.GetComponent<PlayerController>().launchForce = normalForce;
+    }
+
+    #endregion
+
+    #region DoublePoints
+
+    [Header("DoublePoints")]
+    [SerializeField] private Sprite doublePointsSprite;
+    private float normalMultiplier;
+    [SerializeField] private float multiplier;
+
+    private void ApplyDoublePoints(){
+        normalMultiplier = GameSettingsManager.Instance.pointsMultiplier;
+        GameSettingsManager.Instance.pointsMultiplier = multiplier;
+    }
+
+    private void RemoveDoublePoints(){
+        GameSettingsManager.Instance.pointsMultiplier = normalMultiplier;
     }
 
     #endregion
