@@ -8,9 +8,8 @@ public class Leaderboard : MonoBehaviour
 {
     public static Leaderboard Instance;
 
-    [SerializeField] int normalLeaderboardID = 8694;
-    [SerializeField] int hardLeaderboardID = 8695;
-    [SerializeField] int insaneLeaderboardID = 8696;
+    [SerializeField] private int normalLeaderboardID = 9926;
+    [SerializeField] private int challengeLeaderboardID = 9927;
 
     [SerializeField] private Transform scoresContainer;
     [SerializeField] private GameObject scorePrefab;
@@ -54,8 +53,7 @@ public class Leaderboard : MonoBehaviour
     public int GetLeaderboardID(int difficulty){
         switch (difficulty){
             case 0 : return normalLeaderboardID;
-            case 1 : return hardLeaderboardID;
-            case 2 : return insaneLeaderboardID;
+            case 1 : return challengeLeaderboardID;
         }
         return 0;
     }
@@ -126,16 +124,8 @@ public class Leaderboard : MonoBehaviour
     }
 
     private int GetPlayerHighScore(int leaderboardID){
-        if(leaderboardID == normalLeaderboardID){
-            Debug.Log("Normal");
-            return PlayerPrefs.GetInt("HighscoreNormal", 0);
-        } else if (leaderboardID == hardLeaderboardID){
-            Debug.Log("Hard");
-            return PlayerPrefs.GetInt("HighscoreHard", 0);
-        } else {
-            Debug.Log("Insane");
-            return PlayerPrefs.GetInt("HighscoreInsane", 0);
-        }
+        //if(leaderboardID == normalLeaderboardID){
+        return PlayerPrefs.GetInt("HighscoreNormal", 0);
         
     }
 
@@ -164,44 +154,30 @@ public class Leaderboard : MonoBehaviour
     public void SetCurrentLeaderboard(){
         switch (PlayerPrefs.GetInt("Difficulty", 0)){
             case 0 : SetNormalLeaderboard();break;
-            case 1 : SetHardLeaderboard();break;
-            case 2 : SetInsaneLeaderboard();break;
+            case 1 : SetChallengeLeaderboard();break;
         }
     }
 
     public void NextLeaderboard(){
         if(currentLeaderboardID == normalLeaderboardID){
-            SetHardLeaderboard();
-        } else if (currentLeaderboardID == hardLeaderboardID){
-            SetInsaneLeaderboard();
-        } else if(currentLeaderboardID == insaneLeaderboardID){
+            SetChallengeLeaderboard();
+        } else {
             SetNormalLeaderboard();
         }
     }
     public void PreviousLeaderboard(){
-        if(currentLeaderboardID == normalLeaderboardID){
-            SetInsaneLeaderboard();
-        } else if (currentLeaderboardID == hardLeaderboardID){
-            SetNormalLeaderboard();
-        } else if(currentLeaderboardID == insaneLeaderboardID){
-            SetHardLeaderboard();
-        }
+        NextLeaderboard();
     }
 
     [SerializeField] private TextMeshProUGUI leaderboardTitle;
     
     private void SetNormalLeaderboard(){
-        leaderboardTitle.text = "Highscores : Normal";
+        leaderboardTitle.text = "High Scores : Normal";
         StartCoroutine(FetchTopHighscoresRoutine(normalLeaderboardID));
     }
 
-    private void SetHardLeaderboard(){
-        leaderboardTitle.text = "Highscores : Hard";
-        StartCoroutine(FetchTopHighscoresRoutine(hardLeaderboardID));
-    }
-
-    private void SetInsaneLeaderboard(){
-        leaderboardTitle.text = "Highscores : Insane";
-        StartCoroutine(FetchTopHighscoresRoutine(insaneLeaderboardID));
+    private void SetChallengeLeaderboard(){
+        leaderboardTitle.text = "High Scores : Challenge";
+        StartCoroutine(FetchTopHighscoresRoutine(challengeLeaderboardID));
     }
 }
