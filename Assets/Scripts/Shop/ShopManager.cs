@@ -14,7 +14,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject shopButtonPrefab;
     [SerializeField] private Transform shopButtonParent;
     [SerializeField] private List<ColourPaletteData> allPalettes;
-    private List<ColourSchemeShopButton> allButtons;
+    private List<ColourSchemeShopButton> allButtons = new List<ColourSchemeShopButton>();
 
     private void Start() {
         //Spawn all the buttons
