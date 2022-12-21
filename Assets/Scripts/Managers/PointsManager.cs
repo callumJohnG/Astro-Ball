@@ -39,7 +39,7 @@ public class PointsManager : MonoBehaviour
     }
 
     public void SubmitPointsToXP(){
-        PlayerXPManager.Instance.CalculateXPFromPoints(points - xpPoints);
+        PlayerXPManager.Instance.CalculateXPGain(points - xpPoints);
         xpPoints = points;
     }
 
