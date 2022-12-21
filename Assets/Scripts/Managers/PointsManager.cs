@@ -20,11 +20,13 @@ public class PointsManager : MonoBehaviour
 
     //I would like to make a combo system where you gain multipliers for many points gained in short succession
     public int points {get;private set;} = 0;
+    private int xpPoints = 0;
     public int bestCombo {get; private set;} = 0;
 
     public void ResetPoints(){
         points = 0;
         bestCombo = 0;
+        xpPoints = 0;
 
         comboActive = false;
         comboPoints = 0;
@@ -34,6 +36,11 @@ public class PointsManager : MonoBehaviour
 
 
         UpdatePointsUI();
+    }
+
+    public void SubmitPointsToXP(){
+        PlayerXPManager.Instance.CalculateXPFromPoints(points - xpPoints);
+        xpPoints = points;
     }
 
     [SerializeField] private TextMeshProUGUI pointsText;

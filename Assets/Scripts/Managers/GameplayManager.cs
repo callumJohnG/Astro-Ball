@@ -64,6 +64,9 @@ public class GameplayManager : MonoBehaviour
         PowerupManager.Instance.ClearPowerupText();
         FollowPlayer.Instance.PlayerDied();
 
+        //Gain XP
+        PointsManager.Instance.SubmitPointsToXP();
+
         gameIsActive = false;
         //Game over animation here
         gameHud.SetActive(false);
