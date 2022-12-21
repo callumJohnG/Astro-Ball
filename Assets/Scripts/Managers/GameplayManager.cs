@@ -32,6 +32,7 @@ public class GameplayManager : MonoBehaviour
         menuScreen.SetActive(false);
         gameOverScreen.SetActive(false);
         leaderboardScreen.SetActive(false);
+        shopScreen.SetActive(false);
         gameHud.SetActive(true);
 
         FollowPlayer.Instance.Reset();
@@ -52,6 +53,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject gameHud;
     [SerializeField] private GameObject menuScreen;
     [SerializeField] private GameObject leaderboardScreen;
+    [SerializeField] private GameObject shopScreen;
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private Animator gameOverAnimator;
     [SerializeField] private ContinueButtonsManager continueButtonsManager;
@@ -93,6 +95,7 @@ public class GameplayManager : MonoBehaviour
         gameOverScreen.SetActive(false);
         menuScreen.SetActive(true);
         leaderboardScreen.SetActive(false);
+        shopScreen.SetActive(false);
         //Spawn a player
         //Spawn the world
     }
@@ -102,6 +105,15 @@ public class GameplayManager : MonoBehaviour
         gameOverScreen.SetActive(false);
         menuScreen.SetActive(false);
         leaderboardScreen.SetActive(true);
+        shopScreen.SetActive(false);
+    }
+
+    public void ShowShop(){
+        gameHud.SetActive(false);
+        gameOverScreen.SetActive(false);
+        menuScreen.SetActive(false);
+        leaderboardScreen.SetActive(false);
+        shopScreen.SetActive(true);
     }
 
     public void Quit(){

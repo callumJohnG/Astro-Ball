@@ -36,7 +36,7 @@ public class ShaderMaterialManager : MonoBehaviour
         return index;
     }
 
-    private void SetColourPalette(ColourPaletteData paletteData){
+    public void SetColourPalette(ColourPaletteData paletteData){
         material.SetVector("_HighPassCol", paletteData.highPassCol);
         material.SetVector("_HighMidPassCol", paletteData.highMidPassCol);
         material.SetVector("_MidPassCol", paletteData.midPassCol);
