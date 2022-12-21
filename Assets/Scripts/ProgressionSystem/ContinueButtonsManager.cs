@@ -8,32 +8,46 @@ public class ContinueButtonsManager : MonoBehaviour
 {
     [SerializeField] private Button continueButton;
     [SerializeField] private TextMeshProUGUI continueCostText;
+    [SerializeField] private TextMeshProUGUI continuePromptText;
     [SerializeField] private Button advertButton;
     [SerializeField] private RewardedAdsButton rewardedAdsButton;
     [SerializeField] private int baseContinueCost;
     [SerializeField] private int continueCostIncrement;
+
+    [SerializeField] private GameObject payButtonCross;
+    [SerializeField] private GameObject adButtonCross;
+
     private int currentCostMultiplier = 0;
     private int currentCost;
     private bool advertAvailable = true;
 
     public void LoadButtons(){
         //Paying Button
+        Debug.LogError("loading buttons");
         currentCost = baseContinueCost + (continueCostIncrement * currentCostMultiplier);
         continueCostText.text = (currentCost + " coins");
+        continuePromptText.text = "Pay " + currentCost + " coins to continue?";
 
         int playerXP = PlayerXPManager.Instance.GetXP();
-        continueButton.interactable = currentCost <= playerXP;
+        bool canPay = currentCost <= playerXP;
+        continueButton.interactable = canPay;
+        payButtonCross.SetActive(!canPay);
+        adButtonCross.SetActive(!advertAvailable);
+
+        Debug.LogError(currentCost);
 
     }
 
     public void ResetButtons(){
         currentCostMultiplier = 0;
         advertAvailable = true;
+        Debug.LogError("Reset the buttons");
     }
 
     public void PurchaseContinue(){
         if(!PlayerXPManager.Instance.SpendXP(currentCost))return;
         currentCostMultiplier ++;
+        Debug.LogError("Spent Coins");
 
         //We spent the points
         ContinueGame();

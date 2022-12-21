@@ -75,10 +75,8 @@ public class SimpleDottedLineRenderer : MonoBehaviour
     }
 
     private void DeleteAllDots(){
-        Debug.Log("Deleting Dots");
         foreach(GameObject dot in dots){
             Destroy(dot);
-            Debug.Log("Dot Gone");
         }
         dots.Clear();
         positions.Clear();
