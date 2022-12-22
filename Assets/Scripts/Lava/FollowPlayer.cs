@@ -41,6 +41,7 @@ public class FollowPlayer : MonoBehaviour
         isTracking = true;
         this.trackTransform = trackTransform;
         risingLava.SetTrackTransform(trackTransform);
+        risingLava.SetStarted();
     }
 
     public void PlayerDied(){

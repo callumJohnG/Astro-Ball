@@ -7,10 +7,14 @@ public class RisingLava : MonoBehaviour
 
     [SerializeField] private float maxDistanceFromPlayer;
     [SerializeField] private float lavaRiseSpeed;
+    [SerializeField] private Transform menuGoalTransform;
+    private Vector3 menuGoalPosition;
     private float currentRiseSpeed;
     private float currentGoalSpeed;
     [SerializeField] private float lavaLerpSpeed = 1f;
     private Transform trackTransform;
+    private bool lerpingToMenu;
+    private bool rising;
 
     public void SetTrackTransform(Transform trackTransform){
         this.trackTransform = trackTransform;
@@ -21,24 +25,32 @@ public class RisingLava : MonoBehaviour
     }
 
     public void SetStarted(){
-        currentGoalSpeed = lavaRiseSpeed;
-        currentRiseSpeed = lavaRiseSpeed;
+        rising = true;
+        menuGoalPosition = Camera.main.ScreenToWorldPoint(menuGoalTransform.position);
+        Debug.LogError(menuGoalPosition);
     }
 
     public void SetStopped(){
-        currentGoalSpeed = 0;
+        rising = false;
     }
 
     private void Update() {
-        //Lerp the speed to its current goal
-        currentRiseSpeed = Mathf.Lerp(currentRiseSpeed, currentGoalSpeed, Time.deltaTime * lavaLerpSpeed);
+        if(!rising) {
+            LerpToMenu();
+        }
+    }
+
+    private void LerpToMenu(){
+        Vector3 newPosition = transform.position;
+        newPosition = Vector3.Lerp(newPosition, menuGoalPosition, Time.deltaTime * lavaLerpSpeed);
+        transform.position = newPosition;
     }
 
     public void LavaRise(){
         Vector3 newPosition = transform.position;
         
         //Rise by the rise speed
-        newPosition.y += (currentRiseSpeed * Time.deltaTime);
+        newPosition.y += (lavaRiseSpeed * Time.deltaTime);
 
         //Check max distance
         if(trackTransform != null){
