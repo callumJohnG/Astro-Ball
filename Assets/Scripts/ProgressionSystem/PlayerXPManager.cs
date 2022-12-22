@@ -20,6 +20,8 @@ public class PlayerXPManager : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> playerXPTexts;
     [SerializeField] private TextMeshProUGUI gainedXPText;
 
+    [SerializeField] private GainXPAnimation xpAnimation;
+
     private void InitialiseXP(){
         int currentXP = PlayerPrefs.GetInt(XP_KEY, 0);
         PlayerPrefs.SetInt(XP_KEY, currentXP);
@@ -55,9 +57,13 @@ public class PlayerXPManager : MonoBehaviour
     public void CalculateXPGain(int points){
         Debug.Log("Gaining xp from " + points + " points");
         int newXP = Mathf.FloorToInt(points/pointsPerXP);
+
+        xpAnimation.SetUpValues(newXP, GetXP());
+        xpAnimation.PlayXPAnimation();
+
         GainXP(newXP);
 
-        gainedXPText.text = "Gained +" + newXP + " coins";
+        //gainedXPText.text = "Gained +" + newXP + " coins";
     }
 
     private void UpdateTexts(){

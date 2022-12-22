@@ -68,9 +68,6 @@ public class GameplayManager : MonoBehaviour
         PowerupManager.Instance.ClearPowerupText();
         FollowPlayer.Instance.PlayerDied();
 
-        //Gain XP
-        PointsManager.Instance.SubmitPointsToXP();
-
         //Set the continue buttons
         continueButtonsManager.LoadButtons();
 
@@ -80,6 +77,9 @@ public class GameplayManager : MonoBehaviour
         gameOverAnimator.CrossFade("GameOver", 0, 0, 0);
         gameOverScreen.SetActive(true);
         Time.timeScale = 1;
+
+        //Gain XP
+        PointsManager.Instance.SubmitPointsToXP();
 
         StartCoroutine(GameOverRoutine());
     }
