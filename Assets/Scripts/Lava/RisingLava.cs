@@ -26,7 +26,7 @@ public class RisingLava : MonoBehaviour
 
     public void SetStarted(){
         rising = true;
-        menuGoalPosition = Camera.main.ScreenToWorldPoint(menuGoalTransform.position);
+        //menuGoalPosition = Camera.main.ScreenToWorldPoint(menuGoalTransform.position);
         Debug.LogError(menuGoalPosition);
     }
 
@@ -42,11 +42,15 @@ public class RisingLava : MonoBehaviour
 
     private void LerpToMenu(){
         Vector3 newPosition = transform.position;
-        newPosition = Vector3.Lerp(newPosition, menuGoalPosition, Time.deltaTime * lavaLerpSpeed);
+        Debug.Log("CurrentPos " + newPosition.y);
+        Debug.Log("TargetPos " + menuGoalTransform.position.y);
+        newPosition.y = Mathf.Lerp(newPosition.y, menuGoalTransform.position.y, Time.deltaTime * lavaLerpSpeed);
         transform.position = newPosition;
+        Debug.Log("NewPos " + transform.position.y);
     }
 
     public void LavaRise(){
+        Debug.Log("Rising lava");
         Vector3 newPosition = transform.position;
         
         //Rise by the rise speed

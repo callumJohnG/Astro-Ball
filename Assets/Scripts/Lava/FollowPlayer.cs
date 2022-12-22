@@ -47,6 +47,7 @@ public class FollowPlayer : MonoBehaviour
     public void PlayerDied(){
         isTracking = false;
         risingLava.SetStopped();
+        isRising = false;
         trackTransform = null;
         risingLava.SetTrackTransform(null);
     }
