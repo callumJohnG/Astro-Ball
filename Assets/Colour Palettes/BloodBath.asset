@@ -17,3 +17,6 @@ MonoBehaviour:
   midPassCol: {r: 0.7019608, g: 0, b: 0.105882354, a: 1}
   lowMidPassCol: {r: 0.14509805, g: 0.36078432, b: 0.6, a: 1}
   lowPassCol: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
+  paletteName: Blood Bath
+  price: 200
+  free: 1

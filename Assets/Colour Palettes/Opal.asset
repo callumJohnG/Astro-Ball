@@ -17,3 +17,6 @@ MonoBehaviour:
   midPassCol: {r: 0.9019608, g: 0.37254903, b: 0.36078432, a: 1}
   lowMidPassCol: {r: 1, g: 1, b: 0.50980395, a: 1}
   lowPassCol: {r: 0.05882353, g: 0.011764706, b: 0.14901961, a: 1}
+  paletteName: Opal
+  price: 200
+  free: 0

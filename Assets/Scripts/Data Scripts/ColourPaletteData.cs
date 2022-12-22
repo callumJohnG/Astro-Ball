@@ -12,6 +12,7 @@ public class ColourPaletteData : ScriptableObject
     public Color lowMidPassCol;
     public Color lowPassCol;
 
+    public string paletteName;
     public int price = 200;
     public bool free;
 }

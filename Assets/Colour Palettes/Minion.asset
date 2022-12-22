@@ -17,3 +17,6 @@ MonoBehaviour:
   midPassCol: {r: 0.49803922, g: 0.02745098, b: 0.6, a: 1}
   lowMidPassCol: {r: 0.827451, g: 0.24705882, b: 0.28627452, a: 1}
   lowPassCol: {r: 0.16078432, g: 0.18039216, b: 0.11764706, a: 1}
+  paletteName: Minion
+  price: 200
+  free: 0

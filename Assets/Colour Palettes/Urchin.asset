@@ -17,3 +17,6 @@ MonoBehaviour:
   midPassCol: {r: 1, g: 0.78431374, b: 0.34117648, a: 1}
   lowMidPassCol: {r: 0.29411766, g: 0.24705882, b: 0.44705883, a: 1}
   lowPassCol: {r: 0.12156863, g: 0.1254902, b: 0.25490198, a: 1}
+  paletteName: Urchin
+  price: 1000
+  free: 0

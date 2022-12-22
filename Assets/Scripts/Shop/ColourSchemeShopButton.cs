@@ -16,7 +16,7 @@ public class ColourSchemeShopButton : MonoBehaviour
 
     public void InitialiseButton(){
         cross.SetActive(false);
-        nameText.text = myPalette.ToString();
+        nameText.text = myPalette.paletteName;
         priceText.text = myPalette.price.ToString();
 
         //Check if we are "free"

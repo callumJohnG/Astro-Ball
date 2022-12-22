@@ -17,3 +17,6 @@ MonoBehaviour:
   midPassCol: {r: 0.7647059, g: 0.25882354, b: 0.24705882, a: 1}
   lowMidPassCol: {r: 0.60784316, g: 0.77254903, b: 0.23921569, a: 1}
   lowPassCol: {r: 0.12941177, g: 0.101960786, b: 0.11764706, a: 1}
+  paletteName: Rainbow
+  price: 500
+  free: 0

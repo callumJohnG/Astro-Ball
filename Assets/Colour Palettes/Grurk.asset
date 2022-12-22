@@ -17,3 +17,6 @@ MonoBehaviour:
   midPassCol: {r: 0.47843137, g: 0.1882353, b: 0.42352942, a: 1}
   lowMidPassCol: {r: 0, g: 0.30980393, b: 0.1764706, a: 1}
   lowPassCol: {r: 0.03529412, g: 0.11764706, b: 0.019607844, a: 1}
+  paletteName: Grurk
+  price: 200
+  free: 1

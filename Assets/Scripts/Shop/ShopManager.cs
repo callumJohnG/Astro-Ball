@@ -13,15 +13,27 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private GameObject shopButtonPrefab;
     [SerializeField] private Transform shopButtonParent;
-    [SerializeField] private List<ColourPaletteData> allPalettes;
+    private List<ColourPaletteData> allPalettes;
     private List<ColourSchemeShopButton> allButtons = new List<ColourSchemeShopButton>();
 
     private void Start() {
+        allPalettes = shaderMaterialManager.colourPalettes;
+
+        //FOR TESTING ONLY
+        WipeProgress();
+
         //Spawn all the buttons
         SpawnButtons();
 
         //Set up all the buttons
         SetUpButtons();
+    }
+
+    private void WipeProgress(){
+        Debug.LogError("WIPING THE PROGRESS");
+        foreach(ColourPaletteData data in allPalettes){
+            PlayerPrefs.SetInt(data.ToString(), 0);
+        }
     }
 
     private void SpawnButtons(){
@@ -67,7 +79,9 @@ public class ShopManager : MonoBehaviour
     }
 
     public void PurchasePalette(){
+        Debug.LogError("PURCHASING PALLETTE");
         PlayerPrefs.SetInt(currentPalette.ToString(), 1);
+        PlayerXPManager.Instance.SpendXP(currentPalette.price);
         purchaseScreen.SetActive(false);
         SetUpButtons();
         SelectPalette(currentPalette);

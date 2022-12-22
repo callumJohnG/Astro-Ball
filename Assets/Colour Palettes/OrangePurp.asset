@@ -17,3 +17,6 @@ MonoBehaviour:
   midPassCol: {r: 0.87058824, g: 0.41960785, b: 0.28235295, a: 1}
   lowMidPassCol: {r: 0.7019608, g: 0, b: 0.5372549, a: 1}
   lowPassCol: {r: 0.2784314, g: 0, b: 0.3882353, a: 1}
+  paletteName: Purp
+  price: 500
+  free: 0

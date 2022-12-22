@@ -17,3 +17,6 @@ MonoBehaviour:
   midPassCol: {r: 1, g: 0.06002084, b: 0, a: 1}
   lowMidPassCol: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   lowPassCol: {r: 0, g: 0, b: 0, a: 1}
+  paletteName: Mono
+  price: 200
+  free: 0

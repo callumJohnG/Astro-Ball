@@ -17,3 +17,6 @@ MonoBehaviour:
   midPassCol: {r: 1, g: 0.6509804, b: 0.61960787, a: 1}
   lowMidPassCol: {r: 0.6666667, g: 0.26666668, b: 0.39607844, a: 1}
   lowPassCol: {r: 0.5254902, g: 0.08627451, b: 0.34117648, a: 1}
+  paletteName: Mauve
+  price: 1200
+  free: 0

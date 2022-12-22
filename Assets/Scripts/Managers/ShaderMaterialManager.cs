@@ -1,39 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ShaderMaterialManager : MonoBehaviour
 {
 
     [SerializeField] private Material material;
-    [SerializeField] private List<ColourPaletteData> colourPalettes;
+    [field:SerializeField] public List<ColourPaletteData> colourPalettes {get; private set;}
+    private const string PALLETTE_KEY = "CurrentPalette";
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        if(PlayerPrefs.GetInt("paletteIndex",0) >= colourPalettes.Count){
-            PlayerPrefs.SetInt("paletteIndex", 0);
+        SortList();
+        InitialiseMaterial();
+    }
+
+    private void SortList(){
+        List<ColourPaletteData> tempList = new List<ColourPaletteData>();
+        List<ColourPaletteData> cloneList = colourPalettes;
+        
+        //Put all the free ones at the front
+        for(int i = 0; i < cloneList.Count; i++){
+            ColourPaletteData data = cloneList[i];
+            if(data.free){
+                tempList.Add(data);
+                cloneList.Remove(data);
+                i--;
+            }
         }
-        SetColourPalette(colourPalettes[PlayerPrefs.GetInt("paletteIndex",0)]);
+
+        //Sort the rest of the list
+        List<ColourPaletteData> sortedList = cloneList.OrderBy(o=>o.price).ToList();
+    
+        //Then concatonate them
+        tempList.AddRange(sortedList);
+
+        colourPalettes = tempList;
     }
 
-    private int paletteIndex = 0;
+    private void InitialiseMaterial(){
+        //WIPES THE CURRENT PALETTE AT THE START OF EACH PLAY
+        //DONT FORGET THIS IS HERE - ITS JUST A TEST
+        PlayerPrefs.SetString(PALLETTE_KEY, "");
 
-    public void SetRandomColourPalette(){
-        SetColourPalette(colourPalettes[Random.Range(0, colourPalettes.Count)]);
-    }
+        string targetName = PlayerPrefs.GetString(PALLETTE_KEY, "");
 
-    public void CycleColourPalette(){
-        paletteIndex = IncrementPaletteIndex();
-        SetColourPalette(colourPalettes[paletteIndex]);
-    }
+        foreach(ColourPaletteData data in colourPalettes){
+            if(data.name != targetName)continue;
 
-    private int IncrementPaletteIndex(){
-        int index = PlayerPrefs.GetInt("paletteIndex", 0);
-        index ++;
-        if(index >= colourPalettes.Count)index = 0;
-        PlayerPrefs.SetInt("paletteIndex", index);
-        return index;
+            SetColourPalette(data);
+            return;
+        }
+
+        SetColourPalette(colourPalettes[0]);
     }
 
     public void SetColourPalette(ColourPaletteData paletteData){
@@ -42,6 +63,8 @@ public class ShaderMaterialManager : MonoBehaviour
         material.SetVector("_MidPassCol", paletteData.midPassCol);
         material.SetVector("_LowMidPassCol", paletteData.lowMidPassCol);
         material.SetVector("_LowPassCol", paletteData.lowPassCol);
+
+        PlayerPrefs.SetString(PALLETTE_KEY, paletteData.name);
     }
 
 }
