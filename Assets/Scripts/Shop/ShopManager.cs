@@ -20,7 +20,7 @@ public class ShopManager : MonoBehaviour
         allPalettes = shaderMaterialManager.colourPalettes;
 
         //FOR TESTING ONLY
-        WipeProgress();
+        //WipeProgress();
 
         //Spawn all the buttons
         SpawnButtons();

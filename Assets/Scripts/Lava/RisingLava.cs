@@ -7,6 +7,7 @@ public class RisingLava : MonoBehaviour
 
     [SerializeField] private float maxDistanceFromPlayer;
     [SerializeField] private float lavaRiseSpeed;
+    [SerializeField] private float lavaMenuSpeed = 15;
     [SerializeField] private Transform menuGoalTransform;
     private Vector3 menuGoalPosition;
     private float currentRiseSpeed;
@@ -26,8 +27,6 @@ public class RisingLava : MonoBehaviour
 
     public void SetStarted(){
         rising = true;
-        //menuGoalPosition = Camera.main.ScreenToWorldPoint(menuGoalTransform.position);
-        Debug.LogError(menuGoalPosition);
     }
 
     public void SetStopped(){
@@ -42,15 +41,11 @@ public class RisingLava : MonoBehaviour
 
     private void LerpToMenu(){
         Vector3 newPosition = transform.position;
-        Debug.Log("CurrentPos " + newPosition.y);
-        Debug.Log("TargetPos " + menuGoalTransform.position.y);
-        newPosition.y = Mathf.Lerp(newPosition.y, menuGoalTransform.position.y, Time.deltaTime * lavaLerpSpeed);
+        newPosition.y = Mathf.Lerp(newPosition.y, menuGoalTransform.position.y, Time.deltaTime * lavaMenuSpeed);
         transform.position = newPosition;
-        Debug.Log("NewPos " + transform.position.y);
     }
 
     public void LavaRise(){
-        Debug.Log("Rising lava");
         Vector3 newPosition = transform.position;
         
         //Rise by the rise speed
