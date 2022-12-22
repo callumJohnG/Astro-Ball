@@ -33,7 +33,6 @@ public class GainXPAnimation : MonoBehaviour
     }    
 
     public void PlayXPAnimation(){
-        Debug.LogError("STARTED XP ANIMATIO");
         StartCoroutine(XPAnimation());
     }
 

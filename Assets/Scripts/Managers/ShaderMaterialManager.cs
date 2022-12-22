@@ -43,7 +43,7 @@ public class ShaderMaterialManager : MonoBehaviour
     private void InitialiseMaterial(){
         //WIPES THE CURRENT PALETTE AT THE START OF EACH PLAY
         //DONT FORGET THIS IS HERE - ITS JUST A TEST
-        PlayerPrefs.SetString(PALLETTE_KEY, "");
+        //PlayerPrefs.SetString(PALLETTE_KEY, "");
 
         string targetName = PlayerPrefs.GetString(PALLETTE_KEY, "");
 

@@ -15,6 +15,8 @@ public class DifficultyProfile : ScriptableObject
     public float platformProbability;
     public float powerupProbability;
     public int coinReward;
+    public float lavaRiseSpeed;
+    public float lavaDistance;
 
     public List<float> bumperProbabilities;
 

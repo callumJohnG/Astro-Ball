@@ -5,8 +5,8 @@ using UnityEngine;
 public class RisingLava : MonoBehaviour
 {
 
-    [SerializeField] private float maxDistanceFromPlayer;
-    [SerializeField] private float lavaRiseSpeed;
+    private float maxDistanceFromPlayer;
+    private float lavaRiseSpeed;
     [SerializeField] private float lavaMenuSpeed = 15;
     [SerializeField] private Transform menuGoalTransform;
     private Vector3 menuGoalPosition;
@@ -16,6 +16,11 @@ public class RisingLava : MonoBehaviour
     private Transform trackTransform;
     private bool lerpingToMenu;
     private bool rising;
+
+    public void SetSpeed(float lavaSpeed, float lavaDistance){
+        this.lavaRiseSpeed = lavaSpeed;
+        this.maxDistanceFromPlayer = lavaDistance;
+    }
 
     public void SetTrackTransform(Transform trackTransform){
         this.trackTransform = trackTransform;

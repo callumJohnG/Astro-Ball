@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0192c0407ab757419e9cfa70304e84f, type: 3}
-  m_Name: 0 Normal
+  m_Name: 1 Challenge
   m_EditorClassIdentifier: 
-  profileID: 0
-  bumperSpacing: 17
-  powerupDuration: 10
-  launchRechargeTime: 3.5
-  defaultGravity: 4
-  platformProbability: 10
+  profileID: 1
+  bumperSpacing: 20
+  powerupDuration: 15
+  launchRechargeTime: 4
+  defaultGravity: 5
+  platformProbability: 5
   powerupProbability: 1
   coinReward: 3
-  lavaRiseSpeed: 10
-  lavaDistance: 200
+  lavaRiseSpeed: 25
+  lavaDistance: 100
   bumperProbabilities:
   - 75
   - 20
