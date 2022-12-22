@@ -4970,6 +4970,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionParticles: {fileID: 0}
   rewardedPoints: 0
+  isDeadlyBumper: 1
+  isPowerup: 0
+  pointCanvasPrefab: {fileID: 0}
 --- !u!114 &-4978341901656696903
 MonoBehaviour:
   m_ObjectHideFlags: 0

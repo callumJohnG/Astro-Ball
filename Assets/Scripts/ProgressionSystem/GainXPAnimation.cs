@@ -20,7 +20,7 @@ public class GainXPAnimation : MonoBehaviour
         this.gainedXP = gainedXP;
         this.totalXP = totalXP;
 
-        gainedXPText.text = gainedXP.ToString();
+        gainedXPText.text = gainedXP.ToString() + "+";
         totalXPText.text = totalXP.ToString();
 
         //Calculate the time between coin tics
@@ -45,7 +45,7 @@ public class GainXPAnimation : MonoBehaviour
         yield return new WaitForSeconds(startWaitTime);
 
         for(int i = 1; i <= gainedXP; i++){
-            gainedXPText.text = (gainedXP - i).ToString();
+            gainedXPText.text = (gainedXP - i).ToString() + "+";
             totalXPText.text = (totalXP + i).ToString();
             //Play some soundeffect here
             AudioManager.Instance.PlayCoin();
