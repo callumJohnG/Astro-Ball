@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 75.89362
+    OrthographicSize: 58.73021
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -7696,7 +7696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 0.4060081
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -15924,7 +15924,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 75.89362
+  orthographic size: 58.73021
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
