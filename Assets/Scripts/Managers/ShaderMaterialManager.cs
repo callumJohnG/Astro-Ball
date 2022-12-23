@@ -67,4 +67,8 @@ public class ShaderMaterialManager : MonoBehaviour
         PlayerPrefs.SetString(PALLETTE_KEY, paletteData.name);
     }
 
+    public void SetPixelation(float value){
+        material.SetFloat("_Pixelation", value);
+    }
+
 }

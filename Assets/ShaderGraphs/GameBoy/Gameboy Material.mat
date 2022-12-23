@@ -40,7 +40,7 @@ Material:
     m_Floats:
     - _Fuzziness: 0
     - _Pixelate_Amount: 0
-    - _Pixelation: 0.03
+    - _Pixelation: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Range: 0

@@ -38,8 +38,12 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private float maxPixilation;
     [SerializeField] private float minPixilation;
 
-    public void SetPixilation(float value){
+    public void SetPixelation(float value){
+        float increment = (Mathf.Abs(maxPixilation - minPixilation)) / 10;
 
+        float newValue = minPixilation + (value * increment);
+
+        shaderMaterialManager.SetPixelation(newValue);
     }
 
 
