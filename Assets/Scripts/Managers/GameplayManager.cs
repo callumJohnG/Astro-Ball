@@ -68,9 +68,6 @@ public class GameplayManager : MonoBehaviour
         PowerupManager.Instance.ClearPowerupText();
         FollowPlayer.Instance.PlayerDied();
 
-        //Set the continue buttons
-        continueButtonsManager.LoadButtons();
-
         gameIsActive = false;
         //Game over animation here
         gameHud.SetActive(false);
@@ -80,6 +77,9 @@ public class GameplayManager : MonoBehaviour
 
         //Gain XP
         PointsManager.Instance.SubmitPointsToXP();
+        
+        //Set the continue buttons
+        continueButtonsManager.LoadButtons();
 
         StartCoroutine(GameOverRoutine());
     }
