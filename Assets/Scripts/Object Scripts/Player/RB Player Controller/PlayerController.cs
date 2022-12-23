@@ -71,6 +71,9 @@ public class PlayerController : MonoBehaviour
     #region Player Input Events
     
     public void OnLaunch(InputAction.CallbackContext value){
+        if(isPaused)return;
+
+
         if(value.started){
             StartLaunch();
         } else if(value.canceled){
@@ -79,6 +82,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnAim(InputAction.CallbackContext value){
+        if(isPaused)return;
+
         Vector2 aimValue = value.ReadValue<Vector2>();
         CalculateAim(aimValue);
     }
@@ -155,6 +160,17 @@ public class PlayerController : MonoBehaviour
         setAnchor = false;
         targetTimeScale = 1;
         Time.timeScale = targetTimeScale;
+        aimAnchor = currentAimVector;
+        aimVector = Vector3.zero;
+        aimLine.gameObject.SetActive(false);
+        mobileAimLine.gameObject.SetActive(false);
+    }
+
+    public void CancelLaunch(){
+        launching = false;
+        hasAimed = false;
+        setAnchor = false;
+        targetTimeScale = 1;
         aimAnchor = currentAimVector;
         aimVector = Vector3.zero;
         aimLine.gameObject.SetActive(false);
@@ -334,8 +350,11 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    [HideInInspector] public bool isPaused = false;
 
     private void FadeTimeScale(){
+        if(isPaused)return;
+
         Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime * slowMoFadeSpeed);
         CurrentTimeScale = Time.timeScale;
     }
