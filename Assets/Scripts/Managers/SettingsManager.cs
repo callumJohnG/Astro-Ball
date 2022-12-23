@@ -14,6 +14,8 @@ public class SettingsManager : MonoBehaviour
         float increment = (Mathf.Abs(maxMusicVolume - minMusicVolume)) / 10;
 
         float newValue = minMusicVolume + (value * increment);
+
+        if(value == 0) newValue = -80;
         
         audioMixer.SetFloat("MusicVolume", newValue);
     }
@@ -26,6 +28,8 @@ public class SettingsManager : MonoBehaviour
         float increment = (Mathf.Abs(maxSFXVolume - minSFXVolume)) / 10;
 
         float newValue = minSFXVolume + (value * increment);
+
+        if(value == 0) newValue = -80;
         
         audioMixer.SetFloat("SFXVolume", newValue);
     }

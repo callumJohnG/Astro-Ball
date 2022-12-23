@@ -77629,10 +77629,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55018e71a6cbf714facd0de5cd0625a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMusicVolume: 0
-  minMusicVolume: -80
+  maxMusicVolume: -15
+  minMusicVolume: -50
   maxSFXVolume: 0
-  minSFXVolume: -80
+  minSFXVolume: -50
   maxPixilation: 0
   minPixilation: 0
   audioMixer: {fileID: 24100000, guid: 038906beaf5c9a04b81c233a67b0cbdc, type: 2}
