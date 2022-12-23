@@ -5136,7 +5136,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 231048473
   m_SortingLayer: 6
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
@@ -5284,6 +5284,7 @@ MonoBehaviour:
   fastTrailParticles: {fileID: 1269935795299148932}
   fastTrailSpeedLimit: 100
   checkSpeed: 0
+  isPaused: 0
 --- !u!50 &2370374581268752659
 Rigidbody2D:
   serializedVersion: 4
