@@ -70,6 +70,8 @@ public class PlayerXPManager : MonoBehaviour
         GainXP(newXP);*/
 
         int newXP = CalculateXPGainFromSegments(points);
+        xpAnimation.SetUpValues(newXP, GetXP());
+        xpAnimation.PlayXPAnimation();
         GainXP(newXP);
 
         //gainedXPText.text = "Gained +" + newXP + " coins";
@@ -109,7 +111,7 @@ public class PlayerXPManager : MonoBehaviour
     }
 
     private void TestSegments(){
-        List<int> testPoints = new List<int>{0, 50, 100, 200, 350, 414, 689, 899, 1049, 2005, 5310, 20240};
+        List<int> testPoints = new List<int>{80240};
         foreach(int point in testPoints){
             Debug.Log(point + ":" + CalculateXPGainFromSegments(point));
         }
