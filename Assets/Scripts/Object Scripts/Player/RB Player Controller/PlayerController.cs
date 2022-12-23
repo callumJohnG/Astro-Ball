@@ -234,7 +234,7 @@ public class PlayerController : MonoBehaviour
     private bool setAnchor = false;
 
     private void CalculateAim(Vector2 newAimVector){
-        if(!setAnchor){
+        if(!setAnchor && launchCount > 0){
             //If we are starting a launch, set the new anchor point
             aimAnchor = newAimVector;
             setAnchor = true;
