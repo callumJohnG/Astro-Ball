@@ -155,7 +155,8 @@ public class PlayerController : MonoBehaviour
         setAnchor = false;
         targetTimeScale = 1;
         Time.timeScale = targetTimeScale;
-
+        aimAnchor = currentAimVector;
+        aimVector = Vector3.zero;
         aimLine.gameObject.SetActive(false);
         mobileAimLine.gameObject.SetActive(false);
     }
@@ -229,7 +230,7 @@ public class PlayerController : MonoBehaviour
         if(newAimVector == aimAnchor){
             //We havent moved our finger yet...
             hasAimed = false;
-            rawAimVector = Vector2.up;
+            rawAimVector = Vector2.zero;
         } else {
             //Get the aim vector in respect to the anchor point
             hasAimed = true;
