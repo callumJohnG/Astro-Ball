@@ -31,7 +31,11 @@ public class ContinueButtonsManager : MonoBehaviour
         bool canPay = continuePrice <= playerXP;
         continueButton.interactable = canPay && paymentAvailable;
         payButtonCross.SetActive(!(canPay && paymentAvailable));
-        adButtonCross.SetActive(!advertAvailable);
+
+
+        bool canPlayAd = advertAvailable && rewardedAdsButton.adLoaded;
+        adButtonCross.SetActive(!canPlayAd);
+        advertButton.interactable = canPlayAd;
     }
 
     public void ResetButtons(){
