@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
         aimLine.SetPosition(0, transform.position);
         aimLine.SetPosition(1, aimVector + transform.position);
 
-        aimAnchor = Vector2.zero;
+        //aimAnchor = Vector2.zero;
     }
 
     private bool firstLaunch = true;
@@ -136,24 +136,28 @@ public class PlayerController : MonoBehaviour
 
         if(!launching)return;
 
-        //Check if this is our first launch ever
-        if(firstLaunch){
-            FollowPlayer.Instance.StartRisingTracking(transform);
-            firstLaunch = false;
-        }
-        
 
-        UpdateLaunchCount(-1);
+        //If we have aimed, perform the launch
+        if(hasAimed){
+            //Check if this is our first launch ever
+            if(firstLaunch){
+                FollowPlayer.Instance.StartRisingTracking(transform);
+                firstLaunch = false;
+            }
+            UpdateLaunchCount(-1);
+            rb.velocity = aimVector * launchForce;
+            PlayLaunchEffects();
+        }
+
+        
         launching = false;
+        hasAimed = false;
+        setAnchor = false;
         targetTimeScale = 1;
         Time.timeScale = targetTimeScale;
 
         aimLine.gameObject.SetActive(false);
         mobileAimLine.gameObject.SetActive(false);
-
-        rb.velocity = aimVector * launchForce;
-
-        PlayLaunchEffects();
     }
 
     
@@ -209,20 +213,26 @@ public class PlayerController : MonoBehaviour
 
     #region Aiming
 
+    private bool hasAimed = false;
+    private bool setAnchor = false;
+
     private void CalculateAim(Vector2 newAimVector){
-        if(aimAnchor == Vector2.zero){
+        if(!setAnchor){
             //If we are starting a launch, set the new anchor point
             aimAnchor = newAimVector;
+            setAnchor = true;
         }
 
         Vector2 rawAimVector;
         currentAimVector = newAimVector;
 
         if(newAimVector == aimAnchor){
-            //use default instead
+            //We havent moved our finger yet...
+            hasAimed = false;
             rawAimVector = Vector2.up;
         } else {
             //Get the aim vector in respect to the anchor point
+            hasAimed = true;
             rawAimVector = -aimAnchor + newAimVector;
         }
     
