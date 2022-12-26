@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 58.73021
+    OrthographicSize: 57.38918
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -7696,7 +7696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.4060081
+  m_AmplitudeGain: 0.260058
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -15606,7 +15606,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 213.3
+  m_fontSize: 346.25
   m_fontSizeBase: 124.77
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15924,7 +15924,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 58.73021
+  orthographic size: 57.38918
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -34847,7 +34847,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 106.65
+  m_fontSize: 173.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -35021,7 +35021,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 213.3
+  m_fontSize: 250.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -40654,7 +40654,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 106.65
+  m_fontSize: 173.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

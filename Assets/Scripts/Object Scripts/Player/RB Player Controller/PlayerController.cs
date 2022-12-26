@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
         }
         FadeTimeScale();
 
+        CalculateAimVector();
+
         UpdateAimVisuals();
 
         CheckLaunchRecharge();
@@ -70,12 +72,14 @@ public class PlayerController : MonoBehaviour
 
     #region Player Input Events
     
+    private bool queueLaunch;
+    
     public void OnLaunch(InputAction.CallbackContext value){
         if(isPaused)return;
 
-
         if(value.started){
-            StartLaunch();
+            //StartLaunch();
+            queueLaunch = true;
         } else if(value.canceled){
             PerformLaunch();
         }
@@ -85,7 +89,12 @@ public class PlayerController : MonoBehaviour
         if(isPaused)return;
 
         Vector2 aimValue = value.ReadValue<Vector2>();
-        CalculateAim(aimValue);
+        currentMousePosition = aimValue;
+
+        if(queueLaunch){
+            StartLaunch();
+            queueLaunch = false;
+        }
     }
 
     #endregion
@@ -93,8 +102,8 @@ public class PlayerController : MonoBehaviour
     #region Launching
 
     private Vector3 aimVector = new Vector3();
-    private Vector2 aimAnchor = Vector2.zero;
     private bool launching;
+    private Vector2 currentMousePosition;
 
     [SerializeField] private float slowMoTimeScale;
     [SerializeField] private float slowMoFadeSpeed;
@@ -122,6 +131,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        SetAimAnchor();
+
         launching = true;
         targetTimeScale = slowMoTimeScale;
 
@@ -130,8 +141,6 @@ public class PlayerController : MonoBehaviour
 
         aimLine.SetPosition(0, transform.position);
         aimLine.SetPosition(1, aimVector + transform.position);
-
-        //aimAnchor = Vector2.zero;
     }
 
     private bool firstLaunch = true;
@@ -141,38 +150,35 @@ public class PlayerController : MonoBehaviour
 
         if(!launching)return;
 
-
-        //If we have aimed, perform the launch
-        if(hasAimed){
-            //Check if this is our first launch ever
-            if(firstLaunch){
-                FollowPlayer.Instance.StartRisingTracking(transform);
-                firstLaunch = false;
-            }
-            UpdateLaunchCount(-1);
-            rb.velocity = aimVector * launchForce;
-            PlayLaunchEffects();
+        //Check that we have actually aimed
+        if(aimVector == Vector3.zero){
+            CancelLaunch();
+            return;
         }
+
+
+        //Check if this is our first launch ever
+        if(firstLaunch){
+            FollowPlayer.Instance.StartRisingTracking(transform);
+            firstLaunch = false;
+        }
+        UpdateLaunchCount(-1);
+        rb.velocity = aimVector * launchForce;
+        PlayLaunchEffects();
 
         
         launching = false;
-        hasAimed = false;
         setAnchor = false;
         targetTimeScale = 1;
         Time.timeScale = targetTimeScale;
-        aimAnchor = currentAimVector;
-        aimVector = Vector3.zero;
         aimLine.gameObject.SetActive(false);
         mobileAimLine.gameObject.SetActive(false);
     }
 
     public void CancelLaunch(){
         launching = false;
-        hasAimed = false;
         setAnchor = false;
         targetTimeScale = 1;
-        aimAnchor = currentAimVector;
-        aimVector = Vector3.zero;
         aimLine.gameObject.SetActive(false);
         mobileAimLine.gameObject.SetActive(false);
     }
@@ -230,39 +236,21 @@ public class PlayerController : MonoBehaviour
 
     #region Aiming
 
-    private bool hasAimed = false;
     private bool setAnchor = false;
+    private Vector2 aimAnchor;
 
-    private void CalculateAim(Vector2 newAimVector){
-        if(!setAnchor && launchCount > 0){
-            //If we are starting a launch, set the new anchor point
-            aimAnchor = newAimVector;
-            setAnchor = true;
-        }
-
-        Vector2 rawAimVector;
-        currentAimVector = newAimVector;
-
-        if(newAimVector == aimAnchor){
-            //We havent moved our finger yet...
-            hasAimed = false;
-            rawAimVector = Vector2.zero;
-        } else {
-            //Get the aim vector in respect to the anchor point
-            hasAimed = true;
-            rawAimVector = -aimAnchor + newAimVector;
-        }
-    
-        
-
-        if(GameSettingsManager.Instance.inverseAiming){
-            rawAimVector *= -1;
-        }
-
-        aimVector = Vector3.Normalize(rawAimVector) * launchForce;
+    private void SetAimAnchor(){
+        aimAnchor = currentMousePosition;
+        setAnchor = true;
     }
 
-    private Vector2 currentAimVector;
+    private void CalculateAimVector(){
+        if(!launching)return;
+        Vector2 destination = mainCam.ScreenToWorldPoint(currentMousePosition);
+        Vector2 anchor = mainCam.ScreenToWorldPoint(aimAnchor);
+        aimVector = destination - anchor;
+        aimVector = Vector3.Normalize(aimVector) * launchForce;
+    }
 
     private void UpdateAimVisuals(){
         if(!launching)return;
@@ -275,7 +263,7 @@ public class PlayerController : MonoBehaviour
         aimLine.SetPosition(1, Vector3.Lerp(aimLine.GetPosition(1), newAimPosition, Time.deltaTime * aimSmoothing));
     
         mobileAimLine.SetPosition(0, mainCam.ScreenToWorldPoint(aimAnchor) + LINEOFFSET);
-        mobileAimLine.SetPosition(1, mainCam.ScreenToWorldPoint(currentAimVector) + LINEOFFSET);
+        mobileAimLine.SetPosition(1, mainCam.ScreenToWorldPoint(currentMousePosition) + LINEOFFSET);
     }
 
 
