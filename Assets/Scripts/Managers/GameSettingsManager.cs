@@ -32,6 +32,17 @@ public class GameSettingsManager : MonoBehaviour
 
     #endregion
 
+
+    [HideInInspector] public bool canPostScore;
+    private const string CANPOSTSCORE_KEY = "CanPostScore";
+    public void SetCanPostScore(bool canPostScore){
+        Debug.Log(canPostScore);
+        this.canPostScore = canPostScore;
+        if(canPostScore) PlayerPrefs.SetInt(CANPOSTSCORE_KEY, 1);
+        else PlayerPrefs.SetInt(CANPOSTSCORE_KEY, 0);
+
+    }
+
     [SerializeField] private DifficultyProfile normalDifficulty;
     [SerializeField] private DifficultyProfile challengeDifficulty;
     [SerializeField] private RisingLava risingLava;
@@ -40,6 +51,7 @@ public class GameSettingsManager : MonoBehaviour
     private void Start(){
         SetDifficulty(0);
         pointsMultiplier = 1;
+        SetCanPostScore(PlayerPrefs.GetInt(CANPOSTSCORE_KEY, 1) == 1);
     }
 
 

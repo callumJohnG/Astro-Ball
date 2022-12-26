@@ -10,10 +10,17 @@ public class GameplayManager : MonoBehaviour
 
     private void Awake(){
         Instance = this;
+        SetUp();
     }
 
-    private void Start(){
-        MainMenu();
+    private void SetUp(){
+        //PlayerPrefs.DeleteAll();
+
+        if(PlayerPrefs.GetInt(AGREEMENT_KEY, 0) == 0){
+            Agreement();
+        } else {
+            MainMenu();
+        }
     }
 
     public void StartGame(){
@@ -55,6 +62,7 @@ public class GameplayManager : MonoBehaviour
     [SerializeField] private GameObject leaderboardScreen;
     [SerializeField] private GameObject shopScreen;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject agreementScreen;
     [SerializeField] private Animator gameOverAnimator;
     [SerializeField] private ContinueButtonsManager continueButtonsManager;
 
@@ -85,8 +93,28 @@ public class GameplayManager : MonoBehaviour
     }
 
     IEnumerator GameOverRoutine(){
-        yield return Leaderboard.Instance.SubmitScoreRoutine(PointsManager.Instance.points);
+        if(GameSettingsManager.Instance.canPostScore){
+            Debug.Log("POSTING SCORE!!!!!");
+            yield return Leaderboard.Instance.SubmitScoreRoutine(PointsManager.Instance.points);
+        } else {
+            Debug.Log("NOT POSTING SCORE!!!!");
+        }
         Leaderboard.Instance.SetCurrentLeaderboard();
+    }
+
+    private const string AGREEMENT_KEY = "CompletedAgreement";
+
+    private void Agreement(){
+        gameHud.SetActive(false);
+        gameOverScreen.SetActive(false);
+        menuScreen.SetActive(false);
+        leaderboardScreen.SetActive(false);
+        shopScreen.SetActive(false);
+        agreementScreen.SetActive(true);
+    }
+
+    public void CompletedAgreement(){
+        PlayerPrefs.SetInt(AGREEMENT_KEY, 1);
     }
 
     public void MainMenu(){
@@ -96,6 +124,7 @@ public class GameplayManager : MonoBehaviour
         menuScreen.SetActive(true);
         leaderboardScreen.SetActive(false);
         shopScreen.SetActive(false);
+        agreementScreen.SetActive(false);
         //Spawn a player
         //Spawn the world
     }

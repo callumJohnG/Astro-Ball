@@ -31,7 +31,7 @@ public class PlayerXPManager : MonoBehaviour
     private void InitialiseXP(){
         int currentXP = PlayerPrefs.GetInt(XP_KEY, 0);
         PlayerPrefs.SetInt(XP_KEY, currentXP);
-        bool cheat = true;
+        bool cheat = false;
         if(cheat){
             PlayerPrefs.SetInt(XP_KEY, 2000);
         }

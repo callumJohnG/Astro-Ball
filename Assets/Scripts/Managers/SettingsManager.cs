@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
+
+    public void SetVariables(){
+        SetDataToggle();
+    }
+
 
     [Header("Music")]
     [SerializeField] private float maxMusicVolume;
@@ -44,6 +50,13 @@ public class SettingsManager : MonoBehaviour
         float newValue = minPixilation + (value * increment);
 
         shaderMaterialManager.SetPixelation(newValue);
+    }
+
+    [Header("Data Collection")]
+    [SerializeField] private Toggle dataToggle;
+    private const string CANPOSTSCORE_KEY = "CanPostScore";
+    public void SetDataToggle(){
+        dataToggle.isOn = GameSettingsManager.Instance.canPostScore;
     }
 
 
