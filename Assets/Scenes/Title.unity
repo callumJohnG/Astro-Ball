@@ -1407,8 +1407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0128cca888793241864c02f2e4ddab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followX: 1
-  followY: 1
+  risingLava: {fileID: 0}
 --- !u!1 &156673221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,10 +1956,13 @@ MonoBehaviour:
   playerCam: {fileID: 52021239}
   gameHud: {fileID: 1718783348}
   menuScreen: {fileID: 1381380691}
+  leaderboardScreen: {fileID: 0}
+  shopScreen: {fileID: 0}
   gameOverScreen: {fileID: 2105266638}
+  agreementScreen: {fileID: 0}
+  gameOverAnimator: {fileID: 0}
+  continueButtonsManager: {fileID: 0}
   highscoreManager: {fileID: 325260669}
-  keyboardButton: {fileID: 409915176}
-  mouseButton: {fileID: 72962303}
 --- !u!4 &205138588
 Transform:
   m_ObjectHideFlags: 0
@@ -3627,10 +3629,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRenderDistance: 200
-  bumperSpacing: 20
   inverseAiming: 0
-  controlScheme: 1
+  bumperSpacing: 20
   powerupDuration: 10
+  launchRechargeTime: 0
+  defaultGravity: 0
+  platformProbability: 0
+  powerupProbability: 0
+  pointsMultiplier: 1
+  coinReward: 0
+  bumperProbabilities: []
+  maxGameHeight: 1000
+  minGameHeight: 60
+  lavaStartSpeed: 0
+  lavaMaxSpeed: 0
+  lavaAcceleration: 0
+  lavaDistance: 0
+  canPostScore: 0
+  normalDifficulty: {fileID: 0}
+  challengeDifficulty: {fileID: 0}
+  risingLava: {fileID: 0}
 --- !u!4 &408347873
 Transform:
   m_ObjectHideFlags: 0
@@ -5413,7 +5431,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -10759,6 +10777,8 @@ MonoBehaviour:
   moonGravity: 2
   weakSprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
   weakForce: 7
+  doublePointsSprite: {fileID: 0}
+  multiplier: 0
 --- !u!4 &639714021
 Transform:
   m_ObjectHideFlags: 0
@@ -11033,7 +11053,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -16773,7 +16793,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 749124287
-  m_SortingLayer: 6
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -22840,7 +22860,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -27949,7 +27969,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -32822,8 +32842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0128cca888793241864c02f2e4ddab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followX: 1
-  followY: 0
+  risingLava: {fileID: 0}
 --- !u!1 &1001062027
 GameObject:
   m_ObjectHideFlags: 0
@@ -39208,6 +39227,10 @@ MonoBehaviour:
   bumper: {fileID: 8300000, guid: 363c8387f75c4514daa5c29991435372, type: 3}
   bumperSource: {fileID: 847987936}
   musicSource: {fileID: 105561566}
+  zoomTimeWindow: 0.25
+  zoomPitchIncrease: 0.2
+  zoom: {fileID: 0}
+  zoomSource: {fileID: 0}
   coin: {fileID: 8300000, guid: 1ec17094cadd5d04299dc7c5b7363312, type: 3}
   death: {fileID: 8300000, guid: 934097c8b82b7fb4f96df7959551a128, type: 3}
   launch: {fileID: 8300000, guid: aa47993f0c8f6be48b2757fbb57bf889, type: 3}
@@ -39216,6 +39239,11 @@ MonoBehaviour:
   powerUp: {fileID: 8300000, guid: bc72ff68b9e76774bae571946c9bd416, type: 3}
   powerDown: {fileID: 8300000, guid: 51629e34ecce8de4abbefd7eda270666, type: 3}
   comboOver: {fileID: 8300000, guid: d77c8e45a4591e34788555e89a4eadf6, type: 3}
+  hitWall: {fileID: 0}
+  buttonClicks: []
+  windFadeSpeed: 10
+  windTopVolume: 0
+  windBottomVolume: -80
   musicList:
   - {fileID: 8300000, guid: 1d425e6f1c03c26449140665b231c160, type: 3}
   - {fileID: 8300000, guid: 8a0a80602a0623b43ae5eddd09d4deaa, type: 3}
@@ -39236,6 +39264,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 532e02178fadd6b49b48faa061092019, type: 3}
   - {fileID: 8300000, guid: f1e12e0ba884f64418f7d46ce8f15b44, type: 3}
   - {fileID: 8300000, guid: 62720f20092a1924a88dcc6bc2bb4565, type: 3}
+  mainMixer: {fileID: 0}
+  sfxDefaultValue: 0
+  musicDefaultValue: 0
 --- !u!1001 &1121500916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39501,7 +39532,6 @@ MonoBehaviour:
   debugPrefab: []
   spawnProbability: 20
   minimumY: 60
-  maximumY: 1000
   bumperPrefabs:
   - {fileID: 6003992426016243756, guid: 9862454bc0e8a5b44800c148f25ad78a, type: 3}
   - {fileID: 6003992426016243756, guid: abf02cd64ea9b2c429ebeac00c4ff652, type: 3}
@@ -39510,12 +39540,7 @@ MonoBehaviour:
   - 70
   - 20
   - 10
-  powerupPrefabs:
-  - {fileID: 6003992426016243756, guid: 69ea77a21aa63de459ae069dc0bb071d, type: 3}
-  - {fileID: 6003992426016243756, guid: 4d2644fd4c121074a8063e106f4372b1, type: 3}
-  - {fileID: 6003992426016243756, guid: 42fce15395b823e418f69d512aa6bd89, type: 3}
-  - {fileID: 6003992426016243756, guid: a66f2c84df5217a439de7c94bde49846, type: 3}
-  powerupProbability: 1
+  powerupPrefab: {fileID: 0}
   minimumBumperY: 60
   bumperRingMin: 100
   bumperRingMax: 150
@@ -41513,7 +41538,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -46352,7 +46377,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -56830,7 +56855,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 749124287
-  m_SortingLayer: 6
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -63409,15 +63434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 6a9bc39c0e2ab3a40a78a80046a82723, type: 2}
-  colourPalettes:
-  - {fileID: 11400000, guid: ccf9071109a340740aa3dfa1e0494b55, type: 2}
-  - {fileID: 11400000, guid: 6105683f2c69acb40bb8f806da9852ed, type: 2}
-  - {fileID: 11400000, guid: 0e1c663190b44954a81ca735e263b31c, type: 2}
-  - {fileID: 11400000, guid: ab61b28e291a063448489bf317e3b4ea, type: 2}
-  - {fileID: 11400000, guid: a1312375b585aab40b6fe3061391eb51, type: 2}
-  - {fileID: 11400000, guid: 41e3d57b760380b4ea272ecdd36dc543, type: 2}
-  - {fileID: 11400000, guid: 389f2f2437ac17d4f824567a7b5a6b09, type: 2}
-  - {fileID: 11400000, guid: a8dbea04286926a4fa4a764006616e89, type: 2}
+  <colourPalettes>k__BackingField: []
 --- !u!4 &1728276266
 Transform:
   m_ObjectHideFlags: 0
@@ -64602,7 +64619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878773190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -100, z: 0}
+  m_LocalPosition: {x: 0, y: -62, z: 0}
   m_LocalScale: {x: 500, y: 200, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -64696,7 +64713,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1726197279
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
@@ -64721,8 +64738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0128cca888793241864c02f2e4ddab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followX: 0
-  followY: 0
+  risingLava: {fileID: 0}
 --- !u!1001 &1889423472
 PrefabInstance:
   m_ObjectHideFlags: 0
