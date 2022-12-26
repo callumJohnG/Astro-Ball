@@ -20,7 +20,9 @@ MonoBehaviour:
   platformProbability: 10
   powerupProbability: 1
   coinReward: 3
-  lavaRiseSpeed: 10
+  lavaStartSpeed: 10
+  lavaMaxSpeed: 30
+  lavaAcceleration: 0.1
   lavaDistance: 200
   bumperProbabilities:
   - 75
