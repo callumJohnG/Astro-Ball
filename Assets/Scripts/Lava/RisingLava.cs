@@ -6,20 +6,24 @@ public class RisingLava : MonoBehaviour
 {
 
     private float maxDistanceFromPlayer;
-    private float lavaRiseSpeed;
+    private float currentSpeed;
+    private float startSpeed;
+    private float maxSpeed;
+    private float acceleration;
     [SerializeField] private float lavaMenuSpeed = 15;
     [SerializeField] private Transform menuGoalTransform;
     private Vector3 menuGoalPosition;
-    private float currentRiseSpeed;
-    private float currentGoalSpeed;
     [SerializeField] private float lavaLerpSpeed = 1f;
     private Transform trackTransform;
     private bool lerpingToMenu;
     private bool rising;
 
-    public void SetSpeed(float lavaSpeed, float lavaDistance){
-        this.lavaRiseSpeed = lavaSpeed;
+    public void SetSpeed(float startSpeed, float maxSpeed, float acceleration, float lavaDistance){
+        this.startSpeed = startSpeed;
+        this.maxSpeed = maxSpeed;
+        this.acceleration = acceleration;
         this.maxDistanceFromPlayer = lavaDistance;
+        this.currentSpeed = startSpeed;
     }
 
     public void SetTrackTransform(Transform trackTransform){
@@ -31,6 +35,7 @@ public class RisingLava : MonoBehaviour
     }
 
     public void SetStarted(){
+        currentSpeed = startSpeed;
         rising = true;
     }
 
@@ -51,10 +56,25 @@ public class RisingLava : MonoBehaviour
     }
 
     public void LavaRise(){
+        CalculateSpeed();
+        SetLavaPosition();
+    }
+
+    private void CalculateSpeed(){
+        //Inc speed by our acceleration
+        currentSpeed += (acceleration * Time.deltaTime);
+
+        //Check if our speed has hit the limit
+        if(currentSpeed > maxSpeed){
+            currentSpeed = maxSpeed;
+        }
+    }
+
+    private void SetLavaPosition(){
         Vector3 newPosition = transform.position;
         
-        //Rise by the rise speed
-        newPosition.y += (lavaRiseSpeed * Time.deltaTime);
+        //Rise by the current speed
+        newPosition.y += (currentSpeed * Time.deltaTime);
 
         //Check max distance
         if(trackTransform != null){

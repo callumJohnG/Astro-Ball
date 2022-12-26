@@ -25,7 +25,9 @@ public class GameSettingsManager : MonoBehaviour
     [HideInInspector] public List<float> bumperProbabilities;
     [HideInInspector] public int maxGameHeight = 1000;
     [HideInInspector] public int minGameHeight = 60;
-    [HideInInspector] public float lavaSpeed;
+    [HideInInspector] public float lavaStartSpeed;
+    [HideInInspector] public float lavaMaxSpeed;
+    [HideInInspector] public float lavaAcceleration;    
     [HideInInspector] public float lavaDistance;
 
     #endregion
@@ -58,7 +60,9 @@ public class GameSettingsManager : MonoBehaviour
         this.bumperProbabilities = difficultyProfile.bumperProbabilities;
         this.powerupProbability = difficultyProfile.powerupProbability;
         this.coinReward = difficultyProfile.coinReward;
-        this.lavaSpeed = difficultyProfile.lavaRiseSpeed;
+        this.lavaStartSpeed = difficultyProfile.lavaStartSpeed;
+        this.lavaMaxSpeed = difficultyProfile.lavaMaxSpeed;
+        this.lavaAcceleration = difficultyProfile.lavaAcceleration;
         this.lavaDistance = difficultyProfile.lavaDistance;
 
         ConfirmAllDifficultyVariables();
@@ -66,7 +70,7 @@ public class GameSettingsManager : MonoBehaviour
 
     private void ConfirmAllDifficultyVariables(){
         ObjectSpawningManager.Instance.GetDifficultySettings();
-        risingLava.SetSpeed(lavaSpeed, lavaDistance);
+        risingLava.SetSpeed(lavaStartSpeed, lavaMaxSpeed, lavaAcceleration, lavaDistance);
     }
 
 }
