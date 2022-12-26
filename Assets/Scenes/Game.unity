@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 40
+    OrthographicSize: 66.9377
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -16424,7 +16424,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 40
+  orthographic size: 66.9377
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -78507,7 +78507,7 @@ MonoBehaviour:
   minSFXVolume: -50
   maxPixilation: 0.1
   minPixilation: 0
-  dataToggle: {fileID: 0}
+  dataToggle: {fileID: 2078226875}
   audioMixer: {fileID: 24100000, guid: 038906beaf5c9a04b81c233a67b0cbdc, type: 2}
   shaderMaterialManager: {fileID: 1728276265}
 --- !u!1 &1558087278
