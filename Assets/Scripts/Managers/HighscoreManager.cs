@@ -36,7 +36,7 @@ public class HighscoreManager : MonoBehaviour
         return 0;
     }
 
-    private void SetHighscore(int points){
+    public void SetHighscore(int points){
         switch (PlayerPrefs.GetInt("Difficulty", 0)){
             case 0 : PlayerPrefs.SetInt("HighscoreNormal", points); break;
             case 1 : PlayerPrefs.SetInt("HighscoreChallenge", points); break;

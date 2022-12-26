@@ -38,6 +38,35 @@ public class Leaderboard : MonoBehaviour
 
         bool done = false;
         string PlayerID = PlayerPrefs.GetString("PlayerID");
+        
+        //Checking if the stored score matches our personal highscore
+        int storedScore = 0;
+        int highscore = GetPlayerHighScore(leaderboardID);
+
+        LootLockerSDKManager.GetMemberRank(leaderboardID, PlayerID, (response) =>
+        {
+            if (response.statusCode == 200) {
+                storedScore = response.score;
+                done = true;
+            } else {
+                storedScore = 0;
+                done = true;
+            }
+        });
+
+        yield return new WaitWhile(() => done == false);
+        done = false;
+
+
+        //Check if our highscore is less than the stored highscore
+        if(highscore < storedScore){
+            HighscoreManager.Instance.SetHighscore(storedScore);
+        } else if (highscore > storedScore){
+            scoreToUpload = Mathf.Max(highscore, scoreToUpload);
+        }
+
+
+
         LootLockerSDKManager.SubmitScore(PlayerID, scoreToUpload, leaderboardID, (response) => {
             if(response.success){
                 Debug.Log("Score Submitted Successfully");
@@ -93,7 +122,7 @@ public class Leaderboard : MonoBehaviour
                     }
                     string playerScore = members[i].score.ToString();
 
-                    bool isMe = ComparePlayers(members[i], leaderboardID);
+                    bool isMe = ComparePlayers(members[i]);
 
                     SpawnScore(playerName, playerScore, isMe, members[i].rank.ToString());
 
@@ -111,22 +140,18 @@ public class Leaderboard : MonoBehaviour
         fetching = false;
     }
 
-    private bool ComparePlayers(LootLockerLeaderboardMember member, int leaderboardID){
-        
-        if(member.player.name != PlayerPrefs.GetString("Name")) return false;
-
-        int highscore = GetPlayerHighScore(leaderboardID);
-        Debug.Log("Highscore : " +highscore);
-        Debug.Log("Member score : " + member.score);
-        if(member.score != highscore) return false;
-        Debug.Log("ITS ME");
-        return true;
+    private bool ComparePlayers(LootLockerLeaderboardMember member){
+        return member.member_id == PlayerPrefs.GetString("PlayerID");
     }
 
     private int GetPlayerHighScore(int leaderboardID){
-        //if(leaderboardID == normalLeaderboardID){
-        return PlayerPrefs.GetInt("HighscoreNormal", 0);
-        
+        if(leaderboardID == normalLeaderboardID){
+            return PlayerPrefs.GetInt("HighscoreNormal", 0);
+        } else if (leaderboardID == challengeLeaderboardID){
+            return PlayerPrefs.GetInt("HighscoreChallenge", 0);
+        }
+
+        return 0;
     }
 
     private List<GameObject> spawnedScores = new List<GameObject>();
