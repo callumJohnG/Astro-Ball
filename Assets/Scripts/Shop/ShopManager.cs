@@ -29,6 +29,9 @@ public class ShopManager : MonoBehaviour
 
         //Set up all the buttons
         SetUpButtons();
+
+        currentPalette = shaderMaterialManager.GetColourPalette();
+        SetButtonSelected(currentPalette);
     }
 
     private void WipeProgress(){
@@ -88,11 +91,15 @@ public class ShopManager : MonoBehaviour
 
     }
     [SerializeField] private ShaderMaterialManager shaderMaterialManager;
+
     public void SelectPalette(ColourPaletteData data){
-        selectedButton?.SetSelected(false);
-        
         shaderMaterialManager.SetColourPalette(data);
-    
+        SetButtonSelected(data);
+    }
+
+    public void SetButtonSelected(ColourPaletteData data){
+        selectedButton?.SetSelected(false);
+
         //Find the button that has this data
         foreach(ColourSchemeShopButton button in allButtons){
             if(button.GetPalette() != data)continue;
