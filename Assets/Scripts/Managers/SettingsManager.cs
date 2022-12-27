@@ -17,7 +17,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private float minMusicVolume;
 
     public void SetMusicVolume(float value){
-        float increment = (Mathf.Abs(maxMusicVolume - minMusicVolume)) / 10;
+        float increment = (Mathf.Abs(maxMusicVolume - minMusicVolume)) / 25;
 
         float newValue = minMusicVolume + (value * increment);
 
@@ -31,7 +31,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private float minSFXVolume;
 
     public void SetSFXVolume(float value){
-        float increment = (Mathf.Abs(maxSFXVolume - minSFXVolume)) / 10;
+        float increment = (Mathf.Abs(maxSFXVolume - minSFXVolume)) / 20;
 
         float newValue = minSFXVolume + (value * increment);
 
@@ -45,7 +45,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private float minPixilation;
 
     public void SetPixelation(float value){
-        float increment = (Mathf.Abs(maxPixilation - minPixilation)) / 10;
+        float increment = (Mathf.Abs(maxPixilation - minPixilation)) / 25;
 
         float newValue = minPixilation + (value * increment);
 
