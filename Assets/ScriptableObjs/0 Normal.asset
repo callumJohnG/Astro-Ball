@@ -19,7 +19,7 @@ MonoBehaviour:
   defaultGravity: 4
   platformProbability: 10
   powerupProbability: 1
-  coinReward: 3
+  coinReward: 5
   lavaStartSpeed: 10
   lavaMaxSpeed: 30
   lavaAcceleration: 0.1
