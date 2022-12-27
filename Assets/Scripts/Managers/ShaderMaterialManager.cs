@@ -9,6 +9,7 @@ public class ShaderMaterialManager : MonoBehaviour
     [SerializeField] private Material material;
     [field:SerializeField] public List<ColourPaletteData> colourPalettes {get; private set;}
     private const string PALLETTE_KEY = "CurrentPalette";
+    private ColourPaletteData currentPalette;
 
     // Start is called before the first frame update
     void Awake()
@@ -57,12 +58,18 @@ public class ShaderMaterialManager : MonoBehaviour
         SetColourPalette(colourPalettes[0]);
     }
 
+    public ColourPaletteData GetColourPalette(){
+        return currentPalette;
+    }
+
     public void SetColourPalette(ColourPaletteData paletteData){
         material.SetVector("_HighPassCol", paletteData.highPassCol);
         material.SetVector("_HighMidPassCol", paletteData.highMidPassCol);
         material.SetVector("_MidPassCol", paletteData.midPassCol);
         material.SetVector("_LowMidPassCol", paletteData.lowMidPassCol);
         material.SetVector("_LowPassCol", paletteData.lowPassCol);
+
+        currentPalette = paletteData;
 
         PlayerPrefs.SetString(PALLETTE_KEY, paletteData.name);
     }

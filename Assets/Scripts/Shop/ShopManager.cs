@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
@@ -88,18 +89,45 @@ public class ShopManager : MonoBehaviour
     }
     [SerializeField] private ShaderMaterialManager shaderMaterialManager;
     public void SelectPalette(ColourPaletteData data){
+        selectedButton?.SetSelected(false);
+        
         shaderMaterialManager.SetColourPalette(data);
+    
+        //Find the button that has this data
+        foreach(ColourSchemeShopButton button in allButtons){
+            if(button.GetPalette() != data)continue;
+
+            //This button has the palette
+            button.SetSelected(true);
+            selectedButton = button;
+            return;
+        }
     }
 
     [SerializeField] private GameObject purchaseScreen;
     [SerializeField] private TextMeshProUGUI purchaseText;
+    [SerializeField] private GameObject notEnoughCoinsContainer;
+    [SerializeField] private Button yesButton;
     private ColourPaletteData currentPalette;
-
+    private ColourPaletteData realSelectedPalette;
+    private ColourSchemeShopButton selectedButton;
 
     public void OpenPurchaseScreen(ColourPaletteData data){
         purchaseScreen.SetActive(true);
-        purchaseText.text = "Buy " + data.ToString() + " for " + data.price + " coins?";
+        purchaseText.text = "Buy " + data.paletteName + " for " + data.price + " coins?";
         currentPalette = data;
+
+        bool canPurchase = PlayerXPManager.Instance.GetXP() >= currentPalette.price;
+        yesButton.interactable = canPurchase;
+        notEnoughCoinsContainer.SetActive(!canPurchase);
+
+        //So the player can preview the palette - temporarily select the palette
+        realSelectedPalette = shaderMaterialManager.GetColourPalette();
+        SelectPalette(data);
+    }
+
+    public void ResetPalette(){
+        SelectPalette(realSelectedPalette);
     }
 
     public void PurchasePalette(){

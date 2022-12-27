@@ -6,27 +6,34 @@ using TMPro;
 public class ColourSchemeShopButton : MonoBehaviour
 {
     private ColourPaletteData myPalette;
-    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private List<TextMeshProUGUI> nameTexts;
     [SerializeField] private TextMeshProUGUI priceText;
-    [SerializeField] private GameObject cross;
+    [SerializeField] private GameObject ownedContainer;
+    [SerializeField] private GameObject notOwnedContainer;
+    [SerializeField] private GameObject selectedContainer;
+    private bool owned;
 
     public void SetPalette(ColourPaletteData data){
         myPalette = data;
     }
 
+    public ColourPaletteData GetPalette(){
+        return myPalette;
+    }
+
     public void InitialiseButton(){
-        cross.SetActive(false);
-        nameText.text = myPalette.paletteName;
+        foreach(TextMeshProUGUI text in nameTexts)text.text = myPalette.paletteName;
         priceText.text = myPalette.price.ToString();
 
         //Check if we are "free"
         //Or if we have been purchased
-        if(ShopManager.Instance.CheckPaletteOwned(myPalette)){
-            priceText.gameObject.SetActive(false);
-        } else if(PlayerXPManager.Instance.GetXP() < myPalette.price){
-            //Check if we have enough coins
-            cross.SetActive(true);
-        }
+        owned = ShopManager.Instance.CheckPaletteOwned(myPalette);
+        SetOwned(owned);
+    }
+
+    private void SetOwned(bool owned){
+        ownedContainer.SetActive(owned);
+        notOwnedContainer.SetActive(!owned);
     }
 
     public void Pressed(){
@@ -36,12 +43,12 @@ public class ColourSchemeShopButton : MonoBehaviour
             ShopManager.Instance.SelectPalette(myPalette);
             return;
         }
-
-        //Check if player can afford us
-        if(PlayerXPManager.Instance.GetXP() >= myPalette.price){
-            ShopManager.Instance.OpenPurchaseScreen(myPalette);
-        }
+        
+        //Open the purchase screen
+        ShopManager.Instance.OpenPurchaseScreen(myPalette);
     }
 
-
+    public void SetSelected(bool selected){
+        selectedContainer.SetActive(selected);
+    }
 }
