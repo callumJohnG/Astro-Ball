@@ -246,9 +246,13 @@ public class PlayerController : MonoBehaviour
 
     private void CalculateAimVector(){
         if(!launching)return;
+
         Vector2 destination = mainCam.ScreenToWorldPoint(currentMousePosition);
         Vector2 anchor = mainCam.ScreenToWorldPoint(aimAnchor);
         aimVector = destination - anchor;
+        if(GameSettingsManager.Instance.inverseAiming){
+            aimVector = anchor - destination;
+        }
         aimVector = Vector3.Normalize(aimVector) * launchForce;
     }
 
