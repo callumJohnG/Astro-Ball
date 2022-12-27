@@ -63,4 +63,12 @@ public class SettingsManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private ShaderMaterialManager shaderMaterialManager;
+
+
+
+
+    public void RESETDATA(){
+        PlayerPrefs.DeleteAll();
+    }
+
 }
