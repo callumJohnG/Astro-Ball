@@ -40,8 +40,13 @@ public class PowerupManager : MonoBehaviour
         Powerup currentPowerup = GetPowerupOfType(type);
         if(currentPowerup == null){
             
-            GameObject powerUpUI = Instantiate(powerupUIPrefab, transform.position, transform.rotation, powerupContainer);
+            GameObject powerUpUI = Instantiate(powerupUIPrefab, Vector3.zero, Quaternion.identity);
+            powerUpUI.transform.SetParent(powerupContainer, false);
             powerUpUI.GetComponent<PowerupUI>().SetData(GetPowerupSprite(type), Time.time, Time.time + GameSettingsManager.Instance.powerupDuration);
+
+            Vector3 newPosition = powerUpUI.gameObject.transform.position;
+            newPosition.z = 0;
+            //powerUpUI.gameObject.transform.position = newPosition;
 
             Powerup powerup = new Powerup(type, GameSettingsManager.Instance.powerupDuration + Time.time, powerUpUI.GetComponent<PowerupUI>());
             currentPowerups.Add(powerup);
@@ -70,7 +75,7 @@ public class PowerupManager : MonoBehaviour
             case PowerupType.Inverted : return invertedSprite;
             case PowerupType.Moon : return moonSprite;
             case PowerupType.Weak : return weakSprite;
-            case PowerupType.DoublePoints : return doublePointsSprite;
+            case PowerupType.Double_Points : return doublePointsSprite;
         }
 
         return null;
@@ -91,7 +96,7 @@ public class PowerupManager : MonoBehaviour
             case PowerupType.Inverted : ApplyInverted();break;
             case PowerupType.Moon : ApplyMoon();break;
             case PowerupType.Weak : ApplyWeak();break;
-            case PowerupType.DoublePoints : ApplyDoublePoints();break;
+            case PowerupType.Double_Points : ApplyDoublePoints();break;
         }
     }
 
@@ -109,14 +114,15 @@ public class PowerupManager : MonoBehaviour
             case PowerupType.Inverted : RemoveInverted();break;
             case PowerupType.Moon : RemoveMoon();break;
             case PowerupType.Weak : RemoveWeak();break;
-            case PowerupType.DoublePoints : RemoveDoublePoints();break;
+            case PowerupType.Double_Points : RemoveDoublePoints();break;
         }
     }
 
     private void DisplayPowerup(Powerup powerup){
         AudioManager.Instance.PlayPowerUp();
-        Debug.Log("POWER UP ADDED OF TYPE " + powerup.myType.ToString());
-        PlayPowerupAnimation(powerup.myType.ToString());
+        string powerupTitle = string.Join(" ", powerup.myType.ToString().Split("_"));
+        Debug.Log("POWER UP ADDED OF TYPE " + powerupTitle);
+        PlayPowerupAnimation(powerupTitle);
     }
 
     public void ClearPowerupText(){
@@ -234,8 +240,13 @@ public class PowerupManager : MonoBehaviour
     private TextMeshProUGUI powerupTitle;
     private void PlayPowerupAnimation(string powerupString){
         powerupText.SetActive(true);
+        StartCoroutine(CrossFadeAnimAsync(powerupString));
+    }
+    private IEnumerator CrossFadeAnimAsync(string powerupString) {
+        powerupAnimator.CrossFade("default", 0.0f, 0); ///Crossfade to DefaultAnimationName
+        yield return new WaitForEndOfFrame();
+        powerupAnimator.CrossFade("GainPowerup", 0.0f, 0); ///Crossfade to the real AnimationName
         powerupTitle.text = powerupString;
-        powerupAnimator.CrossFade("GainPowerup", 0, 0);
     }
 
     #endregion

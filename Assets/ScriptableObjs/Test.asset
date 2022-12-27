@@ -15,15 +15,15 @@ MonoBehaviour:
   profileID: 0
   bumperSpacing: 17
   powerupDuration: 10
-  launchRechargeTime: 3
+  launchRechargeTime: 3.5
   defaultGravity: 4
-  platformProbability: 30
-  pointsBaseMultiplier: 1
-  powerupProbability: 10
+  platformProbability: 10
+  powerupProbability: 90
   coinReward: 3
-  collectPointsOnDeath: 1
-  maxGameHeight: 1000
-  minGameHeight: 60
+  lavaStartSpeed: 10
+  lavaMaxSpeed: 30
+  lavaAcceleration: 0.1
+  lavaDistance: 200
   bumperProbabilities:
   - 75
   - 20

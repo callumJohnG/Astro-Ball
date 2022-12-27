@@ -330,6 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8767904465701337187}
   - component: {fileID: 8767904465701337196}
+  - component: {fileID: 5431069342196919431}
   m_Layer: 5
   m_Name: PowerupTimer
   m_TagString: Untagged
@@ -345,7 +346,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8767904465701337186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -372,6 +373,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupImage: {fileID: 8767904465077528407}
   timerSlider: {fileID: 8767904464732533244}
+--- !u!114 &5431069342196919431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767904465701337186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 259.6649
+  m_PreferredHeight: 273.2104
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &8767904466206161653
 GameObject:
   m_ObjectHideFlags: 0

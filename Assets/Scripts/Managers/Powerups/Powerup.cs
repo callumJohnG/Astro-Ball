@@ -7,7 +7,7 @@ public enum PowerupType{
     Inverted,
     Moon,
     Weak,
-    DoublePoints
+    Double_Points
 }
 
 public class Powerup

@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 40
+    OrthographicSize: 53.53743
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -8026,7 +8026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 0.2402973
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &252051596
@@ -9838,7 +9838,7 @@ MonoBehaviour:
   lavaAcceleration: 0
   lavaDistance: 0
   canPostScore: 0
-  normalDifficulty: {fileID: 11400000, guid: 14466b182b8b4894191ea3d762c510a9, type: 2}
+  normalDifficulty: {fileID: 11400000, guid: 259559c26ba58794da992a7ae44f6ab6, type: 2}
   challengeDifficulty: {fileID: 11400000, guid: 2dc29acd381937c488ce839db5e120d4, type: 2}
   risingLava: {fileID: 1507587119}
 --- !u!4 &408347873
@@ -15919,7 +15919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bouncy
+  m_text: Double Points
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcca3c5b729bfa5428f82786e280052b, type: 2}
   m_sharedMaterial: {fileID: -6430708293258405581, guid: fcca3c5b729bfa5428f82786e280052b, type: 2}
@@ -15946,8 +15946,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 284.4
-  m_fontSizeBase: 124.77
+  m_fontSize: 170.43
+  m_fontSizeBase: 170.43
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16137,7 +16137,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 40
+  orthographic size: 53.53743
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -22847,7 +22847,7 @@ MonoBehaviour:
   moonGravity: 2
   weakSprite: {fileID: 21300000, guid: e5735a4b5571dd046b53ce8fd0bf4452, type: 3}
   weakForce: 7
-  doublePointsSprite: {fileID: 21300000, guid: ff00345da0563d641903c5bd5bb748a4, type: 3}
+  doublePointsSprite: {fileID: 21300000, guid: a9add903c99eafa47ad291b537d89345, type: 3}
   multiplier: 2
 --- !u!4 &639714021
 Transform:
@@ -28963,7 +28963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 768, y: -201.10501}
+  m_AnchoredPosition: {x: 768, y: -201.10498}
   m_SizeDelta: {x: 1308.72, y: 134.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &744680062

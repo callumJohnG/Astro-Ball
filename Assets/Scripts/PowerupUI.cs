@@ -31,11 +31,18 @@ public class PowerupUI : MonoBehaviour
     void Update()
     {
         UpdateSliderTime();
+        //SetPosition();
     }
 
     private void UpdateSliderTime(){
 
         timerSlider.value = endTime + startTime - Time.time ;
+    }
+
+    private void SetPosition(){
+        Vector3 newPos = transform.position;
+        newPos.z = 0;
+        transform.position = newPos;
     }
 
     public void KillMe(){
