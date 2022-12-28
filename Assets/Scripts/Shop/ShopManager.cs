@@ -134,6 +134,8 @@ public class ShopManager : MonoBehaviour
     }
 
     public void ResetPalette(){
+        if(realSelectedPalette == null)return;
+        
         SelectPalette(realSelectedPalette);
     }
 
