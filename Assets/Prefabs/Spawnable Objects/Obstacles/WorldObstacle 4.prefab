@@ -921,6 +921,10 @@ PrefabInstance:
       value: 25.377872
       objectReference: {fileID: 0}
     - target: {fileID: 1745908020982681418, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
+      propertyPath: m_CornerAngleThreshold
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745908020982681418, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
       value: 3
       objectReference: {fileID: 0}
