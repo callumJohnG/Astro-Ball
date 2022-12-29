@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb60bf4723bb714b8fc188f35768066, type: 3}
+  m_Name: 3 - Pastel Ghost
+  m_EditorClassIdentifier: 
+  highPassCol: {r: 0.92941177, g: 0.93333334, b: 0.7882353, a: 1}
+  highMidPassCol: {r: 0.8666667, g: 0.90588236, b: 0.78039217, a: 1}
+  midPassCol: {r: 0.7490196, g: 0.84705883, b: 0.7411765, a: 1}
+  lowMidPassCol: {r: 0.59607846, g: 0.7882353, b: 0.6392157, a: 1}
+  lowPassCol: {r: 0.46666667, g: 0.7490196, b: 0.6392157, a: 1}
+  paletteName: Too Bright
+  price: 100
+  free: 0

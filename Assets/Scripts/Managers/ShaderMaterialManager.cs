@@ -23,14 +23,14 @@ public class ShaderMaterialManager : MonoBehaviour
         List<ColourPaletteData> cloneList = colourPalettes;
         
         //Put all the free ones at the front
-        for(int i = 0; i < cloneList.Count; i++){
+        /*for(int i = 0; i < cloneList.Count; i++){
             ColourPaletteData data = cloneList[i];
             if(data.free){
                 tempList.Add(data);
                 cloneList.Remove(data);
                 i--;
             }
-        }
+        }*/
 
         //Sort the rest of the list
         List<ColourPaletteData> sortedList = cloneList.OrderBy(o=>o.price).ToList();

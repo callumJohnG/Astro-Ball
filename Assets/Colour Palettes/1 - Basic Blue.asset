@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb60bf4723bb714b8fc188f35768066, type: 3}
+  m_Name: 1 - Basic Blue
+  m_EditorClassIdentifier: 
+  highPassCol: {r: 0.67058825, g: 0.8235294, b: 0.98039216, a: 1}
+  highMidPassCol: {r: 0.4627451, g: 0.57254905, b: 1, a: 1}
+  midPassCol: {r: 0.105882354, g: 0.17254902, b: 0.75686276, a: 1}
+  lowMidPassCol: {r: 0.23921569, g: 0.31764707, b: 0.54901963, a: 1}
+  lowPassCol: {r: 0.03529412, g: 0.08235294, b: 0.2509804, a: 1}
+  paletteName: Blue
+  price: 0
+  free: 1
