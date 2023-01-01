@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.73333335, g: 0.26666668, b: 0.1882353, a: 1}
   paletteName: Apple Pie
   price: 100
-  free: 0
+  free: 1

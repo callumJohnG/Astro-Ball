@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.12941177, g: 0.101960786, b: 0.11764706, a: 1}
   paletteName: Mellow
   price: 200
-  free: 0
+  free: 1

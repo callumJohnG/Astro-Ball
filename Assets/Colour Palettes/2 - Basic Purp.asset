@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.2784314, g: 0, b: 0.3882353, a: 1}
   paletteName: Breeze
   price: 50
-  free: 0
+  free: 1

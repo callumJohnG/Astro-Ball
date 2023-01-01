@@ -17,6 +17,6 @@ MonoBehaviour:
   midPassCol: {r: 0.7058824, g: 0.49411765, b: 0.7019608, a: 1}
   lowMidPassCol: {r: 0.43529412, g: 0.7647059, b: 0.69411767, a: 1}
   lowPassCol: {r: 0.40392157, g: 0.63529414, b: 0.5529412, a: 1}
-  paletteName: New
+  paletteName: Claur
   price: 100
-  free: 0
+  free: 1

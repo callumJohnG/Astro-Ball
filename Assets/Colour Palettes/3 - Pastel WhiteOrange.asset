@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.99607843, g: 0.39607844, b: 0.30980393, a: 1}
   paletteName: Peace
   price: 100
-  free: 0
+  free: 1

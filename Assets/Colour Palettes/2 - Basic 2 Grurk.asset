@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.03529412, g: 0.11764706, b: 0.019607844, a: 1}
   paletteName: Berry
   price: 50
-  free: 0
+  free: 1

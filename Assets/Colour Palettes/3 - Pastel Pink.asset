@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.3647059, g: 0.16470589, b: 0.25882354, a: 1}
   paletteName: Doll House
   price: 100
-  free: 0
+  free: 1

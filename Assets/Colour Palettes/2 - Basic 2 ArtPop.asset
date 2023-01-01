@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.019607844, g: 0.015686275, b: 0.003921569, a: 1}
   paletteName: Art Pop
   price: 50
-  free: 0
+  free: 1

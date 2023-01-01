@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.7490196, g: 0.19215687, b: 0, a: 1}
   paletteName: Autumn
   price: 100
-  free: 0
+  free: 1

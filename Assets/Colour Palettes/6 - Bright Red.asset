@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.12941177, g: 0.003921569, b: 0.14117648, a: 1}
   paletteName: Royal Light
   price: 750
-  free: 0
+  free: 1

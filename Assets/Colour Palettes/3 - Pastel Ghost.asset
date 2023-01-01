@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.46666667, g: 0.7490196, b: 0.6392157, a: 1}
   paletteName: Too Bright
   price: 100
-  free: 0
+  free: 1
