@@ -45,11 +45,11 @@ Material:
     - _QueueOffset: 0
     - _Range: 0
     m_Colors:
-    - _HighMidPassCol: {r: 0.4627451, g: 0.57254905, b: 1, a: 1}
-    - _HighPassCol: {r: 0.67058825, g: 0.8235294, b: 0.98039216, a: 1}
-    - _LowMidPassCol: {r: 0.23921569, g: 0.31764707, b: 0.54901963, a: 1}
-    - _LowPassCol: {r: 0.03529412, g: 0.08235294, b: 0.2509804, a: 1}
-    - _MidPassCol: {r: 0.105882354, g: 0.17254902, b: 0.75686276, a: 1}
+    - _HighMidPassCol: {r: 0.85490197, g: 0.25490198, b: 0.40392157, a: 1}
+    - _HighPassCol: {r: 0.9411765, g: 0.9372549, b: 0.95686275, a: 1}
+    - _LowMidPassCol: {r: 0.23921569, g: 0.14901961, b: 0.27058825, a: 1}
+    - _LowPassCol: {r: 0, g: 0, b: 0, a: 1}
+    - _MidPassCol: {r: 0.5137255, g: 0.12941177, b: 0.38039216, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &621973093729863146
 MonoBehaviour:
