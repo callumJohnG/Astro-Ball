@@ -79,7 +79,7 @@ public class PointsManager : MonoBehaviour
         //Multiply by base multiplier related to difficulty
         quantity = Mathf.FloorToInt(quantity * GameSettingsManager.Instance.pointsMultiplier);
 
-        AudioManager.Instance.PlayBumper(comboBasePitch + (comboIncPitch * currentMultiplier));
+        AudioManager.Instance.PlayBumper(comboBasePitch + (comboIncPitch * (currentMultiplier + 1)));
 
         if(comboActive){
             currentMultiplier++;

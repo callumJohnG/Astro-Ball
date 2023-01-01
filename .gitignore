@@ -7,9 +7,11 @@
 /[Oo]bj/
 /[Bb]uild/
 /MobileBuild/
+/Assets/Ultimate SFX Bundle - HD Remaster/
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

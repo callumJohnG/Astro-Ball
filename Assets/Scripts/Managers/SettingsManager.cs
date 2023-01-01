@@ -52,13 +52,17 @@ public class SettingsManager : MonoBehaviour
         shaderMaterialManager.SetPixelation(newValue);
     }
 
-    [Header("Data Collection")]
+    [Header("Legal")]
     [SerializeField] private Toggle dataToggle;
     private const string CANPOSTSCORE_KEY = "CanPostScore";
     public void SetDataToggle(){
         dataToggle.isOn = GameSettingsManager.Instance.canPostScore;
     }
-
+    
+    [SerializeField] private string privacyPolicyURL = "https://sites.google.com/view/astroball-privacy-policy/home";
+    public void OpenPrivacyPolicy(){
+        Application.OpenURL(privacyPolicyURL);
+    }
 
     [Header("References")]
     [SerializeField] private AudioMixer audioMixer;
