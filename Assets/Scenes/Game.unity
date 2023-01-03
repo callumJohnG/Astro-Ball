@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 40
+    OrthographicSize: 54.97752
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -12397,7 +12397,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2003034092}
   m_HandleRect: {fileID: 2003034091}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -21863,7 +21863,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bruno Exeter
+  m_text: Bruno Exner
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcca3c5b729bfa5428f82786e280052b, type: 2}
   m_sharedMaterial: {fileID: -6430708293258405581, guid: fcca3c5b729bfa5428f82786e280052b, type: 2}
@@ -21955,7 +21955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &518328545
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21973,7 +21973,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 759.50006, y: -3415.1848}
+  m_AnchoredPosition: {x: 759.5, y: -3487.795}
   m_SizeDelta: {x: 100, y: 61.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &518339186
@@ -22097,7 +22097,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 40
+  orthographic size: 54.97752
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -34797,7 +34797,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 698236362}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1554719462}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: OpenBrunoLink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &698236362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42524,7 +42536,7 @@ GameObject:
   - component: {fileID: 916692403}
   - component: {fileID: 916692402}
   m_Layer: 5
-  m_Name: Link Buttin
+  m_Name: Link Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42867,7 +42879,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 164.56754}
-  m_SizeDelta: {x: 0, y: 3456.8398}
+  m_SizeDelta: {x: 0, y: 3718.7498}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &924351326
 MonoBehaviour:
@@ -53944,8 +53956,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1025115157}
   m_HandleRect: {fileID: 1025115156}
   m_Direction: 2
-  m_Value: 0.8500499
-  m_Size: 0.68251854
+  m_Value: 0.92233956
+  m_Size: 0.43016776
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -54156,8 +54168,8 @@ RectTransform:
   m_Father: {fileID: 1602822720}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.26987508}
-  m_AnchorMax: {x: 1, y: 0.95239365}
+  m_AnchorMin: {x: 0, y: 0.5255788}
+  m_AnchorMax: {x: 1, y: 0.95574653}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -61746,7 +61758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1179479532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61767,7 +61779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 759.50006, y: -3546.1396}
+  m_AnchoredPosition: {x: 759.5, y: -3618.7498}
   m_SizeDelta: {x: 1259.5, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1180572344
@@ -62115,7 +62127,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 169.7
+  m_fontSize: 115.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -86326,6 +86338,7 @@ MonoBehaviour:
   termsOfServiceURL: https://sites.google.com/view/astroballtermsofservice/home
   endUserAgreementURL: https://sites.google.com/view/astroball-end-user-license-agr/home
   callumItchLink: https://callumg.itch.io/
+  brunoInstagramLink: https://www.instagram.com/brunex.audio/
   audioMixer: {fileID: 24100000, guid: 038906beaf5c9a04b81c233a67b0cbdc, type: 2}
   shaderMaterialManager: {fileID: 1728276265}
 --- !u!1 &1558087278
@@ -88063,7 +88076,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 201.91
+  m_fontSize: 192.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -96665,7 +96678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Itch.io
+  m_text: Instagram
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcca3c5b729bfa5428f82786e280052b, type: 2}
   m_sharedMaterial: {fileID: -6430708293258405581, guid: fcca3c5b729bfa5428f82786e280052b, type: 2}
@@ -97571,7 +97584,7 @@ RectTransform:
   m_Father: {fileID: 448030602}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.000000059604645, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}

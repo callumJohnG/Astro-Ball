@@ -60,14 +60,29 @@ public class SettingsManager : MonoBehaviour
     }
     
     [SerializeField] private string privacyPolicyURL = "https://sites.google.com/view/astroball-privacy-policy/home";
+    [SerializeField] private string termsOfServiceURL = "https://sites.google.com/view/astroballtermsofservice/home";
+    [SerializeField] private string endUserAgreementURL = "https://sites.google.com/view/astroball-end-user-license-agr/home";
     public void OpenPrivacyPolicy(){
         Application.OpenURL(privacyPolicyURL);
+    }
+
+    public void OpenTermsOfService(){
+        Application.OpenURL(termsOfServiceURL);
+    }
+
+    public void OpenEULA(){
+        Application.OpenURL(endUserAgreementURL);
     }
 
     [Header("Credits")]
     [SerializeField] private string callumItchLink = "https://callumg.itch.io/";
     public void OpenCallumLink(){
         Application.OpenURL(callumItchLink);
+    }
+
+    [SerializeField] private string brunoInstagramLink = "https://www.instagram.com/brunex.audio/";
+    public void OpenBrunoLink(){
+        Application.OpenURL(brunoInstagramLink);
     }
 
 
