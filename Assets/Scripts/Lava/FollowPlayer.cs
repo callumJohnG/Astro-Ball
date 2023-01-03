@@ -37,11 +37,12 @@ public class FollowPlayer : MonoBehaviour
     #region Interface Methods
 
     public void StartRisingTracking(Transform trackTransform){
+        Debug.LogError("SetRISINGTRACKING");
         isRising = true;
         isTracking = true;
         this.trackTransform = trackTransform;
         risingLava.SetTrackTransform(trackTransform);
-        risingLava.SetStarted();
+        risingLava.SetStarted(continuing);
     }
 
     public void PlayerDied(){
@@ -52,13 +53,17 @@ public class FollowPlayer : MonoBehaviour
         risingLava.SetTrackTransform(null);
     }
 
-    public void Reset(){
+    private bool continuing;
+
+    public void Reset(bool continuing){
+        this.continuing = continuing;
+        Debug.LogError("RESET");
         isTracking = false;
         isRising = false;
         risingLava.transform.position = Vector3.zero;
         transform.position = Vector3.zero;
 
-        risingLava.SetStarted();
+        risingLava.SetStarted(continuing);
         
         trackTransform = null;
     }

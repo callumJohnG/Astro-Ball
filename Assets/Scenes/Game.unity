@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 78.51566
+    OrthographicSize: 68.62463
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -14359,7 +14359,6 @@ RectTransform:
   m_Children:
   - {fileID: 486596842}
   - {fileID: 943010788}
-  - {fileID: 522458980}
   m_Father: {fileID: 1718783349}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21961,7 +21960,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 78.51566
+  orthographic size: 68.62463
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -22038,7 +22037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 522458980}
   m_Layer: 5
-  m_Name: Particles
+  m_Name: BorderParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22051,15 +22050,15 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522458979}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 158416830}
   - {fileID: 1941159558}
-  m_Father: {fileID: 309819460}
-  m_RootOrder: 2
+  m_Father: {fileID: 2031463352}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -54725,7 +54724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745908020982681416, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.7
+      value: 12.8
       objectReference: {fileID: 0}
     - target: {fileID: 1745908020982681416, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -85512,6 +85511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511ef538a2b17734a93ac5e35bc8f3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpeed: 0
   lavaMenuSpeed: 0.5
   menuGoalTransform: {fileID: 2095772373}
   lavaLerpSpeed: 0.1
@@ -102542,6 +102542,7 @@ RectTransform:
   - {fileID: 2105266639}
   - {fileID: 230613619}
   - {fileID: 1357755281}
+  - {fileID: 522458980}
   m_Father: {fileID: 281086727}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

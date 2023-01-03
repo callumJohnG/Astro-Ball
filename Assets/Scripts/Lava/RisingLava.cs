@@ -6,7 +6,7 @@ public class RisingLava : MonoBehaviour
 {
 
     private float maxDistanceFromPlayer;
-    private float currentSpeed;
+    [SerializeField] private float currentSpeed;
     private float startSpeed;
     private float maxSpeed;
     private float acceleration;
@@ -17,6 +17,7 @@ public class RisingLava : MonoBehaviour
     private Transform trackTransform;
     private bool lerpingToMenu;
     private bool rising;
+    private float cacheSpeed;
 
     public void SetSpeed(float startSpeed, float maxSpeed, float acceleration, float lavaDistance){
         this.startSpeed = startSpeed;
@@ -30,17 +31,22 @@ public class RisingLava : MonoBehaviour
         this.trackTransform = trackTransform;
     }
 
-    private void Start() {
-        SetStarted();
-    }
-
-    public void SetStarted(){
-        currentSpeed = startSpeed;
+    public void SetStarted(bool useCache = false){
+        Debug.Log("LAVA IS NOW RISING!");
+        if(useCache){
+            currentSpeed = cacheSpeed;
+            Debug.LogError("USING CACHE SPEED OF " + cacheSpeed);
+        } else {
+            Debug.LogError("USING START SPEED OF " + startSpeed);
+            currentSpeed = startSpeed;
+        }
         rising = true;
     }
 
     public void SetStopped(){
+        Debug.Log("LAVA HAS STOPPED RISING");
         rising = false;
+        cacheSpeed = currentSpeed;
     }
 
     private void Update() {

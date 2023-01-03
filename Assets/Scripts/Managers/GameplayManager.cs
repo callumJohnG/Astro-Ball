@@ -25,12 +25,14 @@ public class GameplayManager : MonoBehaviour
 
     public void StartGame(){
         PrepareGame();
+        FollowPlayer.Instance.Reset(false);
         PointsManager.Instance.ResetPoints();
         continueButtonsManager.ResetButtons();
     }
 
     public void ContinueGame(){
         PrepareGame();
+        FollowPlayer.Instance.Reset(true);
     }
 
     private void PrepareGame(){
@@ -42,7 +44,6 @@ public class GameplayManager : MonoBehaviour
         shopScreen.SetActive(false);
         gameHud.SetActive(true);
 
-        FollowPlayer.Instance.Reset();
         KillPlayer();
         SpawnCharacter();
         ObjectSpawningManager.Instance.SpawnGrid();
