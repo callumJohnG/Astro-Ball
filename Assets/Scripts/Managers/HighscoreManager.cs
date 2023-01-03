@@ -13,6 +13,7 @@ public class HighscoreManager : MonoBehaviour
     }
 
     [SerializeField] private TextMeshProUGUI pointsText;
+    [SerializeField] private TextMeshProUGUI bestComboText;
     [SerializeField] private Transform highscoreArea;
     [SerializeField] private TextMeshProUGUI highscoreText;
 
@@ -24,8 +25,8 @@ public class HighscoreManager : MonoBehaviour
         }
         highscoreText.text = "Highscore : " + highscore.ToString();
 
-        string pointsString = points + " Points\nBest Combo : " + combo;
-        pointsText.text = pointsString;
+        pointsText.text = "Points : " + points;
+        bestComboText.text = "Best Combo : " + combo;
     }
 
     private int GetHighscore(){
