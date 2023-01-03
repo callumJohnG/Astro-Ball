@@ -58,6 +58,8 @@ public class PowerupManager : MonoBehaviour
             currentPowerup.powerupUI.SetTime(Time.time, Time.time + GameSettingsManager.Instance.powerupDuration);
             DisplayPowerup(currentPowerup);
         }
+
+        CheckParticles();
     }
 
     private Powerup GetPowerupOfType(PowerupType type){
@@ -116,6 +118,8 @@ public class PowerupManager : MonoBehaviour
             case PowerupType.Weak : RemoveWeak();break;
             case PowerupType.Double_Points : RemoveDoublePoints();break;
         }
+
+        CheckParticles();
     }
 
     private void DisplayPowerup(Powerup powerup){
@@ -134,6 +138,7 @@ public class PowerupManager : MonoBehaviour
             RemovePowerup(powerup, false);
         }
         currentPowerups.Clear();
+        CheckParticles();
     }
 
     #region Specific Powerups
@@ -247,6 +252,25 @@ public class PowerupManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         powerupAnimator.CrossFade("GainPowerup", 0.0f, 0); ///Crossfade to the real AnimationName
         powerupTitle.text = powerupString;
+    }
+
+    #endregion
+
+    #region Particles
+
+    [SerializeField] private List<ParticleSystem> allParticles;
+
+    private void CheckParticles(){
+        bool shouldPlay = currentPowerups.Count > 0;
+
+        foreach(ParticleSystem ps in allParticles){
+            if(shouldPlay){
+                ps.Play();
+            } else {
+                ps.Stop();
+            }
+        }
+
     }
 
     #endregion

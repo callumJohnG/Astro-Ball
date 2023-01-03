@@ -18,7 +18,7 @@ MonoBehaviour:
   launchRechargeTime: 3.5
   defaultGravity: 4
   platformProbability: 10
-  powerupProbability: 90
+  powerupProbability: 50
   coinReward: 3
   lavaStartSpeed: 10
   lavaMaxSpeed: 30
