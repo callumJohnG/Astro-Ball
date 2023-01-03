@@ -64,6 +64,13 @@ public class SettingsManager : MonoBehaviour
         Application.OpenURL(privacyPolicyURL);
     }
 
+    [Header("Credits")]
+    [SerializeField] private string callumItchLink = "https://callumg.itch.io/";
+    public void OpenCallumLink(){
+        Application.OpenURL(callumItchLink);
+    }
+
+
     [Header("References")]
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private ShaderMaterialManager shaderMaterialManager;
