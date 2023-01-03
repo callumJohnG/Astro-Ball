@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.40392157, g: 0.63529414, b: 0.5529412, a: 1}
   paletteName: Claur
   price: 100
-  free: 1
+  free: 0

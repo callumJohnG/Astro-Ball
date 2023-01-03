@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.03529412, g: 0.32156864, b: 0.3372549, a: 1}
   paletteName: Salmon
   price: 100
-  free: 1
+  free: 0

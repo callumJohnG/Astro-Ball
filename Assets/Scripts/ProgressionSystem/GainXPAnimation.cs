@@ -30,7 +30,7 @@ public class GainXPAnimation : MonoBehaviour
         } else {
             timePerCoin = maxAnimTime / gainedXP;
         }
-    }    
+    }
 
     public void PlayXPAnimation(){
         StartCoroutine(XPAnimation());
@@ -44,7 +44,7 @@ public class GainXPAnimation : MonoBehaviour
         yield return new WaitForSeconds(startWaitTime);
 
         for(int i = 1; i <= gainedXP; i++){
-            gainedXPText.text = (gainedXP - i).ToString() + "+";
+            gainedXPText.text = "+" + (gainedXP - i).ToString();
             totalXPText.text = (totalXP + i).ToString();
             //Play some soundeffect here
             AudioManager.Instance.PlayCoin();

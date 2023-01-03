@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
   paletteName: Crimson
   price: 50
-  free: 1
+  free: 0

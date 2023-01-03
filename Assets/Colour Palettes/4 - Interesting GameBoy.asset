@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.019607844, g: 0.2901961, b: 0.16078432, a: 1}
   paletteName: Gamer
   price: 200
-  free: 1
+  free: 0

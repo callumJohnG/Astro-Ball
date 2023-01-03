@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.16078432, g: 0.18039216, b: 0.11764706, a: 1}
   paletteName: Minion
   price: 50
-  free: 1
+  free: 0

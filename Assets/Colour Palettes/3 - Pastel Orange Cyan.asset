@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 1, g: 0.62352943, b: 0.10980392, a: 1}
   paletteName: Salad
   price: 100
-  free: 1
+  free: 0

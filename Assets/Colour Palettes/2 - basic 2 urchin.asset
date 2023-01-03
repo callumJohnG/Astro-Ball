@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.12156863, g: 0.1254902, b: 0.25490198, a: 1}
   paletteName: Urchin
   price: 50
-  free: 1
+  free: 0

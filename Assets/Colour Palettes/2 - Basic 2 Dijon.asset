@@ -19,4 +19,4 @@ MonoBehaviour:
   lowPassCol: {r: 0.18431373, g: 0.18431373, b: 0.18431373, a: 1}
   paletteName: Dijon
   price: 50
-  free: 1
+  free: 0

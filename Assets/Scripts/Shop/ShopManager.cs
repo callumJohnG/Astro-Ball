@@ -137,6 +137,7 @@ public class ShopManager : MonoBehaviour
         if(realSelectedPalette == null)return;
         
         SelectPalette(realSelectedPalette);
+        realSelectedPalette = null;
     }
 
     public void PurchasePalette(){
@@ -146,5 +147,6 @@ public class ShopManager : MonoBehaviour
         purchaseScreen.SetActive(false);
         SetUpButtons();
         SelectPalette(currentPalette);
+        realSelectedPalette = null;
     }
 }
