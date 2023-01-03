@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 68.62463
+    OrthographicSize: 63.8523
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -15318,7 +15318,7 @@ MonoBehaviour:
   lavaAcceleration: 0
   lavaDistance: 0
   canPostScore: 0
-  normalDifficulty: {fileID: 11400000, guid: 14466b182b8b4894191ea3d762c510a9, type: 2}
+  normalDifficulty: {fileID: 11400000, guid: 259559c26ba58794da992a7ae44f6ab6, type: 2}
   challengeDifficulty: {fileID: 11400000, guid: 2dc29acd381937c488ce839db5e120d4, type: 2}
   risingLava: {fileID: 1507587119}
 --- !u!4 &408347873
@@ -21960,7 +21960,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 68.62463
+  orthographic size: 63.8523
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
