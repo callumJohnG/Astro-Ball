@@ -75,6 +75,7 @@ public class GameplayManager : MonoBehaviour
 
         highscoreManager.SetData(PointsManager.Instance.points, PointsManager.Instance.bestCombo);
         PowerupManager.Instance.ClearPowerupText();
+        PowerupManager.Instance.WipeAllPowerups();
         FollowPlayer.Instance.PlayerDied();
 
         gameIsActive = false;

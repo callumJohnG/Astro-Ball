@@ -35,9 +35,7 @@ public class RisingLava : MonoBehaviour
         Debug.Log("LAVA IS NOW RISING!");
         if(useCache){
             currentSpeed = cacheSpeed;
-            Debug.LogError("USING CACHE SPEED OF " + cacheSpeed);
         } else {
-            Debug.LogError("USING START SPEED OF " + startSpeed);
             currentSpeed = startSpeed;
         }
         rising = true;

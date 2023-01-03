@@ -37,7 +37,6 @@ public class FollowPlayer : MonoBehaviour
     #region Interface Methods
 
     public void StartRisingTracking(Transform trackTransform){
-        Debug.LogError("SetRISINGTRACKING");
         isRising = true;
         isTracking = true;
         this.trackTransform = trackTransform;
@@ -57,7 +56,6 @@ public class FollowPlayer : MonoBehaviour
 
     public void Reset(bool continuing){
         this.continuing = continuing;
-        Debug.LogError("RESET");
         isTracking = false;
         isRising = false;
         risingLava.transform.position = Vector3.zero;

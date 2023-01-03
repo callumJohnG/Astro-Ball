@@ -106,10 +106,10 @@ public class PowerupManager : MonoBehaviour
         Debug.Log("REMOVING POWERUP");
 
         if(remove){
-            currentPowerups.Remove(powerup);
             AudioManager.Instance.PlayPowerDown();
+            currentPowerups.Remove(powerup);
         }
-
+        
         powerup.powerupUI.KillMe();
         switch(powerup.myType){
             case PowerupType.Bouncy : RemoveBouncy();break;
