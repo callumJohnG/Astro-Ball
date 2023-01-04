@@ -12,6 +12,7 @@ public class GameSettingsManager : MonoBehaviour
 
     [HideInInspector] public float maxRenderDistance = 300;
     [HideInInspector] public bool inverseAiming;
+    [HideInInspector] public bool flipAim;
 
     #region Difficulty Variables
     [HideInInspector] public float bumperSpacing = 20;
@@ -52,6 +53,7 @@ public class GameSettingsManager : MonoBehaviour
         SetDifficulty(0);
         pointsMultiplier = 1;
         SetCanPostScore(PlayerPrefs.GetInt(CANPOSTSCORE_KEY, 1) == 1);
+        GetInverseAimSetting();
     }
 
 
@@ -83,6 +85,17 @@ public class GameSettingsManager : MonoBehaviour
     private void ConfirmAllDifficultyVariables(){
         ObjectSpawningManager.Instance.GetDifficultySettings();
         risingLava.SetSpeed(lavaStartSpeed, lavaMaxSpeed, lavaAcceleration, lavaDistance);
+    }
+
+    private const string INVERSE_AIM_KEY = "InverseAiming";
+
+    private void GetInverseAimSetting(){
+        inverseAiming = PlayerPrefs.GetInt(INVERSE_AIM_KEY, 0) == 1;
+    }
+
+    public void SetInverseAim(bool inverseAiming){
+        this.inverseAiming = inverseAiming;
+        PlayerPrefs.SetInt(INVERSE_AIM_KEY, inverseAiming?1:0);
     }
 
 }

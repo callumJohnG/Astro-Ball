@@ -250,7 +250,7 @@ public class PlayerController : MonoBehaviour
         Vector2 destination = mainCam.ScreenToWorldPoint(currentMousePosition);
         Vector2 anchor = mainCam.ScreenToWorldPoint(aimAnchor);
         aimVector = destination - anchor;
-        if(GameSettingsManager.Instance.inverseAiming){
+        if(GameSettingsManager.Instance.flipAim ^ GameSettingsManager.Instance.inverseAiming){
             aimVector = anchor - destination;
         }
         aimVector = Vector3.Normalize(aimVector) * launchForce;

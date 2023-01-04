@@ -11,6 +11,10 @@ public class SettingsManager : MonoBehaviour
         SetDataToggle();
     }
 
+    private void Start() {
+        SetUpAimSetting();
+    }
+
 
     [Header("Music")]
     [SerializeField] private float maxMusicVolume;
@@ -50,6 +54,19 @@ public class SettingsManager : MonoBehaviour
         float newValue = minPixilation + (value * increment);
 
         shaderMaterialManager.SetPixelation(newValue);
+    }
+
+    [Header("Controls")]
+    [SerializeField] private bool inverseAiming = false;
+    [SerializeField] private Toggle inverseAimToggle;
+    private void SetUpAimSetting(){
+        inverseAiming = GameSettingsManager.Instance.inverseAiming;
+        inverseAimToggle.isOn = inverseAiming;
+    }
+
+    public void SetInverseAim(bool inverseAiming){
+        this.inverseAiming = inverseAiming;
+        GameSettingsManager.Instance.SetInverseAim(inverseAiming);
     }
 
     [Header("Legal")]

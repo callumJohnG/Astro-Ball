@@ -141,7 +141,6 @@ public class ShopManager : MonoBehaviour
     }
 
     public void PurchasePalette(){
-        Debug.LogError("PURCHASING PALLETTE");
         PlayerPrefs.SetInt(currentPalette.ToString(), 1);
         PlayerXPManager.Instance.SpendXP(currentPalette.price);
         purchaseScreen.SetActive(false);

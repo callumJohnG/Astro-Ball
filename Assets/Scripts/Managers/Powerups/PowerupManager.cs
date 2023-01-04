@@ -172,11 +172,11 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] private Sprite invertedSprite;
 
     private void ApplyInverted(){
-        GameSettingsManager.Instance.inverseAiming = true;
+        GameSettingsManager.Instance.flipAim = true;
     }
 
     private void RemoveInverted(){
-        GameSettingsManager.Instance.inverseAiming = false;
+        GameSettingsManager.Instance.flipAim = false;
     }
 
     #endregion
