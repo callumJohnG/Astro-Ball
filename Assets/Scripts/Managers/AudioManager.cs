@@ -17,14 +17,14 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
 
         DeactivateWind();
     }
 
     void Update(){
-        CheckSong();
-        FadeWind();
+        //CheckSong();
+        //FadeWind();
     }
 
     #region SFX
@@ -36,8 +36,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
 
     public void PlayBumper(float pitch){
-        bumperSource.pitch = pitch;
-        bumperSource.PlayOneShot(bumper);
+        //bumperSource.pitch = pitch;
+        //bumperSource.PlayOneShot(bumper);
     }
 
 
@@ -50,13 +50,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip zoom;
     [SerializeField] private AudioSource zoomSource;
     public void PlayZoom(){
-        if(Time.time <= timeOfLastZoom + zoomTimeWindow){
+        /*if(Time.time <= timeOfLastZoom + zoomTimeWindow){
             zoomSource.pitch = zoomSource.pitch + zoomPitchIncrease;
         } else {
             zoomSource.pitch = 1;
         }
-        timeOfLastZoom = Time.time;
-        zoomSource.PlayOneShot(zoom);
+        timeOfLastZoom = Time.time;*/
+        //zoomSource.PlayOneShot(zoom);
     }
 
     #endregion
@@ -115,7 +115,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private void PlaySoundEffect(AudioClip audioClip){
-        audioSource.PlayOneShot(audioClip);
+        //audioSource.PlayOneShot(audioClip);
     }
 
     #endregion
@@ -151,14 +151,14 @@ public class AudioManager : MonoBehaviour
     private int songIndex = 0;
 
     private void CheckSong(){
-        if(!musicSource.isPlaying){
-            PlayNextSong();
-        }
+        //if(!musicSource.isPlaying){
+        //    PlayNextSong();
+        //}
     }
 
     public void PlayNextSong(){
-        musicSource.clip = musicList[songIndex];
-        musicSource.Play();
+        //musicSource.clip = musicList[songIndex];
+        //musicSource.Play();
         songIndex++;
         if(songIndex >= musicList.Count)songIndex = 0;
     }
