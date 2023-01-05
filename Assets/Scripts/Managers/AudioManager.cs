@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using FMODUnity;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -29,15 +31,12 @@ public class AudioManager : MonoBehaviour
 
     #region SFX
 
-    #region Special
+    #region Event Emitters
 
-    [SerializeField] private AudioClip bumper;
-    [SerializeField] private AudioSource bumperSource;
-    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private StudioEventEmitter bumperEmitter;
 
     public void PlayBumper(float pitch){
-        //bumperSource.pitch = pitch;
-        //bumperSource.PlayOneShot(bumper);
+        bumperEmitter.Play();
     }
 
 
@@ -47,8 +46,7 @@ public class AudioManager : MonoBehaviour
     private float timeOfLastZoom;
     [SerializeField] private float zoomTimeWindow = 0.25f;
     [SerializeField] private float zoomPitchIncrease = 0.2f;
-    [SerializeField] private AudioClip zoom;
-    [SerializeField] private AudioSource zoomSource;
+    [SerializeField] private StudioEventEmitter zoomEmitter;
     public void PlayZoom(){
         /*if(Time.time <= timeOfLastZoom + zoomTimeWindow){
             zoomSource.pitch = zoomSource.pitch + zoomPitchIncrease;
@@ -57,61 +55,63 @@ public class AudioManager : MonoBehaviour
         }
         timeOfLastZoom = Time.time;*/
         //zoomSource.PlayOneShot(zoom);
+        zoomEmitter.Play();
     }
 
-    #endregion
-
-    #region General
-
-    [SerializeField] private AudioClip coin;
-    [SerializeField] private AudioClip death;
-    [SerializeField] private AudioClip launch;
-    [SerializeField] private AudioClip noLaunch;
-    [SerializeField] private AudioClip recharge;
-    [SerializeField] private AudioClip powerUp;
-    [SerializeField] private AudioClip powerDown;
-    [SerializeField] private AudioClip comboOver;
-    [SerializeField] private AudioClip hitWall;
-    [SerializeField] private List<AudioClip> buttonClicks;
+    [SerializeField] private StudioEventEmitter coinEmitter;
 
     public void PlayCoin(){
-        PlaySoundEffect(coin);
+        //PlaySoundEffect(coin);
+        coinEmitter.Play();
     }
 
+    [SerializeField] private StudioEventEmitter deathEmitter;
     public void PlayDeath(){
-        PlaySoundEffect(death);
+        //PlaySoundEffect(death);
+        deathEmitter.Play();
     }
+
+    [SerializeField] private StudioEventEmitter launchEmitter;
 
     public void PlayLaunch(){
-        PlaySoundEffect(launch);
+        //PlaySoundEffect(launch);
+        launchEmitter.Play();
     }
 
+    [SerializeField] private StudioEventEmitter noLaunchEmitter;
     public void PlayNoLaunch(){
-        PlaySoundEffect(noLaunch);
+        //PlaySoundEffect(noLaunch);
+        noLaunchEmitter.Play();
     }
 
+    [SerializeField] private StudioEventEmitter rechargeEmitter;
     public void PlayRecharge(){
-        PlaySoundEffect(recharge);
+        //PlaySoundEffect(recharge);
+        rechargeEmitter.Play();
     }
 
+    [SerializeField] private StudioEventEmitter powerUpEmitter;
     public void PlayPowerUp(){
-        PlaySoundEffect(powerUp);
+        //PlaySoundEffect(powerUp);
+        powerUpEmitter.Play();
     }
 
+    [SerializeField] private StudioEventEmitter powerDownEmitter;
     public void PlayPowerDown(){
-        PlaySoundEffect(powerDown);
+        //PlaySoundEffect(powerDown);
+        powerDownEmitter.Play();
     }
     
+    [SerializeField] private StudioEventEmitter comboOverEmitter;
     public void PlayComboOver(){
-        PlaySoundEffect(comboOver);
+        //PlaySoundEffect(comboOver);
+        comboOverEmitter.Play();
     }
 
-    public void PlayHitWall(){
-        PlaySoundEffect(hitWall);
-    }
-
+    [SerializeField] private StudioEventEmitter buttonClickEmitter;
     public void PlayButtonClick(){
-        PlaySoundEffect(buttonClicks[Random.Range(0, buttonClicks.Count)]);
+        //PlaySoundEffect(buttonClicks[Random.Range(0, buttonClicks.Count)]);
+        buttonClickEmitter.Play();
     }
 
     private void PlaySoundEffect(AudioClip audioClip){
@@ -126,29 +126,32 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private float windFadeSpeed = 10;
     [SerializeField] private float windTopVolume = 0;
     [SerializeField] private float windBottomVolume = -80;
+    [SerializeField] private StudioEventEmitter windEmitter;
 
     public void ActivateWind(){
-        windTargetVolume = windTopVolume;
+        //windTargetVolume = windTopVolume;
+        windEmitter.Play();
     }
 
     public void DeactivateWind(){
-        windTargetVolume = windBottomVolume;
+        //windTargetVolume = windBottomVolume;
+        windEmitter.Stop();
     }
 
-    private void FadeWind(){
+    /*private void FadeWind(){
         mainMixer.GetFloat("WindVolume", out float currentVolumne);
         float newVolume = Mathf.Lerp(currentVolumne, windTargetVolume, windFadeSpeed);
         mainMixer.SetFloat("WindVolume", newVolume);
-    }
+    }*/
 
     #endregion
 
     #endregion
 
     #region Music
-
-    [SerializeField] private List<AudioClip> musicList;
-    private int songIndex = 0;
+    /*
+    //[SerializeField] private List<AudioClip> musicList;
+    //private int songIndex = 0;
 
     private void CheckSong(){
         //if(!musicSource.isPlaying){
@@ -161,6 +164,14 @@ public class AudioManager : MonoBehaviour
         //musicSource.Play();
         songIndex++;
         if(songIndex >= musicList.Count)songIndex = 0;
+    }*/
+
+    public void SetMainMenuMusic(){
+
+    }
+
+    public void SetPlayMusic(){
+        
     }
 
     #endregion
