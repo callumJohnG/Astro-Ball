@@ -114,6 +114,11 @@ public class AudioManager : MonoBehaviour
         buttonClickEmitter.Play();
     }
 
+    [SerializeField] private StudioEventEmitter spendCoins;
+    public void PlaySpendCoins(){
+        spendCoins.Play();
+    }
+
     private void PlaySoundEffect(AudioClip audioClip){
         //audioSource.PlayOneShot(audioClip);
     }
@@ -171,7 +176,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public void SetPlayMusic(){
-        
+
     }
 
     #endregion

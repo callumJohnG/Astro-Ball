@@ -46,6 +46,7 @@ public class PlayerXPManager : MonoBehaviour
         PlayerPrefs.SetInt(XP_KEY, currentXP);
         UpdateTexts();
         Debug.Log("Spent " + value + " coins - new value:" + GetXP());
+        AudioManager.Instance.PlaySpendCoins();
         return true;
     }
 
