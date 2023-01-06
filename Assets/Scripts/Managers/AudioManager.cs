@@ -112,11 +112,12 @@ public class AudioManager : MonoBehaviour
     public void PlayButtonClick(){
         //PlaySoundEffect(buttonClicks[Random.Range(0, buttonClicks.Count)]);
         buttonClickEmitter.Play();
+        Debug.LogError("Played Button Click");
     }
 
-    [SerializeField] private StudioEventEmitter spendCoins;
+    [SerializeField] private StudioEventEmitter spendCoinsEmitter;
     public void PlaySpendCoins(){
-        spendCoins.Play();
+        spendCoinsEmitter.Play();
     }
 
     private void PlaySoundEffect(AudioClip audioClip){
