@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb60bf4723bb714b8fc188f35768066, type: 3}
-  m_Name: 3 - Pastel greenPunk
+  m_Name: 4 - Interesting mono 1
   m_EditorClassIdentifier: 
-  highPassCol: {r: 0.9411765, g: 0.9607843, b: 0.9764706, a: 1}
-  highMidPassCol: {r: 1, g: 0.8352941, b: 1, a: 1}
-  midPassCol: {r: 0.7058824, g: 0.49411765, b: 0.7019608, a: 1}
-  lowMidPassCol: {r: 0.43529412, g: 0.7647059, b: 0.69411767, a: 1}
-  lowPassCol: {r: 0.3605672, g: 0.5566038, b: 0.48682806, a: 1}
-  paletteName: Claur
-  price: 100
+  highPassCol: {r: 1, g: 1, b: 1, a: 1}
+  highMidPassCol: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+  midPassCol: {r: 1, g: 0, b: 0.9357834, a: 1}
+  lowMidPassCol: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
+  lowPassCol: {r: 0, g: 0, b: 0, a: 1}
+  paletteName: Poison
+  price: 200
   free: 0

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb60bf4723bb714b8fc188f35768066, type: 3}
-  m_Name: 6 - Bright blie
+  m_Name: 4 - Interesting mono 2
   m_EditorClassIdentifier: 
-  highPassCol: {r: 0.7882353, g: 0.85490197, b: 0.91764706, a: 1}
-  highMidPassCol: {r: 0.09803922, g: 0.39215687, b: 0.49411765, a: 1}
-  midPassCol: {r: 0.8117647, g: 1, b: 0.7019608, a: 1}
-  lowMidPassCol: {r: 0.29411766, g: 0.24705882, b: 0.44705883, a: 1}
-  lowPassCol: {r: 0.12156863, g: 0.1254902, b: 0.25490198, a: 1}
-  paletteName: Dazzle
-  price: 750
+  highPassCol: {r: 1, g: 1, b: 1, a: 1}
+  highMidPassCol: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+  midPassCol: {r: 0, g: 0.9211509, b: 1, a: 1}
+  lowMidPassCol: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
+  lowPassCol: {r: 0, g: 0, b: 0, a: 1}
+  paletteName: Glaire
+  price: 200
   free: 0
