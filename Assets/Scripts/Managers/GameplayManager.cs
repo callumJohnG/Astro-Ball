@@ -96,10 +96,7 @@ public class GameplayManager : MonoBehaviour
 
     IEnumerator GameOverRoutine(){
         if(GameSettingsManager.Instance.canPostScore){
-            Debug.Log("POSTING SCORE!!!!!");
             yield return Leaderboard.Instance.SubmitScoreRoutine(PointsManager.Instance.points);
-        } else {
-            Debug.Log("NOT POSTING SCORE!!!!");
         }
         Leaderboard.Instance.SetCurrentLeaderboard();
     }

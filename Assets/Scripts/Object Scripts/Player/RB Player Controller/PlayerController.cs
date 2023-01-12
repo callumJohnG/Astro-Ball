@@ -59,6 +59,9 @@ public class PlayerController : MonoBehaviour
 
         PointsManager.Instance.EndCombo();
 
+        
+        AudioManager.Instance.SetMusicState(false);
+
         //Turn off my collider
         GetComponent<Collider2D>().enabled = false;
 
@@ -160,6 +163,7 @@ public class PlayerController : MonoBehaviour
         //Check if this is our first launch ever
         if(firstLaunch){
             FollowPlayer.Instance.StartRisingTracking(transform);
+            AudioManager.Instance.SetMusicState(true);
             firstLaunch = false;
         }
         UpdateLaunchCount(-1);
@@ -290,6 +294,7 @@ public class PlayerController : MonoBehaviour
     #region Collision
 
     private void OnCollisionEnter2D(Collision2D collision2D){
+        if(dead)return;
         bool isGroundLayer = (groundLayer == (groundLayer | (1 << collision2D.gameObject.layer)));
 
         if(collision2D.gameObject.CompareTag("Deadly")){

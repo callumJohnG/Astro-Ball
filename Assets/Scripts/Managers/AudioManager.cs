@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
         //audioSource = GetComponent<AudioSource>();
 
         DeactivateWind();
+        musicInstance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        musicInstance.start();
     }
 
     void Update(){
@@ -171,13 +173,16 @@ public class AudioManager : MonoBehaviour
         songIndex++;
         if(songIndex >= musicList.Count)songIndex = 0;
     }*/
+    private FMOD.Studio.EventInstance musicInstance;
+    public EventReference fmodEvent;
 
-    public void SetMainMenuMusic(){
-
-    }
-
-    public void SetPlayMusic(){
-
+    public void SetMusicState(bool isPlayMusic){
+        if(isPlayMusic){
+            musicInstance.setParameterByName("music-state", 1);
+        } else {
+            musicInstance.setParameterByName("music-state", 0);
+        }
+        //musicInstance.getParameterByName("music-state", out float value);
     }
 
     #endregion

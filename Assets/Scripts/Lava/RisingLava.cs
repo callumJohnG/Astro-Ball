@@ -42,7 +42,6 @@ public class RisingLava : MonoBehaviour
     }
 
     public void SetStopped(){
-        Debug.Log("LAVA HAS STOPPED RISING");
         rising = false;
         cacheSpeed = currentSpeed;
     }
