@@ -1162,6 +1162,39 @@ retry:
             instance.release();
         }
 
+        public static void PlayOneShot(EventReference eventReference, string parameterName, float parameterValue, Vector3 position = new Vector3())
+        {
+            try
+            {
+                PlayOneShot(eventReference.Guid, parameterName, parameterValue, position);
+            }
+            catch (EventNotFoundException)
+            {
+                RuntimeUtils.DebugLogWarning("[FMOD] Event not found: " + eventReference);
+            }
+        }
+
+        public static void PlayOneShot(string path, string parameterName, float parameterValue, Vector3 position = new Vector3())
+        {
+            try
+            {
+                PlayOneShot(PathToGUID(path), parameterName, parameterValue, position);
+            }
+            catch (EventNotFoundException)
+            {
+                Debug.LogWarning("[FMOD] Event not found: " + path);
+            }
+        }
+
+        public static void PlayOneShot(FMOD.GUID guid, string parameterName, float parameterValue, Vector3 position = new Vector3())
+        {
+            var instance = CreateInstance(guid);
+            instance.set3DAttributes(RuntimeUtils.To3DAttributes(position));
+            instance.setParameterByName(parameterName, parameterValue);
+            instance.start();
+            instance.release();
+        }
+
         public static void PlayOneShotAttached(EventReference eventReference, GameObject gameObject)
         {
             try

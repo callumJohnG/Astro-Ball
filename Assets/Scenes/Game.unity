@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 71.81812
+    OrthographicSize: 49.4293
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -13603,7 +13603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
+  m_AmplitudeGain: 0.0007764629
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &243738197
@@ -22983,7 +22983,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 71.81812
+  orthographic size: 49.4293
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -62435,6 +62435,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ff353d8e15994eb75628281bba1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bumperEvent:
+    Guid:
+      Data1: 1493042253
+      Data2: 1179582822
+      Data3: 1012759991
+      Data4: -1549098824
+    Path: event:/sfx/bumper-explode
   bumperEmitter: {fileID: 1336380648}
   zoomTimeWindow: 0.5
   zoomPitchIncrease: 0.2
@@ -62453,7 +62460,7 @@ MonoBehaviour:
   windTopVolume: -15
   windBottomVolume: -80
   windEmitter: {fileID: 2017597908}
-  fmodEvent:
+  musicEvent:
     Guid:
       Data1: -1726422756
       Data2: 1281394018
@@ -65789,7 +65796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1336380647
 Transform:
   m_ObjectHideFlags: 0
@@ -65812,7 +65819,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336380646}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -65831,7 +65838,9 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  Params: []
+  Params:
+  - Name: bumper-combo
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20

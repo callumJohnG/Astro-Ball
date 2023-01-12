@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
         //audioSource = GetComponent<AudioSource>();
 
         DeactivateWind();
-        musicInstance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        musicInstance = FMODUnity.RuntimeManager.CreateInstance(musicEvent);
         musicInstance.start();
     }
 
@@ -35,10 +35,16 @@ public class AudioManager : MonoBehaviour
 
     #region Event Emitters
 
+    //private FMOD.Studio.EventInstance bumperInstance;
+    public EventReference bumperEvent;
+
     [SerializeField] private StudioEventEmitter bumperEmitter;
 
     public void PlayBumper(float pitch){
-        bumperEmitter.Play();
+        //bumperInstance = FMODUnity.RuntimeManager.CreateInstance(bumperEvent);
+        RuntimeManager.PlayOneShot(bumperEvent, "bumper-combo", pitch, transform.position);
+        //bumperEmitter.SetParameter("bumper-combo", pitch);
+        //bumperEmitter.Play();
     }
 
 
@@ -174,7 +180,7 @@ public class AudioManager : MonoBehaviour
         if(songIndex >= musicList.Count)songIndex = 0;
     }*/
     private FMOD.Studio.EventInstance musicInstance;
-    public EventReference fmodEvent;
+    public EventReference musicEvent;
 
     public void SetMusicState(bool isPlayMusic){
         if(isPlayMusic){

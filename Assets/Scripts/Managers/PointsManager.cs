@@ -81,11 +81,10 @@ public class PointsManager : MonoBehaviour
 
         AudioManager.Instance.PlayBumper(comboBasePitch + (comboIncPitch * (currentMultiplier + 1)));
 
-        if(comboActive){
-            currentMultiplier++;
-        } else {
+        if(!comboActive){
             comboActive = true;
         }
+        currentMultiplier++;
 
         comboText.gameObject.SetActive(true);
 
