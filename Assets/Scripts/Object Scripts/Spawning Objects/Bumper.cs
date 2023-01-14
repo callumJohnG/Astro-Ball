@@ -61,7 +61,9 @@ public class Bumper : MonoBehaviour
     private void Die(){
         if(!isDeadlyBumper){
             PointsManager.Instance.GainComboPoints(rewardedPoints);
-            Destroy(Instantiate(explosionParticles, transform.position, transform.rotation), 5f);
+            try{
+                Destroy(Instantiate(explosionParticles, transform.position, transform.rotation), 15f);
+            }catch{}
             
             GameObject myCanvas = Instantiate(pointCanvasPrefab, transform.position, Quaternion.identity);
             pointsText = myCanvas.GetComponentInChildren<TextMeshProUGUI>();

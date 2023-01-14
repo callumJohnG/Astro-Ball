@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: 1 Challenge
   m_EditorClassIdentifier: 
   profileID: 1
-  bumperSpacing: 20
+  bumperSpacing: 22
   powerupDuration: 15
-  launchRechargeTime: 4
+  launchRechargeTime: 4.5
   defaultGravity: 5
   platformProbability: 5
-  powerupProbability: 1
+  powerupProbability: 5
   coinReward: 5
-  lavaStartSpeed: 25
-  lavaMaxSpeed: 50
+  lavaStartSpeed: 30
+  lavaMaxSpeed: 100
   lavaAcceleration: 0.05
-  lavaDistance: 100
+  lavaDistance: 80
   bumperProbabilities:
   - 75
   - 20

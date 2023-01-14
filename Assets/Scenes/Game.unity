@@ -912,6 +912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52021240}
   - component: {fileID: 52021239}
+  - component: {fileID: 52021242}
   - component: {fileID: 52021241}
   m_Layer: 0
   m_Name: CM vcam1
@@ -942,7 +943,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 49.4293
+    OrthographicSize: 69.62111
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -993,6 +994,29 @@ MonoBehaviour:
   shakeGradient: 0.008
   minShake: 0
   maxShake: 2
+--- !u!114 &52021242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52021238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ApplyAfter: 2
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 0
+  m_UseCameraSpace: 1
+  m_ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &57850511
 GameObject:
   m_ObjectHideFlags: 0
@@ -13603,9 +13627,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.0007764629
+  m_AmplitudeGain: 0
   m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: 751.4446, y: 518.45, z: 90.42468}
 --- !u!1 &243738197
 GameObject:
   m_ObjectHideFlags: 0
@@ -22983,7 +23007,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 49.4293
+  orthographic size: 69.62111
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -55758,7 +55782,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 452.6
+  m_fontSize: 253.05
   m_fontSizeBase: 88.2
   m_fontWeight: 400
   m_enableAutoSizing: 1

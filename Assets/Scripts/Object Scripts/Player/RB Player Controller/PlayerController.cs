@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -110,6 +111,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float slowMoTimeScale;
     [SerializeField] private float slowMoFadeSpeed;
+    [SerializeField] private float hitStopPeriod;
     [SerializeField] private float CurrentTimeScale;
     private float targetTimeScale;
 
@@ -297,11 +299,30 @@ public class PlayerController : MonoBehaviour
         if(dead)return;
         bool isGroundLayer = (groundLayer == (groundLayer | (1 << collision2D.gameObject.layer)));
 
-        if(collision2D.gameObject.CompareTag("Deadly")){
-            Die();
-        } else if(isGroundLayer){
+        if(isGroundLayer){
             PointsManager.Instance.EndCombo();
-        }
+        } else {
+            StartCoroutine(HitStop());//Pause game for a millisecond or 20
+            SendImpulse();//Shake camera
+            
+            if(collision2D.gameObject.CompareTag("Deadly")){
+                Die();
+            }
+        }  
+    }
+
+    private IEnumerator HitStop(){
+        //Track current timescale and set it to 0
+        float currentTimeScale = Time.timeScale;
+        Time.timeScale = 0f;
+        isHitStop = true;
+
+        //Pause game
+        yield return new WaitForSecondsRealtime(hitStopPeriod);
+
+        //Resume
+        Time.timeScale = currentTimeScale;
+        isHitStop = false;
     }
 
     #endregion
@@ -312,17 +333,26 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float fastTrailSpeedLimit;
     [SerializeField] private bool checkSpeed;
     private bool overLimit = false;
+
     private void CheckFastTrailParticles(){
         checkSpeed = rb.velocity.magnitude >= fastTrailSpeedLimit;
         if(checkSpeed && !overLimit){
             overLimit = true;
-            fastTrailParticles.Play();
-            AudioManager.Instance.ActivateWind();
+            ActivateSpeedEffects();
         } else if(!checkSpeed && overLimit){
             overLimit = false;
-            fastTrailParticles.Stop();
-            AudioManager.Instance.DeactivateWind();
+            DeactivateSpeedEffects();
         }
+    }
+
+    private void ActivateSpeedEffects(){
+        fastTrailParticles.Play();
+        AudioManager.Instance.ActivateWind();
+    }
+
+    private void DeactivateSpeedEffects(){
+        fastTrailParticles.Stop();
+        AudioManager.Instance.DeactivateWind();
     }
 
     private void PlayLaunchEffects(){
@@ -347,10 +377,22 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
+    #region CameraShake
+
+    [SerializeField] private CinemachineImpulseSource impulseSource;
+    private void SendImpulse(){
+        impulseSource.GenerateImpulse();
+    }
+
+    #endregion
+
+
+
     [HideInInspector] public bool isPaused = false;
+    private bool isHitStop;
 
     private void FadeTimeScale(){
-        if(isPaused)return;
+        if(isPaused || isHitStop)return;
 
         Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime * slowMoFadeSpeed);
         CurrentTimeScale = Time.timeScale;
