@@ -55,8 +55,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem deathParticles;
     private void Die(){
         dead = true;
+        Time.timeScale = 1;
         aimLine.gameObject.SetActive(false);
         mobileAimLine.gameObject.SetActive(false);
+
+        SendImpulse();
 
         PointsManager.Instance.EndCombo();
 
@@ -302,12 +305,13 @@ public class PlayerController : MonoBehaviour
         if(isGroundLayer){
             PointsManager.Instance.EndCombo();
         } else {
-            StartCoroutine(HitStop());//Pause game for a millisecond or 20
-            SendImpulse();//Shake camera
-            
             if(collision2D.gameObject.CompareTag("Deadly")){
                 Die();
+                return;
             }
+
+            StartCoroutine(HitStop());//Pause game for a millisecond or 20
+            SendImpulse();//Shake camera
         }  
     }
 
@@ -392,6 +396,10 @@ public class PlayerController : MonoBehaviour
     private bool isHitStop;
 
     private void FadeTimeScale(){
+        if(dead){
+            return;
+        }
+
         if(isPaused || isHitStop)return;
 
         Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime * slowMoFadeSpeed);
