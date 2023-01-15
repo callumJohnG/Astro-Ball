@@ -943,7 +943,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 67.24662
+    OrthographicSize: 66.66918
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -23007,7 +23007,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 67.24662
+  orthographic size: 66.66918
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -55782,7 +55782,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 253.05
+  m_fontSize: 452.6
   m_fontSizeBase: 88.2
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -56841,7 +56841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[18].y
-      value: 0.5175379
+      value: 0.51753783
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[19].x
@@ -56857,7 +56857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[20].y
-      value: 0.8991889
+      value: 0.8991888
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[21].x
@@ -56873,15 +56873,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[22].y
-      value: 1.3051046
+      value: 1.3051045
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[23].x
-      value: 9.12488
+      value: 9.124879
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[23].y
-      value: 1.505344
+      value: 1.5053439
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[24].x
@@ -56889,15 +56889,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[24].y
-      value: 1.7911347
+      value: 1.7911348
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[25].x
-      value: 10.000596
+      value: 10.000595
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[25].y
-      value: 1.9991965
+      value: 1.9991963
       objectReference: {fileID: 0}
     - target: {fileID: 2138754213473993861, guid: d27420c3b8026914f9917e16a9e86cf1, type: 3}
       propertyPath: m_Points.Array.data[26].x
@@ -67065,7 +67065,7 @@ MonoBehaviour:
   comboTitle: {fileID: 951718099}
   pointsAnimtor: {fileID: 894536293}
   comboParticles: {fileID: 1104457266}
-  comboIncPitch: 0.1
+  comboIncPitch: 1
 --- !u!1 &1392767741
 GameObject:
   m_ObjectHideFlags: 0
