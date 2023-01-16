@@ -6,7 +6,8 @@ using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    [SerializeField] private bool DevEnv;
+
     [SerializeField] private float movementSpeed;
     [SerializeField] private float maxMovementMomentum;
     [SerializeField] private float jumpForce;
@@ -34,6 +35,10 @@ public class PlayerController : MonoBehaviour
     private void GetDifficultySettings(){
         rb.gravityScale = GameSettingsManager.Instance.defaultGravity;
         launchRechargeDuration = GameSettingsManager.Instance.launchRechargeTime;
+        if(DevEnv){
+            rb.gravityScale = 4;
+            launchRechargeDuration = 2;   
+        }
     }
 
     private void Update(){
@@ -166,7 +171,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Check if this is our first launch ever
-        if(firstLaunch){
+        if(!DevEnv && firstLaunch){
             FollowPlayer.Instance.StartRisingTracking(transform);
             AudioManager.Instance.SetMusicState(true);
             firstLaunch = false;

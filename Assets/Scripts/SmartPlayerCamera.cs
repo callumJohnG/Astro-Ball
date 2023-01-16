@@ -14,14 +14,16 @@ public class SmartPlayerCamera : MonoBehaviour
         playerCam.m_Lens.OrthographicSize = minZoom;
     }
 
+    [SerializeField] private bool DevEnv;
+
     private CinemachineVirtualCamera playerCam;
     [SerializeField] private Rigidbody2D player;
 
 
     // Update is called once per frame
     void Update()
-    {
-        if(!GameplayManager.Instance.gameIsActive){
+    {  
+        if(!DevEnv && !GameplayManager.Instance.gameIsActive){
             playerCam.Follow = null;
             CinemachineBasicMultiChannelPerlin perlin = playerCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             perlin.m_AmplitudeGain = 0;

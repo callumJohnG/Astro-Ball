@@ -13,12 +13,13 @@ public class GameSettingsManager : MonoBehaviour
     [HideInInspector] public float maxRenderDistance = 300;
     [HideInInspector] public bool inverseAiming;
     [HideInInspector] public bool flipAim;
+    [SerializeField] private bool isDevEnv;
 
     #region Difficulty Variables
     [HideInInspector] public float bumperSpacing = 20;
     [HideInInspector] public float powerupDuration = 10;
     [HideInInspector] public float launchRechargeTime;
-    [HideInInspector] public float defaultGravity;
+    [HideInInspector] public float defaultGravity = 4;
     [HideInInspector] public float platformProbability;
     [HideInInspector] public float powerupProbability;
     [HideInInspector] public float pointsMultiplier = 1;
@@ -37,7 +38,6 @@ public class GameSettingsManager : MonoBehaviour
     [HideInInspector] public bool canPostScore;
     private const string CANPOSTSCORE_KEY = "CanPostScore";
     public void SetCanPostScore(bool canPostScore){
-        Debug.Log(canPostScore);
         this.canPostScore = canPostScore;
         if(canPostScore) PlayerPrefs.SetInt(CANPOSTSCORE_KEY, 1);
         else PlayerPrefs.SetInt(CANPOSTSCORE_KEY, 0);
@@ -83,6 +83,8 @@ public class GameSettingsManager : MonoBehaviour
     }
 
     private void ConfirmAllDifficultyVariables(){
+        if(isDevEnv) return;
+
         ObjectSpawningManager.Instance.GetDifficultySettings();
         risingLava.SetSpeed(lavaStartSpeed, lavaMaxSpeed, lavaAcceleration, lavaDistance);
     }

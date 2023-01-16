@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class SettingsManager : MonoBehaviour
 {
 
@@ -108,6 +108,12 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private ShaderMaterialManager shaderMaterialManager;
 
 
+
+    [Header("DevEnv")]
+    [SerializeField] private string developerSceneName;
+    public void OpenDeveloperEnv(){
+        SceneManager.LoadScene(developerSceneName);
+    }
 
 
     public void RESETDATA(){
