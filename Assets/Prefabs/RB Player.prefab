@@ -5263,6 +5263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5423a65f77a2ef6439ffce6f4ce3542a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DevEnv: 0
   movementSpeed: 1
   maxMovementMomentum: 100
   jumpForce: 2000
@@ -5505,7 +5506,7 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 2, y: 2, z: 0}
+  m_DefaultVelocity: {x: 5, y: 5, z: 0}
 --- !u!1 &2370374581396662476
 GameObject:
   m_ObjectHideFlags: 0

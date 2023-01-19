@@ -7,7 +7,6 @@ using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private bool DevEnv;
-
     [SerializeField] private float movementSpeed;
     [SerializeField] private float maxMovementMomentum;
     [SerializeField] private float jumpForce;
@@ -316,7 +315,6 @@ public class PlayerController : MonoBehaviour
             }
 
             StartCoroutine(HitStop());//Pause game for a millisecond or 20
-            SendImpulse();//Shake camera
         }  
     }
 
