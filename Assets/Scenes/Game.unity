@@ -1211,7 +1211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &70256411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12830,7 +12830,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2003034092}
   m_HandleRect: {fileID: 2003034091}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -34766,7 +34766,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.0003040637}
-  m_SizeDelta: {x: 0, y: 5327.4907}
+  m_SizeDelta: {x: 0, y: 4992.9707}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &924351326
 MonoBehaviour:
@@ -36429,7 +36429,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1025115156}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.48832467
+  m_Size: 0.5210444
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -36640,7 +36640,7 @@ RectTransform:
   m_Father: {fileID: 1602822720}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.51167536}
+  m_AnchorMin: {x: 0, y: 0.47895563}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -42896,8 +42896,8 @@ MonoBehaviour:
   menuStateValue: 0
   musicStateGoal: 0
   menuStateGoal: 0
-  musicFadeSpeed: 3
-  menuFadeSpeed: 5
+  musicFadeSpeed: 8
+  menuFadeSpeed: 2
   mainMixer: {fileID: 24100000, guid: 038906beaf5c9a04b81c233a67b0cbdc, type: 2}
   sfxDefaultValue: 0
   musicDefaultValue: -15
@@ -60375,7 +60375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1649522579
 RectTransform:
   m_ObjectHideFlags: 0
