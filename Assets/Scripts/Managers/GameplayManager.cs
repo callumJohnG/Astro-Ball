@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GameplayManager : MonoBehaviour
         Instance = this;
         SetUp();
     }
+
+    public event EventHandler OnGameEnded;
+    public event EventHandler OnGameStarted;
 
     private void SetUp(){
         //PlayerPrefs.DeleteAll();
@@ -28,11 +32,15 @@ public class GameplayManager : MonoBehaviour
         FollowPlayer.Instance.Reset(false);
         PointsManager.Instance.ResetPoints();
         continueButtonsManager.ResetButtons();
+
+        OnGameStarted.Invoke(this, EventArgs.Empty);
     }
 
     public void ContinueGame(){
         PrepareGame();
         FollowPlayer.Instance.Reset(true);
+
+        OnGameStarted.Invoke(this, EventArgs.Empty);
     }
 
     private void PrepareGame(){
@@ -90,6 +98,8 @@ public class GameplayManager : MonoBehaviour
         
         //Set the continue buttons
         continueButtonsManager.LoadButtons();
+
+        OnGameEnded.Invoke(this, EventArgs.Empty);
 
         StartCoroutine(GameOverRoutine());
     }

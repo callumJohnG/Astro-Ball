@@ -597,7 +597,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &38013504
 MonoBehaviour:
@@ -6563,7 +6563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1152, y: -179.59026}
+  m_AnchoredPosition: {x: 1152, y: -179.59027}
   m_SizeDelta: {x: 161.17, y: 134.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &117978384
@@ -14214,7 +14214,6 @@ GameObject:
   m_Component:
   - component: {fileID: 283134300}
   - component: {fileID: 283134301}
-  - component: {fileID: 283134302}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -14266,28 +14265,11 @@ MonoBehaviour:
   Params:
   - Name: music-state
     Value: 0
+  - Name: menu-state
+    Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &283134302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283134299}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 744a208c85da6d04c861d81b992e4ead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Emitters:
-  - Target: {fileID: 283134301}
-    Params:
-    - Name: music-state
-      Value: 0
-  TriggerEvent: 0
 --- !u!1 &290924858
 GameObject:
   m_ObjectHideFlags: 0
@@ -21461,7 +21443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 384, y: -179.59026}
+  m_AnchoredPosition: {x: 384, y: -179.59027}
   m_SizeDelta: {x: 161.17, y: 134.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &425200002
@@ -33776,7 +33758,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 142.25
+  m_fontSize: 173.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -34125,7 +34107,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 201.7
+  m_fontSize: 250.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -35312,7 +35294,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 142.25
+  m_fontSize: 173.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -42910,6 +42892,12 @@ MonoBehaviour:
       Data3: -1835964526
       Data4: 1457303003
     Path: event:/music/music
+  musicStateValue: 0
+  menuStateValue: 0
+  musicStateGoal: 0
+  menuStateGoal: 0
+  musicFadeSpeed: 3
+  menuFadeSpeed: 5
   mainMixer: {fileID: 24100000, guid: 038906beaf5c9a04b81c233a67b0cbdc, type: 2}
   sfxDefaultValue: 0
   musicDefaultValue: -15
@@ -83128,6 +83116,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4058154998472658586, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_Points.Array.data[18].y
+      value: 0.5175379
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154998472658586, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_Points.Array.data[20].y
+      value: 0.8991889
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154998472658586, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_Points.Array.data[22].y
+      value: 1.3051046
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154998472658586, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_Points.Array.data[23].x
+      value: 9.12488
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154998472658586, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_Points.Array.data[23].y
+      value: 1.505344
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154998472658586, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_Points.Array.data[24].y
+      value: 1.7911347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154998472658586, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_Points.Array.data[25].x
+      value: 10.000596
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154998472658586, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_Points.Array.data[25].y
+      value: 1.9991965
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451141653765358934, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_LocalAABB.m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451141653765358934, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_LocalAABB.m_Center.y
+      value: 1.0250937
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451141653765358934, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_LocalAABB.m_Extent.x
+      value: 10.499528
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451141653765358934, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_LocalAABB.m_Extent.y
+      value: 1.5250937
+      objectReference: {fileID: 0}
     - target: {fileID: 4451141653765358935, guid: 32e74433488c87345a9638dc873837c6, type: 3}
       propertyPath: m_RootOrder
       value: 23

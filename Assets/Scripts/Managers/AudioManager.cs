@@ -22,6 +22,10 @@ public class AudioManager : MonoBehaviour
         //audioSource = GetComponent<AudioSource>();
 
         DeactivateWind();
+
+        GameplayManager.Instance.OnGameStarted += GameplayManager_OnGameStarted;
+        GameplayManager.Instance.OnGameEnded += GameplayManager_OnGameEnded;
+
         musicInstance = FMODUnity.RuntimeManager.CreateInstance(musicEvent);
         musicInstance.start();
     }
@@ -29,6 +33,8 @@ public class AudioManager : MonoBehaviour
     void Update(){
         //CheckSong();
         //FadeWind();
+
+        FadeMusic();
     }
 
     #region SFX
@@ -120,7 +126,6 @@ public class AudioManager : MonoBehaviour
     public void PlayButtonClick(){
         //PlaySoundEffect(buttonClicks[Random.Range(0, buttonClicks.Count)]);
         buttonClickEmitter.Play();
-        Debug.LogError("Played Button Click");
     }
 
     [SerializeField] private StudioEventEmitter spendCoinsEmitter;
@@ -182,13 +187,47 @@ public class AudioManager : MonoBehaviour
     private FMOD.Studio.EventInstance musicInstance;
     public EventReference musicEvent;
 
-    public void SetMusicState(bool isPlayMusic){
-        if(isPlayMusic){
-            musicInstance.setParameterByName("music-state", 1);
+    [SerializeField] private float musicStateValue = 0f;
+    [SerializeField] private float menuStateValue = 0f;
+    [SerializeField] private float musicStateGoal = 0f;
+    [SerializeField] private float menuStateGoal = 0f;
+
+    private const float MUSIC_ON = 1f;
+    private const float MUSIC_OFF = 0f;
+
+    private const string MUSIC_STATE = "music-state";
+    private const string MENU_STATE = "menu-state";
+
+
+    [SerializeField] private float musicFadeSpeed = 1f;
+    [SerializeField] private float menuFadeSpeed = 5f;
+
+    private void FadeMusic(){
+        float currentMusicValue = Mathf.Lerp(musicStateValue, musicStateGoal, Time.deltaTime * musicFadeSpeed);
+        musicStateValue = currentMusicValue;
+        musicInstance.setParameterByName(MUSIC_STATE, musicStateValue);
+
+        float currentMenuValue = Mathf.Lerp(menuStateValue, menuStateGoal, Time.deltaTime * menuFadeSpeed);
+        menuStateValue = currentMenuValue;
+        musicInstance.setParameterByName(MENU_STATE, menuStateValue);
+    }
+
+    private void GameplayManager_OnGameStarted(object sender, System.EventArgs e){
+        menuStateGoal = MUSIC_ON;
+    }
+
+    private void GameplayManager_OnGameEnded(object sender, System.EventArgs e){
+        menuStateGoal = MUSIC_OFF;
+    }
+
+    public void SetMusicState(bool playerIsHolding){
+        Debug.Log("CHANGING MUSIC STATE TO " + playerIsHolding);
+        //If the player is holding down, state is 1, else 0
+        if(playerIsHolding){
+            musicStateGoal = MUSIC_ON;
         } else {
-            musicInstance.setParameterByName("music-state", 0);
+            musicStateGoal = MUSIC_OFF;
         }
-        //musicInstance.getParameterByName("music-state", out float value);
     }
 
     #endregion

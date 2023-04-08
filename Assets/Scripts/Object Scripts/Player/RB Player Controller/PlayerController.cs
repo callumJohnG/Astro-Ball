@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
         PointsManager.Instance.EndCombo();
 
-        
+
         AudioManager.Instance.SetMusicState(false);
 
         //Turn off my collider
@@ -153,6 +153,8 @@ public class PlayerController : MonoBehaviour
 
         aimLine.SetPosition(0, transform.position);
         aimLine.SetPosition(1, aimVector + transform.position);
+
+        AudioManager.Instance.SetMusicState(true);
     }
 
     private bool firstLaunch = true;
@@ -172,12 +174,13 @@ public class PlayerController : MonoBehaviour
         //Check if this is our first launch ever
         if(!DevEnv && firstLaunch){
             FollowPlayer.Instance.StartRisingTracking(transform);
-            AudioManager.Instance.SetMusicState(true);
             firstLaunch = false;
         }
         UpdateLaunchCount(-1);
         rb.velocity = aimVector * launchForce;
         PlayLaunchEffects();
+
+        AudioManager.Instance.SetMusicState(false);
 
         
         launching = false;
