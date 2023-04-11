@@ -208,7 +208,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 251.15
+  m_fontSize: 299.9
   m_fontSizeBase: 20.4
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1076,6 +1076,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -1623,7 +1624,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 7
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -7438,7 +7439,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 7
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14180,7 +14181,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -337030763
+  m_SortingLayerID: 1576763935
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &281086727
@@ -14262,6 +14263,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params:
   - Name: music-state
     Value: 0
@@ -16522,7 +16524,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 7
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -24461,6 +24463,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -25200,7 +25203,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: a38d49a2000000007bec6506ab334f29e1511c99599a8d634f5d94fb1985c50d9551e9ebbfbaa62c
+  m_ApplyToSortingLayers: 7152d9aa000000009ff513f30b7ffbdafb852b3eeb8a05e147fdc2876bdd7ad11f82fb5d336c1aca
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -26517,6 +26520,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -27351,8 +27355,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2062014408}
   m_HandleRect: {fileID: 2062014407}
   m_Direction: 0
-  m_Value: 140.77856
-  m_Size: 0.9993415
+  m_Value: 0.000061035156
+  m_Size: 0.99934167
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -27761,7 +27765,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 749124287
-  m_SortingLayer: 8
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -33457,6 +33461,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -34866,6 +34871,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -35550,6 +35556,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -35689,6 +35696,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -36145,7 +36153,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1519, y: -1868.3765}
+  m_SizeDelta: {x: 1519, y: -2284.5183}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1000794732
 MonoBehaviour:
@@ -36557,7 +36565,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 452.6
+  m_fontSize: 452.75
   m_fontSizeBase: 88.2
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -37551,7 +37559,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 298.65
+  m_fontSize: 363.65
   m_fontSizeBase: 287.8
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -46269,6 +46277,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params:
   - Name: bumper-combo
     Value: 1
@@ -46884,6 +46893,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -47870,7 +47880,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 231048473
+  m_SortingLayerID: -780477077
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_RenderMode: 0
@@ -53432,7 +53442,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 749124287
-  m_SortingLayer: 8
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -61086,6 +61096,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -63078,6 +63089,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -63481,7 +63493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1104.5, y: -358.4}
+  m_AnchoredPosition: {x: 1104.5, y: -581.9021}
   m_SizeDelta: {x: 197.76, y: 164.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1830779083
@@ -64211,7 +64223,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -74162865
+  m_SortingLayerID: -2017264313
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -64864,6 +64876,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -65281,7 +65294,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -337030763
-  m_SortingLayer: 7
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -71311,8 +71324,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1572237917
-  m_SortingLayer: -1
+  m_SortingLayerID: -2017264313
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -76179,6 +76192,7 @@ MonoBehaviour:
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
+  AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -76555,7 +76569,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -74162865
+  m_SortingLayerID: -2017264313
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_RenderMode: 0
@@ -81680,8 +81694,8 @@ RectTransform:
   m_Father: {fileID: 722252636}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.0006585121, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.000000040181476, y: 0}
+  m_AnchorMax: {x: 0.9993417, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -82752,7 +82766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 431.5, y: -358.4}
+  m_AnchoredPosition: {x: 431.5, y: -581.9021}
   m_SizeDelta: {x: 197.76, y: 164.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2132490574
@@ -82799,18 +82813,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1119927621}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayButtonClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1680097700}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: PurchasePalette
@@ -83116,6 +83118,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2737933315167489341, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933315167489341, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1428598159
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933315205855618, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933315205855618, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1428598159
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933315304568181, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933315304568181, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1428598159
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933315440993686, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933315440993686, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1428598159
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933316665859242, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933316665859242, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1428598159
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933316667061182, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737933316667061182, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1428598159
+      objectReference: {fileID: 0}
     - target: {fileID: 4058154998472658586, guid: 32e74433488c87345a9638dc873837c6, type: 3}
       propertyPath: m_Points.Array.data[18].y
       value: 0.5175379
@@ -83147,6 +83197,14 @@ PrefabInstance:
     - target: {fileID: 4058154998472658586, guid: 32e74433488c87345a9638dc873837c6, type: 3}
       propertyPath: m_Points.Array.data[25].y
       value: 1.9991965
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451141653765358934, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4451141653765358934, guid: 32e74433488c87345a9638dc873837c6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -621052149
       objectReference: {fileID: 0}
     - target: {fileID: 4451141653765358934, guid: 32e74433488c87345a9638dc873837c6, type: 3}
       propertyPath: m_LocalAABB.m_Center.x

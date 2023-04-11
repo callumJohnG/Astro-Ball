@@ -48,7 +48,8 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBumper(float pitch){
         //bumperInstance = FMODUnity.RuntimeManager.CreateInstance(bumperEvent);
-        RuntimeManager.PlayOneShot(bumperEvent, "bumper-combo", pitch, transform.position);
+        //RuntimeManager.PlayOneShot(bumperEvent, "bumper-combo", pitch, transform.position);
+        RuntimeManager.PlayOneShot(bumperEvent, transform.position);
         //bumperEmitter.SetParameter("bumper-combo", pitch);
         //bumperEmitter.Play();
     }

@@ -133,7 +133,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1726197279
+  m_SortingLayerID: 1043039739
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
@@ -211,5 +211,5 @@ MonoBehaviour:
   explosionParticles: {fileID: 1285399096344210484, guid: a375138b2d9c0be44b2f4d4018e1c8ed, type: 3}
   rewardedPoints: 5
   isDeadlyBumper: 0
-  myPowerup: 0
+  isPowerup: 0
   pointCanvasPrefab: {fileID: 5306087218892968407, guid: 8124ab037bc3ea1498a72de7dbe66a6c, type: 3}
