@@ -4890,7 +4890,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 231048473
+  m_SortingLayerID: -780477077
   m_SortingLayer: 6
   m_SortingOrder: -2
   m_RenderMode: 0
@@ -4993,7 +4993,7 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 231048473
+  m_SortingLayerID: -780477077
   m_SortingLayer: 6
   m_SortingOrder: -2
   m_Positions:
@@ -5134,7 +5134,7 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 231048473
+  m_SortingLayerID: -780477077
   m_SortingLayer: 6
   m_SortingOrder: -3
   m_Time: 0.1
@@ -5364,7 +5364,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 231048473
+  m_SortingLayerID: -780477077
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
@@ -15170,7 +15170,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15188,7 +15187,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 231048473
+  m_SortingLayerID: -780477077
   m_SortingLayer: 6
   m_SortingOrder: -2
   m_RenderMode: 0
@@ -24870,7 +24869,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 231048473
+  m_SortingLayerID: -780477077
   m_SortingLayer: 6
   m_SortingOrder: -2
   m_RenderMode: 0
@@ -24974,7 +24973,7 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 231048473
+  m_SortingLayerID: -780477077
   m_SortingLayer: 6
   m_SortingOrder: -1
   m_Positions:

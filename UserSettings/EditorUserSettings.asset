@@ -6,25 +6,16 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 575250075d000a5958585d7541740e444416402e7e7922677f7b1b60b1e63269
+      value: 0700505054530a0a5f0f0d7b11760944174e407b747b25367a781962b1e6643d
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 5b090d5f51515c095c080a20147b5c4442164972787e70657e7e4567b2e3613c
+      value: 070156525d0d500d5f5d5e7047265b4442154e797f7a75622e2a1e66b2e4676a
       flags: 0
     RecentlyUsedSceneGuid-2:
-      value: 0502550001045a0c585c5b26492207441016482c747a7e327c284b6ab0e2373b
+      value: 5b090d5f51515c095c080a20147b5c4442164972787e70657e7e4567b2e3613c
       flags: 0
     RecentlyUsedSceneGuid-3:
       value: 5b520d0503545b0d0c0c0a2715770748154f4d2c7d7d7e627a7d4a35b4e1646a
-      flags: 0
-    UnityEditor.ShaderGraph.Blackboard:
-      value: 18135939215a0a5004000b0e15254b524c030a3f2964643d120d1230e9e93a3fd6e826abbd3c3e302a07a37e0901373ae01e0008f707250d171df81a53a5405d41895ac825e0100ec20313c0d91cddccd3d0c7efcca9bd88908fecb0f9cfddf1eff4e7a1b1eae482f0fcace1e1949192979fe19095929893ea849d91a79188808d84cb808fd18e838eddf1dcf5c1fff3c4bcb9
-      flags: 0
-    UnityEditor.ShaderGraph.FloatingWindowsLayout2:
-      value: 181344140043005e1a220d3b1f364b524c0c5a27130c293326201334cee5322ca0bd30e8eb293a707b0fd0180b3d0a36fc0d3d04e649500d1002ee0b5dbd1d2c27c00ad113cb1e10e41f1addc80993b98d9884ba88bbb68d8c8af8a5aca9beaea6bde7f69580f3d2a3b5f1bfbbc3cbebc7cca4c1d8849390f48b888ae78b86848d87d78789de8b8c80c1e2809da3aebe96e3fe8dd7bddbf1ccccc9fc33e0fc33343f3aeeebe8e1d0eee821c16b32ded92023c82f21dcd9dbd8c52adecddcc8d91b878486
-      flags: 0
-    UnityEditor.ShaderGraph.InspectorWindow:
-      value: 18135939215a0a5004000b0e15254b524c1119263f2d6a722016393ce1eb3d36e5d339f9a560393d3511ea7046333e09f7181d02f50a06241708ee0b05bd4a435f95548717f73713d91006c1c309d0effad0d2f9ddffa5828f8beea2b8b2e3c7c6f8bffee8f2e782b2eda4e2fe9b89979299e4959e9f919fe88a8081e99f90ca9b8cd1878bc98e8d8fdbf8daf2c1f6f3c2f9f3c188b8
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
@@ -34,7 +25,7 @@ EditorUserSettings:
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
-  m_DesiredImportWorkerCount: 2
+  m_DesiredImportWorkerCount: 5
   m_StandbyImportWorkerCount: 2
   m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1

@@ -38,14 +38,15 @@ public class ColourSchemeShopButton : MonoBehaviour
 
     public void Pressed(){
         //We have been pressed in the shop
+
+        AudioManager.Instance.PlayButtonClick();
         
         if(ShopManager.Instance.CheckPaletteOwned(myPalette)){
             ShopManager.Instance.SelectPalette(myPalette);
-            return;
-        }
-        
-        //Open the purchase screen
-        ShopManager.Instance.OpenPurchaseScreen(myPalette);
+        } else {
+            //Open the purchase screen
+            ShopManager.Instance.OpenPurchaseScreen(myPalette);
+        }   
     }
 
     public void SetSelected(bool selected){
