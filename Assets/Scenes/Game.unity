@@ -42783,7 +42783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d239e5728bbdc3499a94f02f476e3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsPerXP: 40
   playerXPTexts:
   - {fileID: 402905637}
   - {fileID: 424992329}
@@ -42876,8 +42875,6 @@ MonoBehaviour:
       Data4: -1549098824
     Path: event:/sfx/bumper-explode
   bumperEmitter: {fileID: 1336380648}
-  zoomTimeWindow: 0.5
-  zoomPitchIncrease: 0.2
   zoomEmitter: {fileID: 1668358526}
   coinEmitter: {fileID: 1368993033}
   deathEmitter: {fileID: 941239421}
@@ -42889,9 +42886,6 @@ MonoBehaviour:
   comboOverEmitter: {fileID: 582345798}
   buttonClickEmitter: {fileID: 872780897}
   spendCoinsEmitter: {fileID: 977953797}
-  windFadeSpeed: 0.02
-  windTopVolume: -15
-  windBottomVolume: -80
   windEmitter: {fileID: 2017597908}
   musicEvent:
     Guid:
@@ -44601,7 +44595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15, y: 0.04}
   m_AnchorMax: {x: 0.85, y: 0.1}
-  m_AnchoredPosition: {x: 0, y: 0.00024414062}
+  m_AnchoredPosition: {x: 0, y: 0.00048828125}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1229414544
@@ -58484,7 +58478,6 @@ MonoBehaviour:
   currentSpeed: 0
   lavaMenuSpeed: 0.5
   menuGoalTransform: {fileID: 2095772373}
-  lavaLerpSpeed: 0.1
 --- !u!1 &1515908129
 GameObject:
   m_ObjectHideFlags: 0
@@ -60691,7 +60684,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: 0.87}
   m_AnchorMax: {x: 0.9, y: 0.97}
-  m_AnchoredPosition: {x: 0, y: -0.00036621094}
+  m_AnchoredPosition: {x: 0, y: -0.00048828125}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1661608327
