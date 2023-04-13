@@ -69,7 +69,6 @@ public class Leaderboard : MonoBehaviour
 
         LootLockerSDKManager.SubmitScore(PlayerID, scoreToUpload, leaderboardID, (response) => {
             if(response.success){
-                Debug.Log("Score Submitted Successfully");
                 done = true;
             } else {
                 Debug.Log("Failed to submit score :" + response.Error);

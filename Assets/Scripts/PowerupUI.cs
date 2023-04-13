@@ -46,7 +46,6 @@ public class PowerupUI : MonoBehaviour
     }
 
     public void KillMe(){
-        Debug.Log("IM DYING");
         Destroy(gameObject);
     }
 }

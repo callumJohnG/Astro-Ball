@@ -103,8 +103,6 @@ public class PowerupManager : MonoBehaviour
     }
 
     private void RemovePowerup(Powerup powerup, bool remove = true){
-        Debug.Log("REMOVING POWERUP");
-
         if(remove){
             AudioManager.Instance.PlayPowerDown();
             currentPowerups.Remove(powerup);
@@ -125,7 +123,6 @@ public class PowerupManager : MonoBehaviour
     private void DisplayPowerup(Powerup powerup){
         AudioManager.Instance.PlayPowerUp();
         string powerupTitle = string.Join(" ", powerup.myType.ToString().Split("_"));
-        Debug.Log("POWER UP ADDED OF TYPE " + powerupTitle);
         PlayPowerupAnimation(powerupTitle);
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LootLockerConfig
   m_EditorClassIdentifier: 
   apiKey: prod_1bc9ec9e4f3845a890affec8c83f485c
-  token: 5c1f46571b22fb8eede581534c742296f9b4ee0e
+  token: 92f67d2c150a2827a8e09ee7928167d48fece90f
   adminToken: 
   refreshToken: 
   domainKey: zior9ca4
@@ -27,5 +27,5 @@ MonoBehaviour:
   playerUrl: https://zior9ca4.api.lootlocker.io/player
   userUrl: https://zior9ca4.api.lootlocker.io/game
   baseUrl: https://zior9ca4.api.lootlocker.io
-  currentDebugLevel: 0
+  currentDebugLevel: 1
   allowTokenRefresh: 1
