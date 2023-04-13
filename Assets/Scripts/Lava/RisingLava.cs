@@ -13,7 +13,7 @@ public class RisingLava : MonoBehaviour
     [SerializeField] private float lavaMenuSpeed = 15;
     [SerializeField] private Transform menuGoalTransform;
     private Vector3 menuGoalPosition;
-    [SerializeField] private float lavaLerpSpeed = 1f;
+    //[SerializeField] private float lavaLerpSpeed = 1f;
     private Transform trackTransform;
     private bool lerpingToMenu;
     private bool rising;
@@ -32,7 +32,6 @@ public class RisingLava : MonoBehaviour
     }
 
     public void SetStarted(bool useCache = false){
-        Debug.Log("LAVA IS NOW RISING!");
         if(useCache){
             currentSpeed = cacheSpeed;
         } else {

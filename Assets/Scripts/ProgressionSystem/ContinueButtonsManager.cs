@@ -42,7 +42,6 @@ public class ContinueButtonsManager : MonoBehaviour
         currentCostMultiplier = 0;
         advertAvailable = true;
         paymentAvailable = true;
-        Debug.Log("Current Multiplier = " + currentCostMultiplier);
     }
 
     public void PurchaseContinue(){

@@ -184,7 +184,6 @@ public class PlayerController : MonoBehaviour
 
         
         launching = false;
-        setAnchor = false;
         targetTimeScale = 1;
         Time.timeScale = targetTimeScale;
         aimLine.gameObject.SetActive(false);
@@ -193,7 +192,6 @@ public class PlayerController : MonoBehaviour
 
     public void CancelLaunch(){
         launching = false;
-        setAnchor = false;
         targetTimeScale = 1;
         aimLine.gameObject.SetActive(false);
         mobileAimLine.gameObject.SetActive(false);
@@ -252,12 +250,10 @@ public class PlayerController : MonoBehaviour
 
     #region Aiming
 
-    private bool setAnchor = false;
     private Vector2 aimAnchor;
 
     private void SetAimAnchor(){
         aimAnchor = currentMousePosition;
-        setAnchor = true;
     }
 
     private void CalculateAimVector(){

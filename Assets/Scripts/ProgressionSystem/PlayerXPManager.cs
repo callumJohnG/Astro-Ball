@@ -18,7 +18,7 @@ public class PlayerXPManager : MonoBehaviour
         //TestSegments();
     }
 
-    [SerializeField] private float pointsPerXP = 150; //The amount of points needed to gain 1 xp
+    //[SerializeField] private float pointsPerXP = 150; //The amount of points needed to gain 1 xp
     private const string XP_KEY = "xp";
 
     //Stores all the text components in the game that display the player's currency

@@ -18,6 +18,10 @@ public class SettingsManager : MonoBehaviour
         GetSFX();
     }
 
+    private void Update(){
+        
+    }
+
 
     [Header("Music")]
     [SerializeField] private float maxMusicVolume;

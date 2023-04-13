@@ -59,8 +59,8 @@ public class AudioManager : MonoBehaviour
 
 
     private float timeOfLastZoom;
-    [SerializeField] private float zoomTimeWindow = 0.25f;
-    [SerializeField] private float zoomPitchIncrease = 0.2f;
+    //[SerializeField] private float zoomTimeWindow = 0.25f;
+    //[SerializeField] private float zoomPitchIncrease = 0.2f;
     [SerializeField] private StudioEventEmitter zoomEmitter;
     public void PlayZoom(){
         /*if(Time.time <= timeOfLastZoom + zoomTimeWindow){
@@ -143,9 +143,9 @@ public class AudioManager : MonoBehaviour
     #region Wind
 
     private float windTargetVolume;
-    [SerializeField] private float windFadeSpeed = 10;
-    [SerializeField] private float windTopVolume = 0;
-    [SerializeField] private float windBottomVolume = -80;
+    //[SerializeField] private float windFadeSpeed = 10;
+    //[SerializeField] private float windTopVolume = 0;
+    //[SerializeField] private float windBottomVolume = -80;
     [SerializeField] private StudioEventEmitter windEmitter;
 
     public void ActivateWind(){
@@ -222,7 +222,6 @@ public class AudioManager : MonoBehaviour
     }
 
     public void SetMusicState(bool playerIsHolding){
-        Debug.Log("CHANGING MUSIC STATE TO " + playerIsHolding);
         //If the player is holding down, state is 1, else 0
         if(playerIsHolding){
             musicStateGoal = MUSIC_ON;
