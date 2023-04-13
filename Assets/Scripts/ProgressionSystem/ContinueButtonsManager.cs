@@ -17,7 +17,6 @@ public class ContinueButtonsManager : MonoBehaviour
     [SerializeField] private GameObject payButtonCross;
     [SerializeField] private GameObject adButtonCross;
 
-    private int currentCostMultiplier = 0;
     private bool advertAvailable = true;
     private bool paymentAvailable = true;
 
@@ -39,7 +38,6 @@ public class ContinueButtonsManager : MonoBehaviour
     }
 
     public void ResetButtons(){
-        currentCostMultiplier = 0;
         advertAvailable = true;
         paymentAvailable = true;
     }
