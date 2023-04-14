@@ -18,6 +18,10 @@ public class PointsManager : MonoBehaviour
         UpdatePointsUI();
     }
 
+    private void Update(){
+        CheckCombo();
+    }
+
     //I would like to make a combo system where you gain multipliers for many points gained in short succession
     public int points {get;private set;} = 0;
     private int xpPoints = 0;
@@ -48,6 +52,8 @@ public class PointsManager : MonoBehaviour
     [SerializeField] private GameObject comboTitle;
     [SerializeField] private Animator pointsAnimtor;
     [SerializeField] private ParticleSystem comboParticles;
+    [SerializeField] private float comboTimeMax = 4f;
+    private float currentComboTime;
     private int currentMultiplier = 1;
     private bool comboActive = false;
     private int comboPoints = 0;
@@ -85,8 +91,12 @@ public class PointsManager : MonoBehaviour
         AudioManager.Instance.PlayBumper(comboBasePitch + (comboIncPitch * (currentMultiplier + 1)));
 
         if(!comboActive){
+            //Start the combo
             comboActive = true;
         }
+
+        currentComboTime = comboTimeMax;
+
         currentMultiplier++;
 
         comboText.gameObject.SetActive(true);
@@ -98,6 +108,18 @@ public class PointsManager : MonoBehaviour
         comboParticles.Play();
 
         UpdatePointsUI();
+    }
+
+
+
+    private void CheckCombo(){
+        if(!comboActive)return;
+
+        currentComboTime -= Time.deltaTime;
+
+        if(currentComboTime <= 0){
+            EndCombo();
+        }
     }
 
     public void GainPoints(int quantity){
@@ -112,6 +134,13 @@ public class PointsManager : MonoBehaviour
 
         if(comboActive){
             comboText.text = comboPoints + " X" + currentMultiplier;
+        }
+    }
+
+    public float GetComboTime(){
+        if(!comboActive) return 0;
+        else {
+            return currentComboTime / comboTimeMax;
         }
     }
 }

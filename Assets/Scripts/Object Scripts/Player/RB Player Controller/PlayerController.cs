@@ -306,7 +306,7 @@ public class PlayerController : MonoBehaviour
         bool isGroundLayer = (groundLayer == (groundLayer | (1 << collision2D.gameObject.layer)));
 
         if(isGroundLayer){
-            PointsManager.Instance.EndCombo();
+            //PointsManager.Instance.EndCombo();
         } else {
             if(collision2D.gameObject.CompareTag("Deadly")){
                 Die();
