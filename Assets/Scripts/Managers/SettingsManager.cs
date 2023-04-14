@@ -28,11 +28,15 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private float minMusicVolume;
     [SerializeField] private Slider musicSlider;
     private const string MUSIC_KEY = "Music_Key";
+    [SerializeField] private string musicVCAPath = "af251fd2-a85e-43ce-8131-8666113d68a1";
 
     public void SetMusicVolume(float value){
         //float increment = (Mathf.Abs(maxMusicVolume - minMusicVolume)) / 25;
         //float newValue = minMusicVolume + (value * increment);
         //if(value == 0) newValue = -80;
+
+        FMOD.Studio.VCA vca = FMODUnity.RuntimeManager.GetVCA(musicVCAPath);
+        vca.setVolume(value);
 
         PlayerPrefs.SetFloat(MUSIC_KEY, value);
         
@@ -53,11 +57,15 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private float minSFXVolume;
     [SerializeField] private Slider SFXSlider;
     private const string SFX_KEY = "SFX_Key";
+    [SerializeField] private string SFXVCAPath = "vca:/SFX";
 
     public void SetSFXVolume(float value){
         //float increment = (Mathf.Abs(maxSFXVolume - minSFXVolume)) / 20;
         //float newValue = minSFXVolume + (value * increment);
         //if(value == 0) newValue = -80;
+
+        FMOD.Studio.VCA vca = FMODUnity.RuntimeManager.GetVCA(SFXVCAPath);
+        vca.setVolume(value);
         
         PlayerPrefs.SetFloat(SFX_KEY, value);
         
