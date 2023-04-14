@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
         SendImpulse();
 
-        PointsManager.Instance.EndCombo();
+        PointsManager.Instance.EndCombo(false);
 
 
         AudioManager.Instance.SetMusicState(false);

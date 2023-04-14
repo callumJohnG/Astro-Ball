@@ -55,7 +55,7 @@ public class PointsManager : MonoBehaviour
     private float comboBasePitch = 1;
     [SerializeField] private float comboIncPitch = 0.1f;
 
-    public void EndCombo(){
+    public void EndCombo(bool playSound = true){
         if(!comboActive)return;
 
         if((comboPoints * currentMultiplier) > bestCombo)bestCombo = comboPoints * currentMultiplier;
@@ -72,7 +72,10 @@ public class PointsManager : MonoBehaviour
         comboText.gameObject.SetActive(false);
 
         UpdatePointsUI();
-        AudioManager.Instance.PlayComboOver();
+
+        if(playSound){
+            AudioManager.Instance.PlayComboOver();
+        }
     }
 
     public void GainComboPoints(int quantity){
