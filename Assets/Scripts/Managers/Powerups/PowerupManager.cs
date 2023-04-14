@@ -27,9 +27,19 @@ public class PowerupManager : MonoBehaviour
     [SerializeField] private Transform powerupContainer;
     [SerializeField] private GameObject powerupText;
 
+    private const string FIRST_POWERUP_KEY = "IsFirstEverPowerup";
+
+
     //Get a random powerup and add it
     public void AddPowerup(){
-        AddPowerup(GetRandomPowerup());
+        //If this is the first ever powerup the player has ever gotten, make sure its a good one
+        if(PlayerPrefs.GetInt(FIRST_POWERUP_KEY, 0) == 0){
+            PlayerPrefs.SetInt(FIRST_POWERUP_KEY, 1);
+            AddPowerup(PowerupType.Double_Points);
+            Debug.Log("First powerup, giving double points");
+        } else {    
+            AddPowerup(GetRandomPowerup());
+        }
     }
 
     private PowerupType GetRandomPowerup(){
