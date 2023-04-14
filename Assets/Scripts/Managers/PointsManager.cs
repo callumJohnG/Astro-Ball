@@ -55,6 +55,7 @@ public class PointsManager : MonoBehaviour
     [SerializeField] private float comboTimeMax = 4f;
     private float currentComboTime;
     private int currentMultiplier = 1;
+    private int comboPitchCounter = 1;
     private bool comboActive = false;
     private int comboPoints = 0;
 
@@ -74,6 +75,7 @@ public class PointsManager : MonoBehaviour
         //Reset all the combo values
         comboPoints = 0;
         currentMultiplier = 1;
+        comboPitchCounter = 1;
         comboTitle.SetActive(false);
         comboText.gameObject.SetActive(false);
 
@@ -84,11 +86,16 @@ public class PointsManager : MonoBehaviour
         }
     }
 
+    public void ResetComboPitchCounter(){
+        comboPitchCounter = 1;
+    }
+
     public void GainComboPoints(int quantity){
         //Multiply by base multiplier related to difficulty
         quantity = Mathf.FloorToInt(quantity * GameSettingsManager.Instance.pointsMultiplier);
 
-        AudioManager.Instance.PlayBumper(comboBasePitch + (comboIncPitch * (currentMultiplier + 1)));
+        //AudioManager.Instance.PlayBumper(comboBasePitch + (comboIncPitch * (currentMultiplier + 1)));
+        AudioManager.Instance.PlayBumper(comboPitchCounter);
 
         if(!comboActive){
             //Start the combo
@@ -98,6 +105,7 @@ public class PointsManager : MonoBehaviour
         currentComboTime = comboTimeMax;
 
         currentMultiplier++;
+        comboPitchCounter++;
 
         comboText.gameObject.SetActive(true);
 

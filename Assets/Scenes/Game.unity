@@ -42885,14 +42885,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485ff353d8e15994eb75628281bba1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bumperEvent:
-    Guid:
-      Data1: 1493042253
-      Data2: 1179582822
-      Data3: 1012759991
-      Data4: -1549098824
-    Path: event:/sfx/bumper-explode
   bumperEmitter: {fileID: 1336380648}
+  BUMPER_COMBO: bumper-combo
   zoomEmitter: {fileID: 1668358526}
   coinEmitter: {fileID: 1368993033}
   deathEmitter: {fileID: 941239421}
@@ -46247,7 +46241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1336380647
 Transform:
   m_ObjectHideFlags: 0
@@ -46270,7 +46264,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336380646}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 

@@ -42,14 +42,17 @@ public class AudioManager : MonoBehaviour
     #region Event Emitters
 
     //private FMOD.Studio.EventInstance bumperInstance;
-    public EventReference bumperEvent;
+    //public EventReference bumperEvent;
 
     [SerializeField] private StudioEventEmitter bumperEmitter;
+    [SerializeField] private string BUMPER_COMBO = "bumper-combo";
 
-    public void PlayBumper(float pitch){
+    public void PlayBumper(int comboPitchCounter){
         //bumperInstance = FMODUnity.RuntimeManager.CreateInstance(bumperEvent);
         //RuntimeManager.PlayOneShot(bumperEvent, "bumper-combo", pitch, transform.position);
-        RuntimeManager.PlayOneShot(bumperEvent, transform.position);
+        //RuntimeManager.PlayOneShot(bumperEvent, transform.position);
+        bumperEmitter.SetParameter(BUMPER_COMBO, comboPitchCounter);
+        bumperEmitter.Play();
         //bumperEmitter.SetParameter("bumper-combo", pitch);
         //bumperEmitter.Play();
     }

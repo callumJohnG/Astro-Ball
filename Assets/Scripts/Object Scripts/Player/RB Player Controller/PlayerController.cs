@@ -182,6 +182,9 @@ public class PlayerController : MonoBehaviour
 
         AudioManager.Instance.SetMusicState(false);
 
+        //Reset the combo audio queue
+        PointsManager.Instance.ResetComboPitchCounter();
+
         
         launching = false;
         targetTimeScale = 1;
