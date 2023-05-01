@@ -33,8 +33,9 @@ public class AudioManager : MonoBehaviour
     void Update(){
         //CheckSong();
         //FadeWind();
-
-        FadeMusic();
+        if(!instantFade){
+            FadeMusic();
+        }
     }
 
     #region SFX
@@ -205,6 +206,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private float musicFadeSpeed = 1f;
     [SerializeField] private float menuFadeSpeed = 5f;
+    [SerializeField] private bool instantFade = true;
 
     private void FadeMusic(){
         float currentMusicValue = Mathf.Lerp(musicStateValue, musicStateGoal, Time.deltaTime * musicFadeSpeed);
@@ -218,10 +220,18 @@ public class AudioManager : MonoBehaviour
 
     private void GameplayManager_OnGameStarted(object sender, System.EventArgs e){
         menuStateGoal = MUSIC_ON;
+
+        if(instantFade){        
+            musicInstance.setParameterByName(MENU_STATE, menuStateGoal);
+        }
     }
 
     private void GameplayManager_OnGameEnded(object sender, System.EventArgs e){
         menuStateGoal = MUSIC_OFF;
+
+        if(instantFade){        
+            musicInstance.setParameterByName(MENU_STATE, menuStateGoal);
+        }
     }
 
     public void SetMusicState(bool playerIsHolding){
@@ -230,6 +240,10 @@ public class AudioManager : MonoBehaviour
             musicStateGoal = MUSIC_ON;
         } else {
             musicStateGoal = MUSIC_OFF;
+        }
+
+        if(instantFade){        
+            musicInstance.setParameterByName(MUSIC_STATE, musicStateGoal);
         }
     }
 
