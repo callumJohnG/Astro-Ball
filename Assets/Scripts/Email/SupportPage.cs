@@ -20,17 +20,29 @@ public class SupportPage : MonoBehaviour
     private bool canSendEmail = false;
 
     public void TrySendMail(){
+        Debug.Log("Trying to send email");
+
         string messageBody = messageField.text;
         if(string.IsNullOrEmpty(messageBody))return;
+
+    
+        Debug.Log("Checking if we can send mail");
 
         CheckCanSendEmail();
         if(!canSendEmail)return;
 
         messageBody = AttachPlayerInfo(messageBody);
 
+        Debug.Log("Attached message body");
+
         try{  
+
+            Debug.Log("Trying to really send mail this time");
+
             //Send the email
             EmailSender.SendEmail(messageBody, "AstroBall In-Game Support Message");
+
+            Debug.Log("Email sent successfully");
 
             //Email was sent sucessfully
             //Wipe the input field
@@ -59,9 +71,11 @@ public class SupportPage : MonoBehaviour
 
             canSendEmail = false;
             responseText.text = RESPONSE_TOO_SOON;
+            Debug.Log("Too soon");
         } else {
             canSendEmail = true;
             responseText.text = "";
+            Debug.Log("We can send mail");
         }
     }
 
