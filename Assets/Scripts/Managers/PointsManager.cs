@@ -37,6 +37,7 @@ public class PointsManager : MonoBehaviour
         currentMultiplier = 1;
         comboTitle.SetActive(false);
         comboText.gameObject.SetActive(false);
+        comboTimerVisual.Hide();
 
 
         UpdatePointsUI();
@@ -50,9 +51,10 @@ public class PointsManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private GameObject comboTitle;
+    [SerializeField] private ComboTimerVisual comboTimerVisual;
     [SerializeField] private Animator pointsAnimtor;
     [SerializeField] private ParticleSystem comboParticles;
-    [SerializeField] private float comboTimeMax = 4f;
+    [SerializeField] private float comboTimeMax = 5.5f;
     private float currentComboTime;
     private int currentMultiplier = 1;
     private int comboPitchCounter = 1;
@@ -78,6 +80,7 @@ public class PointsManager : MonoBehaviour
         comboPitchCounter = 1;
         comboTitle.SetActive(false);
         comboText.gameObject.SetActive(false);
+        comboTimerVisual.Hide();
 
         UpdatePointsUI();
 
@@ -107,9 +110,12 @@ public class PointsManager : MonoBehaviour
         currentMultiplier++;
         comboPitchCounter++;
 
-        comboText.gameObject.SetActive(true);
 
-        if(currentMultiplier >= 2) comboTitle.SetActive(true);
+        if(currentMultiplier >= 3) {   
+            comboText.gameObject.SetActive(true);
+            comboTitle.SetActive(true);
+            comboTimerVisual.Show();
+        }
 
         comboPoints += quantity;
 

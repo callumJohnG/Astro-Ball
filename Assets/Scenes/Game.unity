@@ -42912,6 +42912,7 @@ MonoBehaviour:
   menuStateGoal: 0
   musicFadeSpeed: 8
   menuFadeSpeed: 2
+  instantFade: 1
   mainMixer: {fileID: 24100000, guid: 038906beaf5c9a04b81c233a67b0cbdc, type: 2}
   sfxDefaultValue: 0
   musicDefaultValue: -15
@@ -47486,9 +47487,10 @@ MonoBehaviour:
   pointsText: {fileID: 894536291}
   comboText: {fileID: 884441553}
   comboTitle: {fileID: 951718099}
+  comboTimerVisual: {fileID: 1055751396}
   pointsAnimtor: {fileID: 894536293}
   comboParticles: {fileID: 1104457266}
-  comboTimeMax: 3
+  comboTimeMax: 4.5
   comboIncPitch: 1
 --- !u!1 &1392767741
 GameObject:
