@@ -33581,11 +33581,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1179871967
-      Data2: 1335871173
-      Data3: -1249565784
-      Data4: 49319325
-    Path: event:/sfx/button-click
+      Data1: 633856907
+      Data2: 1224114147
+      Data3: -1480929372
+      Data4: -1473875129
+    Path: event:/sfx/menu-click
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -33593,7 +33593,9 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   AllowNonRigidbodyDoppler: 0
-  Params: []
+  Params:
+  - Name: shop
+    Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -43116,8 +43118,15 @@ MonoBehaviour:
   powerUpEmitter: {fileID: 1913380402}
   powerDownEmitter: {fileID: 57850513}
   comboOverEmitter: {fileID: 582345798}
+  buttonClickPath: 
   buttonClickEmitter: {fileID: 872780897}
-  spendCoinsEmitter: {fileID: 977953797}
+  buttonClickEvent:
+    Guid:
+      Data1: 633856907
+      Data2: 1224114147
+      Data3: -1480929372
+      Data4: -1473875129
+    Path: event:/sfx/menu-click
   windEmitter: {fileID: 2017597908}
   musicEvent:
     Guid:

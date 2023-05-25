@@ -127,15 +127,23 @@ public class AudioManager : MonoBehaviour
         comboOverEmitter.Play();
     }
 
+    [SerializeField] private string buttonClickPath;
+    private const string BUTTON_PARAM = "shop";
+
     [SerializeField] private StudioEventEmitter buttonClickEmitter;
+    [SerializeField] private EventReference buttonClickEvent;
     public void PlayButtonClick(){
-        //PlaySoundEffect(buttonClicks[Random.Range(0, buttonClicks.Count)]);
-        buttonClickEmitter.Play();
+        Debug.Log("Button CLick");
+        //buttonClickEmitter.SetParameter(BUTTON_PARAM, 0);
+        //buttonClickEmitter.Play();
+        RuntimeManager.PlayOneShot(buttonClickEvent, BUTTON_PARAM, 0);
     }
 
-    [SerializeField] private StudioEventEmitter spendCoinsEmitter;
     public void PlaySpendCoins(){
-        spendCoinsEmitter.Play();
+        Debug.Log("Spend Coins");
+        //buttonClickEmitter.SetParameter(BUTTON_PARAM, 1);
+        //buttonClickEmitter.Play();
+        RuntimeManager.PlayOneShot(buttonClickEvent, BUTTON_PARAM, 1);
     }
 
     private void PlaySoundEffect(AudioClip audioClip){
