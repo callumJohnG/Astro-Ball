@@ -57,6 +57,7 @@ public class GameplayManager : MonoBehaviour
         ObjectSpawningManager.Instance.SpawnGrid();
         ObjectSpawningManager.Instance.WipeAllBumpers();
         PowerupManager.Instance.WipeAllPowerups();
+        TutorialBrain.Instance.StartTutorial(GameSettingsManager.Instance.inverseAiming);
     }
 
 

@@ -8,6 +8,8 @@ public class GameSettingsManager : MonoBehaviour
 
     private void Awake(){
         Instance = this;
+
+        GetInverseAimSetting();
     }
 
     [HideInInspector] public float maxRenderDistance = 300;
@@ -53,7 +55,6 @@ public class GameSettingsManager : MonoBehaviour
         SetDifficulty(0);
         pointsMultiplier = 1;
         SetCanPostScore(PlayerPrefs.GetInt(CANPOSTSCORE_KEY, 1) == 1);
-        GetInverseAimSetting();
     }
 
 

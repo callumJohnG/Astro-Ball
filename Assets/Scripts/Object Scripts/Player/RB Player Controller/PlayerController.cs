@@ -174,6 +174,7 @@ public class PlayerController : MonoBehaviour
         //Check if this is our first launch ever
         if(!DevEnv && firstLaunch){
             FollowPlayer.Instance.StartRisingTracking(transform);
+            TutorialBrain.Instance.StopTutorial();
             firstLaunch = false;
         }
         UpdateLaunchCount(-1);
