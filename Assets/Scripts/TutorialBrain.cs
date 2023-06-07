@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialBrain : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class TutorialBrain : MonoBehaviour
     private float currentWaitTime;
     private bool playing = false;
     private const string TUTORIAL_STATE = "Tutorial";
+    [SerializeField] private Color onColour;
+    [SerializeField] private Color offColour;
+    [SerializeField] private List<Image> childImages;
 
     private void Awake(){
         Instance = this;
@@ -48,18 +52,26 @@ public class TutorialBrain : MonoBehaviour
 
     public void CheckAnimation(){
         if(!IsAnimatorPlaying()){
-            Debug.Log("PLAYING NEXT ANIM LOOP");
+            Debug.Log("PLAYING NEXT ANIM LOOP");        
             tutorialAnimator.CrossFade(TUTORIAL_STATE, 0, 0);
             currentWaitTime = waitTimeBetweenLoops;
+            SetChildColour(onColour);
         }
     }
 
     public void StopTutorial(){
         Debug.Log("STOPPING ANIM");
         playing = false;
+        SetChildColour(offColour);
     }
 
     private bool IsAnimatorPlaying(){
         return tutorialAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1 || tutorialAnimator.IsInTransition(0);
+    }
+
+    private void SetChildColour(Color colour){
+        foreach(Image image in childImages){
+            image.color = colour;
+        }
     }
 }

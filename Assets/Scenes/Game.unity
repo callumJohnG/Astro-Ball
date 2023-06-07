@@ -25145,6 +25145,11 @@ MonoBehaviour:
   tutorialAnimator: {fileID: 1350937372}
   waitTimeMax: 1
   waitTimeBetweenLoops: 1.5
+  onColour: {r: 1, g: 1, b: 1, a: 1}
+  offColour: {r: 1, g: 1, b: 1, a: 0}
+  childImages:
+  - {fileID: 1066040814}
+  - {fileID: 506180264}
 --- !u!1 &612508048
 GameObject:
   m_ObjectHideFlags: 0
