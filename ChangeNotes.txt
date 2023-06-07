@@ -1,0 +1,3 @@
+BUGS
+-Fixed buttonclick volume control
+-Fixed high pitch noise when music fades
