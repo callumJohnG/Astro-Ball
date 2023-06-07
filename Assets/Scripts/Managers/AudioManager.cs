@@ -133,14 +133,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private StudioEventEmitter buttonClickEmitter;
     [SerializeField] private EventReference buttonClickEvent;
     public void PlayButtonClick(){
-        Debug.Log("Button CLick");
         //buttonClickEmitter.SetParameter(BUTTON_PARAM, 0);
         //buttonClickEmitter.Play();
         RuntimeManager.PlayOneShot(buttonClickEvent, BUTTON_PARAM, 0);
     }
 
     public void PlaySpendCoins(){
-        Debug.Log("Spend Coins");
         //buttonClickEmitter.SetParameter(BUTTON_PARAM, 1);
         //buttonClickEmitter.Play();
         RuntimeManager.PlayOneShot(buttonClickEvent, BUTTON_PARAM, 1);
