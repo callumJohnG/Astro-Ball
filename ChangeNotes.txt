@@ -2,3 +2,6 @@ BUGS
 -Fixed buttonclick volume control
 -Fixed high pitch noise when music fades
 -Fixed tutorial graphic sometimes staying on screen
+
+CHANGES
+-Reverted design of dangerous objects
