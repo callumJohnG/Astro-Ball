@@ -23,7 +23,7 @@ Category {
             #pragma multi_compile_particles
             #pragma multi_compile_fog
 
-            #include "UnityCG.cginc"
+            #include "UnityUI.cginc"
 
             sampler2D _MainTex;
             fixed4 _TintColor;
@@ -38,7 +38,7 @@ Category {
             struct v2f {
                 float4 vertex : SV_POSITION;
                 fixed4 color : COLOR;
-                float2 texcoord : TEXCOORD0;
+                float4 texcoord : TEXCOORD0;
                 UNITY_FOG_COORDS(1)
                 #ifdef SOFTPARTICLES_ON
                 float4 projPos : TEXCOORD2;
@@ -59,13 +59,16 @@ Category {
                 COMPUTE_EYEDEPTH(o.projPos.z);
                 #endif
                 o.color = v.color;
-                o.texcoord = TRANSFORM_TEX(v.texcoord,_MainTex);
+                o.texcoord.xy = TRANSFORM_TEX(v.texcoord.xy,_MainTex).xy;
+                o.texcoord.zw = mul(unity_ObjectToWorld, v.vertex).xy;
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
 
             UNITY_DECLARE_DEPTH_TEXTURE(_CameraDepthTexture);
             float _InvFade;
+            float4 _ClipRect;
+        float _UseClipRect;
 
             fixed4 frag (v2f i) : SV_Target
             {
@@ -82,6 +85,8 @@ Category {
                 col.a = saturate(col.a); // alpha should not have double-brightness applied to it, but we can't fix that legacy behavior without breaking everyone's effects, so instead clamp the output to get sensible HDR behavior (case 967476)
 
                 UNITY_APPLY_FOG_COLOR(i.fogCoord, col, fixed4(0,0,0,0)); // fog towards black due to our blend mode
+                float c = UnityGet2DClipping(i.texcoord.zw, _ClipRect);
+                col.a = lerp(col.a, c * col.a, _UseClipRect);
                 return col;
             }
             ENDCG
