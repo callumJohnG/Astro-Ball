@@ -23,6 +23,7 @@ Category {
             #pragma multi_compile_particles
             #pragma multi_compile_fog
 
+            #include "UnityCG.cginc"
             #include "UnityUI.cginc"
 
             sampler2D _MainTex;
@@ -68,7 +69,7 @@ Category {
             UNITY_DECLARE_DEPTH_TEXTURE(_CameraDepthTexture);
             float _InvFade;
             float4 _ClipRect;
-        float _UseClipRect;
+            float _UseClipRect;
 
             fixed4 frag (v2f i) : SV_Target
             {
