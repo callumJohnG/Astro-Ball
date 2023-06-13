@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Glossary : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class Glossary : MonoBehaviour
     [SerializeField] private GameObject glossarySpacer;
     [SerializeField] private List<GlossaryData> glossaryDatas;
     [SerializeField] private Transform contentContainer;
+    [SerializeField] private ScrollRect scrollRect;
 
     private void Awake() {
         GameObject recentSpacer = null;
@@ -25,6 +28,9 @@ public class Glossary : MonoBehaviour
         if(recentSpacer != null){
             Destroy(recentSpacer);
         }
+
+        //Refresh the scrollview
+        scrollRect.verticalNormalizedPosition = 0;
     }
 
 

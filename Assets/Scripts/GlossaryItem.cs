@@ -12,5 +12,6 @@ public class GlossaryItem : MonoBehaviour
     public void SetUp(string title, string description, GameObject item){
         titleText.text = title;
         descriptionText.text = description;
+        GameObject spawnedItem = Instantiate(item, prefabLockTransform.position, Quaternion.identity, prefabLockTransform);
     }
 }
