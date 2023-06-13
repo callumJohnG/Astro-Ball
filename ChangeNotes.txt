@@ -5,3 +5,5 @@ BUGS
 
 CHANGES
 -Reverted design of dangerous objects
+-Added glossary (tutorial) in main menu which shows on first play
+-Changed default pixilation setting to 0 (to improve readability for new players)

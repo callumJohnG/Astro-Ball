@@ -30,7 +30,7 @@ public class Glossary : MonoBehaviour
         }
 
         //Refresh the scrollview
-        scrollRect.verticalNormalizedPosition = 0;
+        //scrollRect.verticalNormalizedPosition = 1;
     }
 
 
