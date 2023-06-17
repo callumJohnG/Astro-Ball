@@ -167,6 +167,11 @@ public class SettingsManager : MonoBehaviour
         Application.OpenURL(brunoInstagramLink);
     }
 
+    //[Header("Language")]
+    public void OnLanguageChange(int languageCode) {
+        Debug.Log(languageCode);
+    }
+
 
     [Header("References")]
     [SerializeField] private AudioMixer audioMixer;
