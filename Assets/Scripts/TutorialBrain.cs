@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +19,12 @@ public class TutorialBrain : MonoBehaviour
     [SerializeField] private Color onColour;
     [SerializeField] private Color offColour;
     [SerializeField] private List<Image> childImages;
+    [SerializeField] private GameObject shootUpText;
+    [SerializeField] private GameObject shootUpText2;
+    [SerializeField] private GameObject arrows;
+    [SerializeField] private float shootTutorialWaitTime;
+    private float shootTutorialCurrentTime;
+    private bool waitingForShootTutorial;
 
     private void Awake(){
         Instance = this;
@@ -24,6 +32,18 @@ public class TutorialBrain : MonoBehaviour
 
 
     private void Update(){
+        PlayTutorialAnim();
+
+        if(!waitingForShootTutorial)return;
+
+        shootTutorialCurrentTime += Time.deltaTime;
+        if(shootTutorialCurrentTime >= shootTutorialWaitTime) {
+            waitingForShootTutorial = false;
+            StartShootTutorial();
+        }
+    }
+
+    private void PlayTutorialAnim(){
         if(!playing) return;
 
         currentWaitTime -= Time.deltaTime;
@@ -48,6 +68,8 @@ public class TutorialBrain : MonoBehaviour
         } else {
             tutorialAnimator.transform.eulerAngles = Vector3.zero;
         }
+        shootUpText.SetActive(true);
+        arrows.SetActive(true);
     }
 
     public void CheckAnimation(){
@@ -63,6 +85,10 @@ public class TutorialBrain : MonoBehaviour
         Debug.Log("STOPPING ANIM");
         playing = false;
         SetChildColour(offColour);
+
+        shootUpText.SetActive(false);
+        arrows.SetActive(false);
+        waitingForShootTutorial = true;
     }
 
     private bool IsAnimatorPlaying(){
@@ -73,5 +99,23 @@ public class TutorialBrain : MonoBehaviour
         foreach(Image image in childImages){
             image.color = colour;
         }
+    }
+
+    private void StartShootTutorial(){
+        if(PlayerPrefs.GetInt(FIRST_EVER_PLAY_TUTORIAL, 0) != 0) return;
+        //It's their first ever play, so we should do this thing :)
+
+
+        Debug.Log("TUTORIAL WOULD HAPPEN NOW");
+        GameplayManager.Instance.player.SetTargetTimeScale(0f);
+        //continue to play shoot animation
+        shootUpText2.SetActive(true);
+        arrows.SetActive(true);
+    }
+    private const string FIRST_EVER_PLAY_TUTORIAL = "FirstEverPlayTutorial";
+    public void StopShootTutorial(){
+        shootUpText2.SetActive(false);
+        arrows.SetActive(false);
+        PlayerPrefs.SetInt(FIRST_EVER_PLAY_TUTORIAL, 1);
     }
 }

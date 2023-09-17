@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
         //ConfigureControlListeners();
 
-        targetTimeScale = 1;
+        SetTargetTimeScale(1f);
 
         UpdateLaunchCount();
 
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
         SetAimAnchor();
 
         launching = true;
-        targetTimeScale = slowMoTimeScale;
+        SetTargetTimeScale(slowMoTimeScale);
 
         aimLine.gameObject.SetActive(true);
         mobileAimLine.gameObject.SetActive(true);
@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private bool firstLaunch = true;
+    private bool secondLaucnh = true;
 
     private void PerformLaunch(){
         if(dead)return;
@@ -176,6 +177,9 @@ public class PlayerController : MonoBehaviour
             FollowPlayer.Instance.StartRisingTracking(transform);
             TutorialBrain.Instance.StopTutorial();
             firstLaunch = false;
+        } else if(secondLaucnh){
+            TutorialBrain.Instance.StopShootTutorial();
+            secondLaucnh = false;
         }
         UpdateLaunchCount(-1);
         rb.velocity = aimVector * launchForce;
@@ -188,7 +192,7 @@ public class PlayerController : MonoBehaviour
 
         
         launching = false;
-        targetTimeScale = 1;
+        SetTargetTimeScale(1f);
         Time.timeScale = targetTimeScale;
         aimLine.gameObject.SetActive(false);
         mobileAimLine.gameObject.SetActive(false);
@@ -196,7 +200,7 @@ public class PlayerController : MonoBehaviour
 
     public void CancelLaunch(){
         launching = false;
-        targetTimeScale = 1;
+        SetTargetTimeScale(1f);
         aimLine.gameObject.SetActive(false);
         mobileAimLine.gameObject.SetActive(false);
     }
@@ -213,6 +217,10 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateLaunchCount(){
         UpdateLaunchCount(99999);
+    }
+
+    public void SetTargetTimeScale(float timeScale){
+        targetTimeScale = timeScale;
     }
 
     [SerializeField] private float launchRechargeDuration = 4;
