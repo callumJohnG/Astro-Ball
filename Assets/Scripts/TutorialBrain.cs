@@ -68,6 +68,10 @@ public class TutorialBrain : MonoBehaviour
         } else {
             tutorialAnimator.transform.eulerAngles = Vector3.zero;
         }
+        
+        
+
+        if(PlayerPrefs.GetInt(FIRST_EVER_PLAY_TUTORIAL, 0) != 0) return;
         shootUpText.SetActive(true);
         arrows.SetActive(true);
     }
@@ -105,8 +109,6 @@ public class TutorialBrain : MonoBehaviour
         if(PlayerPrefs.GetInt(FIRST_EVER_PLAY_TUTORIAL, 0) != 0) return;
         //It's their first ever play, so we should do this thing :)
 
-
-        Debug.Log("TUTORIAL WOULD HAPPEN NOW");
         GameplayManager.Instance.player.SetTargetTimeScale(0f);
         //continue to play shoot animation
         shootUpText2.SetActive(true);
