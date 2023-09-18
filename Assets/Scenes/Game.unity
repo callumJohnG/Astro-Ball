@@ -15660,7 +15660,7 @@ MonoBehaviour:
   m_text: Keep Climbing!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcca3c5b729bfa5428f82786e280052b, type: 2}
-  m_sharedMaterial: {fileID: -6430708293258405581, guid: fcca3c5b729bfa5428f82786e280052b, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 3a150042a562f924da811085679e1df3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -66701,7 +66701,7 @@ MonoBehaviour:
   m_text: Shoot Up!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcca3c5b729bfa5428f82786e280052b, type: 2}
-  m_sharedMaterial: {fileID: -6430708293258405581, guid: fcca3c5b729bfa5428f82786e280052b, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 3a150042a562f924da811085679e1df3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
