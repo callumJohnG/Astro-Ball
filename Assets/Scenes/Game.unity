@@ -26586,7 +26586,7 @@ MonoBehaviour:
   moonSprite: {fileID: 21300000, guid: bcad81aaf5632b84dae2f858c3af81ca, type: 3}
   moonGravity: 2
   weakSprite: {fileID: 21300000, guid: e5735a4b5571dd046b53ce8fd0bf4452, type: 3}
-  weakForce: 7
+  weakForce: 7.75
   doublePointsSprite: {fileID: 21300000, guid: a9add903c99eafa47ad291b537d89345, type: 3}
   multiplier: 2
   allParticles:

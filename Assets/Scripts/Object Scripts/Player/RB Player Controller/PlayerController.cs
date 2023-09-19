@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1;
         aimLine.gameObject.SetActive(false);
         mobileAimLine.gameObject.SetActive(false);
+        TutorialBrain.Instance.CancelShootTutorial();
 
         SendImpulse();
 

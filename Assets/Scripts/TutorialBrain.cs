@@ -92,6 +92,7 @@ public class TutorialBrain : MonoBehaviour
 
         shootUpText.SetActive(false);
         arrows.SetActive(false);
+        shootTutorialCurrentTime = 0f;
         waitingForShootTutorial = true;
     }
 
@@ -119,5 +120,9 @@ public class TutorialBrain : MonoBehaviour
         shootUpText2.SetActive(false);
         arrows.SetActive(false);
         PlayerPrefs.SetInt(FIRST_EVER_PLAY_TUTORIAL, 1);
+    }
+
+    public void CancelShootTutorial(){
+        waitingForShootTutorial = false;
     }
 }
